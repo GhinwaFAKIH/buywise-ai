@@ -593,3 +593,26 @@ footer p {
   color: var(--green) !important;
   font-weight: 800;
 }
+
+
+.pricingSection, .faqSection { padding: 100px 6vw; }
+.pricingSection { background: #f7f3ea; }
+.pricingGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 900px; }
+.priceCard { border: 1px solid var(--line); background: white; padding: 30px; }
+.featuredPrice { background: var(--green); color: white; }
+.priceTag { font-size: 11px; font-weight: 900; letter-spacing: .16em; }
+.priceCard h3 { font-family: Georgia, "Times New Roman", serif; font-size: 28px; }
+.price { font-size: 42px; font-weight: 900; margin-bottom: 22px; }
+.priceCard ul { line-height: 1.9; }
+.priceButton, .waitlistButton { display: inline-block; padding: 13px 18px; background: var(--ink); color: white; font-weight: 800; }
+.featuredPrice .priceButton { background: var(--lime); color: var(--ink); }
+.faqList { max-width: 900px; }
+.faqList details { border-top: 1px solid var(--line); padding: 20px 0; }
+.faqList summary { cursor: pointer; font-weight: 800; font-size: 17px; }
+.faqList p { color: var(--muted); line-height: 1.65; }
+.waitlistSection { padding: 80px 6vw; background: var(--lime); display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; }
+.waitlistSection h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(40px, 5vw, 66px); margin: 12px 0; }
+@media (max-width: 700px) {
+  .pricingGrid, .waitlistSection { grid-template-columns: 1fr; }
+  .pricingSection, .faqSection, .waitlistSection { padding-left: 20px; padding-right: 20px; }
+}

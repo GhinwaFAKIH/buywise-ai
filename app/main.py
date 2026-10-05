@@ -1,13 +1,15 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.extractor import ProductExtractionError, extract_product_from_url
 from app.models import ProductInput, ProductAnalysis
 from app.scoring import analyze_product
+from app.url_models import ExtractedProduct, ProductUrlInput
 
 app = FastAPI(
     title="BuyWise AI API",
     description="Evidence-aware product scoring for smarter shopping decisions.",
-    version="0.1.0",
+    version="0.2.0",
 )
 
 app.add_middleware(
@@ -26,14 +28,23 @@ app.add_middleware(
 def root():
     return {
         "name": "BuyWise AI",
-        "message": "Paste product data, get a transparent value assessment.",
-        "version": "0.1.0",
+        "message": "Paste a product URL or product data to start an analysis.",
+        "version": "0.2.0",
     }
 
 
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+@app.post("/extract", response_model=ExtractedProduct)
+def extract(payload: ProductUrlInput):
+    try:
+        data = extract_product_from_url(str(payload.url))
+        return ExtractedProduct(**data)
+    except ProductExtractionError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
 
 
 @app.post("/analyze", response_model=ProductAnalysis)

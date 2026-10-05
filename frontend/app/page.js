@@ -4,30 +4,18 @@ import { useState } from "react";
 
 const API_URL = "/api";
 
-const initialForm = {
-  name: "Glow Serum",
-  brand: "Demo Beauty",
-  price_eur: 39,
-  size_ml: 30,
-  ingredients: "niacinamide, hyaluronic acid, fragrance",
-  claims: "brightens skin, supports hydration",
-  rating: 4.4,
-  review_count: 1250,
-};
+const initialForm = { name: "", brand: "", price_eur: "", size_ml: "", ingredients: "", claims: "", rating: "", review_count: "" };
 
 function verdictClass(verdict) {
   if (verdict === "WORTH IT") return "verdict good";
+  if (verdict === "INSUFFICIENT INFORMATION") return "verdict maybe";
   if (verdict === "MAYBE") return "verdict maybe";
   return "verdict bad";
 }
 
 export default function Home() {
   const [form, setForm] = useState(initialForm);
-  const [productUrl, setProductUrl] = useState("");
-  const [extracted, setExtracted] = useState(null);
-  const [extracting, setExtracting] = useState(false);
   const [result, setResult] = useState(null);
-  const [showManual, setShowManual] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [waitlistEmail, setWaitlistEmail] = useState("");
@@ -76,70 +64,6 @@ export default function Home() {
       setResult(await response.json());
     } finally {
       setLoading(false);
-    }
-  }
-
-  async function extractUrl(event) {
-    event.preventDefault();
-    setExtracting(true);
-    setError("");
-    setExtracted(null);
-    setResult(null);
-    let productFound = false;
-
-    try {
-      const response = await fetch(`${API_URL}/extract`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: productUrl }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data?.detail || "Could not extract this product page.");
-      }
-
-      setExtracted(data);
-      productFound = true;
-
-      const nextForm = {
-        name: data.name || "",
-        brand: data.brand || "",
-        price_eur: data.price ?? "",
-        size_ml: data.size_ml ?? "",
-        rating: data.rating ?? "",
-        review_count: data.review_count ?? "",
-        ingredients: data.ingredients?.length ? data.ingredients.join(", ") : "",
-        claims: data.claims?.length ? data.claims.join(", ") : "",
-      };
-
-      setForm(nextForm);
-
-      const readyForAutomaticAnalysis =
-        nextForm.name &&
-        nextForm.brand &&
-        nextForm.price_eur &&
-        nextForm.size_ml &&
-        nextForm.ingredients;
-
-      if (readyForAutomaticAnalysis) {
-        setShowManual(false);
-        await runAnalysis(toPayload(nextForm));
-      } else {
-        setShowManual(true);
-        setError(
-          "I found the product, but some details are missing. Please review the fields below before analyzing."
-        );
-      }
-    } catch (err) {
-      setShowManual(true);
-      if (!productFound) {
-        setForm({ name: "", brand: "", price_eur: "", size_ml: "", ingredients: "", claims: "", rating: "", review_count: "" });
-      }
-      setError(`${err.message || "Could not extract this product page."} You can enter the product details below to continue.`);
-    } finally {
-      setExtracting(false);
     }
   }
 
@@ -205,59 +129,13 @@ export default function Home() {
           <span>TRY THE V1</span>
           <h2>Analyze a skincare product</h2>
           <p>
-            Paste a real product link first, then review the extracted details and run the BuyWise analysis.
+            Enter product details from its packaging. Leave optional fields blank if you do not know them.
           </p>
         </div>
 
-        <div className="urlCard">
-          <form onSubmit={extractUrl}>
-            <label>
-              Product URL
-              <div className="urlRow">
-                <input
-                  type="url"
-                  placeholder="https://www.example.com/product/..."
-                  value={productUrl}
-                  onChange={(event) => setProductUrl(event.target.value)}
-                  required
-                />
-                <button type="submit" className="secondaryButton" disabled={extracting}>
-                  {extracting || loading ? "Analyzing..." : "Check if it's worth it"}
-                </button>
-              </div>
-            </label>
-
-            {extracted && (
-              <div className="extractedSummary">
-                {extracted.image && <img src={extracted.image} alt="" />}
-                <div>
-                  <strong>{extracted.brand ? `${extracted.brand} · ` : ""}{extracted.name || "Product found"}</strong>
-                  <p>
-                    {extracted.price ? `${extracted.currency || "€"} ${extracted.price}` : "Price not found"}
-                    {" · "}
-                    {extracted.size_ml ? `${extracted.size_ml} ml` : "Size not found"}
-                    {" · "}
-                    {extracted.raw_has_product_jsonld ? "Structured product data detected" : "Basic page metadata detected"}
-                  </p>
-                  {!showManual && result && <p className="autoDone">✓ Product analyzed automatically</p>}
-                </div>
-              </div>
-            )}
-
-            <button
-                type="button"
-                className="editButton"
-                onClick={() => setShowManual((value) => !value)}
-              >
-                {showManual ? "Hide product details" : extracted ? "Edit extracted details" : "Enter product details manually"}
-              </button>
-
-            {error && <div className="error">{error}</div>}
-          </form>
-        </div>
-
-        <div className={`workspace ${showManual ? "" : "resultsOnly"}`}>
-          {showManual && <form className="formCard" onSubmit={analyze}>
+        {error && <div className="error" role="alert">{error}</div>}
+        <div className="workspace">
+          <form className="formCard" onSubmit={analyze}>
             <div className="twoCols">
               <label>
                 Product name
@@ -319,16 +197,15 @@ export default function Home() {
               {loading ? "Analyzing..." : "Analyze product"}
             </button>
 
-          </form>}
+          </form>
 
           <div className="resultArea">
             {!result && (
               <div className="emptyState">
                 <div className="emptyIcon">✦</div>
-                <h3>Paste a product link to start</h3>
+                <h3>Enter product details to start</h3>
                 <p>
-                  BuyWise will extract the product details and, when enough information is available,
-                  run the analysis automatically.
+                  Your report will show whether there is enough information for a buying verdict.
                 </p>
               </div>
             )}
@@ -341,12 +218,13 @@ export default function Home() {
                     <h3>{result.product_name}</h3>
                   </div>
                   <div className="scoreCircle">
-                    <strong>{Math.round(result.score)}</strong>
+                    <strong>{result.score == null ? "—" : Math.round(result.score)}</strong>
                     <span>/100</span>
                   </div>
                 </div>
 
                 <div className={verdictClass(result.verdict)}>{result.verdict}</div>
+                <p>Data confidence: <strong>{result.confidence || "Not assessed"}</strong>{result.ingredient_coverage != null && ` · Ingredient coverage: ${Math.round(result.ingredient_coverage * 100)}%`}</p>
                 <p className="priceNote">€{result.price_per_10ml.toFixed(2)} per 10 ml</p>
 
                 <div className="breakdown">
@@ -354,10 +232,10 @@ export default function Home() {
                     <div className="metric" key={key}>
                       <div>
                         <span>{key}</span>
-                        <strong>{Math.round(value)}</strong>
+                        <strong>{value == null ? "Insufficient information" : Math.round(value)}</strong>
                       </div>
                       <div className="bar">
-                        <div style={{ width: `${value}%` }} />
+                        <div style={{ width: `${value ?? 0}%` }} />
                       </div>
                     </div>
                   ))}
@@ -395,7 +273,7 @@ export default function Home() {
                         <strong>{Math.round(item.score)}/100</strong>
                       </div>
                     </div>
-                  )) : <p>No matching alternative in the V1 catalog.</p>}
+                  )) : <p>No verified alternative available.</p>}
                 </div>
 
                 <p className="methodology">{result.methodology}</p>
@@ -468,7 +346,7 @@ export default function Home() {
           </details>
           <details>
             <summary>Which products can I analyze?</summary>
-            <p>The first version focuses on skincare. Sephora France has dedicated extraction support, with generic extraction used for other product pages.</p>
+            <p>The first version focuses on skincare. Enter the product details manually; automatic link analysis is unavailable.</p>
           </details>
           <details>
             <summary>Is BuyWise medical advice?</summary>

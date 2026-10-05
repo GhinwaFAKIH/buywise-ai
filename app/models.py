@@ -14,10 +14,10 @@ class ProductInput(BaseModel):
 
 
 class ScoreBreakdown(BaseModel):
-    ingredients: float
-    evidence: float
+    ingredients: float | None
+    evidence: float | None
     value: float
-    reviews: float
+    reviews: float | None
 
 
 class Alternative(BaseModel):
@@ -30,7 +30,9 @@ class Alternative(BaseModel):
 
 class ProductAnalysis(BaseModel):
     product_name: str
-    score: float
+    score: float | None
+    confidence: str
+    ingredient_coverage: float
     verdict: str
     price_per_10ml: float
     breakdown: ScoreBreakdown

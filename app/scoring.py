@@ -1,4 +1,5 @@
 from statistics import mean
+import re
 
 from app.data import INGREDIENTS, SUPPORTED_CLAIMS, ALTERNATIVE_CATALOG
 from app.models import (
@@ -10,10 +11,13 @@ from app.models import (
 
 
 def normalize(text: str) -> str:
-    return " ".join(text.lower().strip().split())
+    value = " ".join(text.lower().strip().split())
+    value = re.sub(r"\s*\([^)]*\)", "", value).strip()
+    value = re.sub(r"\s+\d+(?:\.\d+)?%$", "", value)
+    return {"parfum": "fragrance", "alcohol denat.": "denatured alcohol", "alcohol denat": "denatured alcohol", "sodium hyaluronate": "hyaluronic acid", "ascorbic acid": "vitamin c"}.get(value, value)
 
 
-def score_ingredients(product: ProductInput) -> tuple[float, list[str], list[str]]:
+def score_ingredients(product: ProductInput) -> tuple[float | None, list[str], list[str]]:
     known_scores = []
     strengths = []
     warnings = []
@@ -35,14 +39,14 @@ def score_ingredients(product: ProductInput) -> tuple[float, list[str], list[str
             warnings.append(f"{raw.title()}: {info['warning']}")
 
     if not known_scores:
-        return 55.0, strengths, ["Most ingredients are not yet covered by the V1 knowledge base."]
+        return None, strengths, ["Most ingredients are not yet covered by the V1 knowledge base."]
 
     return round(mean(known_scores) * 10, 1), strengths, warnings
 
 
-def score_claims(product: ProductInput) -> tuple[float, list[str]]:
+def score_claims(product: ProductInput) -> tuple[float | None, list[str]]:
     if not product.claims:
-        return 60.0, ["No marketing claims were provided for evidence checking."]
+        return None, ["No marketing claims were provided for evidence checking."]
 
     scores = []
     warnings = []
@@ -52,12 +56,11 @@ def score_claims(product: ProductInput) -> tuple[float, list[str]]:
         support = SUPPORTED_CLAIMS.get(normalized)
 
         if support is None:
-            scores.append(0.55)
             warnings.append(f'Claim needs deeper evidence review: "{claim}".')
         else:
             scores.append(support)
 
-    return round(mean(scores) * 100, 1), warnings
+    return (round(mean(scores) * 100, 1) if scores else None), warnings
 
 
 def score_value(product: ProductInput) -> tuple[float, float]:
@@ -79,9 +82,9 @@ def score_value(product: ProductInput) -> tuple[float, float]:
     return float(score), round(price_per_10ml, 2)
 
 
-def score_reviews(product: ProductInput) -> float:
-    if product.rating is None:
-        return 60.0
+def score_reviews(product: ProductInput) -> float | None:
+    if product.rating is None or not product.review_count:
+        return None
 
     rating_component = product.rating / 5 * 100
 
@@ -142,26 +145,30 @@ def analyze_product(product: ProductInput) -> ProductAnalysis:
     value_score, price_per_10ml = score_value(product)
     review_score = score_reviews(product)
 
-    final_score = round(
-        ingredient_score * 0.35
-        + evidence_score * 0.30
-        + value_score * 0.20
-        + review_score * 0.15,
-        1,
-    )
+    coverage = sum(normalize(i) in INGREDIENTS for i in product.ingredients) / max(1, len(product.ingredients))
+    complete = coverage >= 0.8 and ingredient_score is not None and bool(product.claims) and all(normalize(c) in SUPPORTED_CLAIMS for c in product.claims) and evidence_score is not None and review_score is not None
+    final_score = round(ingredient_score * 0.35 + evidence_score * 0.30 + value_score * 0.20 + review_score * 0.15, 1) if complete else None
 
     warnings = ingredient_warnings + claim_warnings
+    if coverage < 0.8:
+        warnings.append(f"Only {coverage:.0%} of entered ingredients are recognized; this is not a full formulation assessment.")
+    if review_score is None:
+        warnings.append("Rating and a positive review count are required to assess reviews.")
+    if not complete:
+        warnings.append("Insufficient information for an overall score or buying verdict.")
 
     if value_score < 55:
         warnings.append("The product is expensive relative to its size.")
 
-    if review_score >= 80:
+    if review_score is not None and review_score >= 80:
         strengths.append("Customer feedback is strong relative to the available review volume.")
 
     return ProductAnalysis(
         product_name=f"{product.brand} {product.name}",
         score=final_score,
-        verdict=verdict_for(final_score),
+        verdict=verdict_for(final_score) if complete else "INSUFFICIENT INFORMATION",
+        confidence="Moderate" if complete else "Low",
+        ingredient_coverage=round(coverage, 3),
         price_per_10ml=price_per_10ml,
         breakdown=ScoreBreakdown(
             ingredients=ingredient_score,
@@ -171,9 +178,9 @@ def analyze_product(product: ProductInput) -> ProductAnalysis:
         ),
         strengths=strengths[:6],
         warnings=warnings[:6],
-        alternatives=find_alternatives(product, final_score),
+        alternatives=[],
         methodology=(
             "Score = ingredients 35% + evidence 30% + value 20% + reviews 15%. "
-            "The V1 score is deterministic; generative AI should explain the result, not invent it."
+            "Overall scoring requires 80% ingredient coverage, recognized claims and review data. Missing data gets no default score. Data confidence is not clinical certainty. These scores are V1 heuristics, not verified product-level evidence."
         ),
     )

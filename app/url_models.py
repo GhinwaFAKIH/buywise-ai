@@ -23,3 +23,7 @@ class ExtractedProduct(BaseModel):
     claims: list[str] = []
     retailer: str | None = None
     ingredient_source: str | None = None
+
+
+class WaitlistInput(BaseModel):
+    email: str

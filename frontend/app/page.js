@@ -84,6 +84,7 @@ export default function Home() {
     setExtracting(true);
     setError("");
     setExtracted(null);
+    setResult(null);
 
     try {
       const response = await fetch(`${API_URL}/extract`, {
@@ -130,7 +131,11 @@ export default function Home() {
         );
       }
     } catch (err) {
-      setError(err.message || "Could not extract this product page.");
+      setShowManual(true);
+      if (!extracted) {
+        setForm({ name: "", brand: "", price_eur: "", size_ml: "", ingredients: "", claims: "", rating: "", review_count: "" });
+      }
+      setError(`${err.message || "Could not extract this product page."} You can enter the product details below to continue.`);
     } finally {
       setExtracting(false);
     }
@@ -237,15 +242,13 @@ export default function Home() {
               </div>
             )}
 
-            {extracted && (
-              <button
+            <button
                 type="button"
                 className="editButton"
                 onClick={() => setShowManual((value) => !value)}
               >
-                {showManual ? "Hide product details" : "Edit extracted details"}
+                {showManual ? "Hide product details" : extracted ? "Edit extracted details" : "Enter product details manually"}
               </button>
-            )}
 
             {error && <div className="error">{error}</div>}
           </form>

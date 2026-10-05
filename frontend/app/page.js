@@ -23,6 +23,9 @@ function verdictClass(verdict) {
 
 export default function Home() {
   const [form, setForm] = useState(initialForm);
+  const [productUrl, setProductUrl] = useState("");
+  const [extracted, setExtracted] = useState(null);
+  const [extracting, setExtracting] = useState(false);
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -30,6 +33,42 @@ export default function Home() {
   function updateField(event) {
     const { name, value } = event.target;
     setForm((current) => ({ ...current, [name]: value }));
+  }
+
+  async function extractUrl(event) {
+    event.preventDefault();
+    setExtracting(true);
+    setError("");
+    setExtracted(null);
+
+    try {
+      const response = await fetch(`${API_URL}/extract`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: productUrl }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data?.detail || "Could not extract this product page.");
+      }
+
+      setExtracted(data);
+      setForm((current) => ({
+        ...current,
+        name: data.name || current.name,
+        brand: data.brand || current.brand,
+        price_eur: data.price ?? current.price_eur,
+        size_ml: data.size_ml ?? current.size_ml,
+        rating: data.rating ?? current.rating,
+        review_count: data.review_count ?? current.review_count,
+      }));
+    } catch (err) {
+      setError(err.message || "Could not extract this product page.");
+    } finally {
+      setExtracting(false);
+    }
   }
 
   async function analyze(event) {
@@ -101,8 +140,45 @@ export default function Home() {
           <span>TRY THE V1</span>
           <h2>Analyze a skincare product</h2>
           <p>
-            For now, enter the product details manually. URL-based extraction comes next.
+            Paste a real product link first, then review the extracted details and run the BuyWise analysis.
           </p>
+        </div>
+
+        <div className="urlCard">
+          <form onSubmit={extractUrl}>
+            <label>
+              Product URL
+              <div className="urlRow">
+                <input
+                  type="url"
+                  placeholder="https://www.example.com/product/..."
+                  value={productUrl}
+                  onChange={(event) => setProductUrl(event.target.value)}
+                  required
+                />
+                <button type="submit" className="secondaryButton" disabled={extracting}>
+                  {extracting ? "Reading..." : "Extract product"}
+                </button>
+              </div>
+            </label>
+
+            {extracted && (
+              <div className="extractedSummary">
+                {extracted.image && <img src={extracted.image} alt="" />}
+                <div>
+                  <strong>{extracted.brand ? `${extracted.brand} · ` : ""}{extracted.name || "Product found"}</strong>
+                  <p>
+                    {extracted.price ? `${extracted.currency || "€"} ${extracted.price}` : "Price not found"}
+                    {" · "}
+                    {extracted.size_ml ? `${extracted.size_ml} ml` : "Size not found"}
+                    {" · "}
+                    {extracted.raw_has_product_jsonld ? "Structured product data detected" : "Basic page metadata detected"}
+                  </p>
+                </div>
+              </div>
+            )}
+
+          </form>
         </div>
 
         <div className="workspace">

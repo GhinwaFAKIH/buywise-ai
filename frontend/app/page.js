@@ -27,12 +27,53 @@ export default function Home() {
   const [extracted, setExtracted] = useState(null);
   const [extracting, setExtracting] = useState(false);
   const [result, setResult] = useState(null);
+  const [showManual, setShowManual] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   function updateField(event) {
     const { name, value } = event.target;
     setForm((current) => ({ ...current, [name]: value }));
+  }
+
+  function toPayload(source) {
+    return {
+      name: source.name,
+      brand: source.brand,
+      price_eur: Number(source.price_eur),
+      size_ml: Number(source.size_ml),
+      ingredients: source.ingredients
+        .split(",")
+        .map((item) => item.trim())
+        .filter(Boolean),
+      claims: source.claims
+        .split(",")
+        .map((item) => item.trim())
+        .filter(Boolean),
+      rating: source.rating === "" ? null : Number(source.rating),
+      review_count: source.review_count === "" ? null : Number(source.review_count),
+    };
+  }
+
+  async function runAnalysis(payload) {
+    setLoading(true);
+    setResult(null);
+
+    try {
+      const response = await fetch(`${API_URL}/analyze`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Could not analyze this product.");
+      }
+
+      setResult(await response.json());
+    } finally {
+      setLoading(false);
+    }
   }
 
   async function extractUrl(event) {
@@ -55,17 +96,36 @@ export default function Home() {
       }
 
       setExtracted(data);
-      setForm((current) => ({
-        ...current,
-        name: data.name || current.name,
-        brand: data.brand || current.brand,
-        price_eur: data.price ?? current.price_eur,
-        size_ml: data.size_ml ?? current.size_ml,
-        rating: data.rating ?? current.rating,
-        review_count: data.review_count ?? current.review_count,
-        ingredients: data.ingredients?.length ? data.ingredients.join(", ") : current.ingredients,
-        claims: data.claims?.length ? data.claims.join(", ") : current.claims,
-      }));
+
+      const nextForm = {
+        name: data.name || "",
+        brand: data.brand || "",
+        price_eur: data.price ?? "",
+        size_ml: data.size_ml ?? "",
+        rating: data.rating ?? "",
+        review_count: data.review_count ?? "",
+        ingredients: data.ingredients?.length ? data.ingredients.join(", ") : "",
+        claims: data.claims?.length ? data.claims.join(", ") : "",
+      };
+
+      setForm(nextForm);
+
+      const readyForAutomaticAnalysis =
+        nextForm.name &&
+        nextForm.brand &&
+        nextForm.price_eur &&
+        nextForm.size_ml &&
+        nextForm.ingredients;
+
+      if (readyForAutomaticAnalysis) {
+        setShowManual(false);
+        await runAnalysis(toPayload(nextForm));
+      } else {
+        setShowManual(true);
+        setError(
+          "I found the product, but some details are missing. Please review the fields below before analyzing."
+        );
+      }
     } catch (err) {
       setError(err.message || "Could not extract this product page.");
     } finally {
@@ -75,45 +135,14 @@ export default function Home() {
 
   async function analyze(event) {
     event.preventDefault();
-    setLoading(true);
     setError("");
-    setResult(null);
-
-    const payload = {
-      name: form.name,
-      brand: form.brand,
-      price_eur: Number(form.price_eur),
-      size_ml: Number(form.size_ml),
-      ingredients: form.ingredients
-        .split(",")
-        .map((item) => item.trim())
-        .filter(Boolean),
-      claims: form.claims
-        .split(",")
-        .map((item) => item.trim())
-        .filter(Boolean),
-      rating: form.rating === "" ? null : Number(form.rating),
-      review_count: form.review_count === "" ? null : Number(form.review_count),
-    };
 
     try {
-      const response = await fetch(`${API_URL}/analyze`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        throw new Error("Could not analyze this product.");
-      }
-
-      setResult(await response.json());
+      await runAnalysis(toPayload(form));
     } catch (err) {
       setError(
-        "The analysis service could not be reached. Make sure the FastAPI backend is running."
+        "The analysis service could not be reached. Please review the product details and try again."
       );
-    } finally {
-      setLoading(false);
     }
   }
 
@@ -159,7 +188,7 @@ export default function Home() {
                   required
                 />
                 <button type="submit" className="secondaryButton" disabled={extracting}>
-                  {extracting ? "Reading..." : "Extract product"}
+                  {extracting || loading ? "Analyzing..." : "Check if it's worth it"}
                 </button>
               </div>
             </label>
@@ -176,15 +205,27 @@ export default function Home() {
                     {" · "}
                     {extracted.raw_has_product_jsonld ? "Structured product data detected" : "Basic page metadata detected"}
                   </p>
+                  {!showManual && result && <p className="autoDone">✓ Product analyzed automatically</p>}
                 </div>
               </div>
             )}
 
+            {extracted && (
+              <button
+                type="button"
+                className="editButton"
+                onClick={() => setShowManual((value) => !value)}
+              >
+                {showManual ? "Hide product details" : "Edit extracted details"}
+              </button>
+            )}
+
+            {error && <div className="error">{error}</div>}
           </form>
         </div>
 
-        <div className="workspace">
-          <form className="formCard" onSubmit={analyze}>
+        <div className={`workspace ${showManual ? "" : "resultsOnly"}`}>
+          {showManual && <form className="formCard" onSubmit={analyze}>
             <div className="twoCols">
               <label>
                 Product name
@@ -246,17 +287,16 @@ export default function Home() {
               {loading ? "Analyzing..." : "Analyze product"}
             </button>
 
-            {error && <div className="error">{error}</div>}
-          </form>
+          </form>}
 
           <div className="resultArea">
             {!result && (
               <div className="emptyState">
                 <div className="emptyIcon">✦</div>
-                <h3>Your BuyWise report will appear here</h3>
+                <h3>Paste a product link to start</h3>
                 <p>
-                  You’ll see the overall score, verdict, detailed score breakdown,
-                  strengths, warnings and better-value alternatives.
+                  BuyWise will extract the product details and, when enough information is available,
+                  run the analysis automatically.
                 </p>
               </div>
             )}

@@ -5,6 +5,8 @@ from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
 
+from app.retailers.sephora_fr import enrich_sephora_fr
+
 
 USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -191,7 +193,7 @@ def extract_product_from_url(url: str) -> dict:
     sku = product.get("sku")
     size_ml = _extract_size_ml(name) or _extract_size_ml(description)
 
-    return {
+    base = {
         "url": url,
         "domain": parsed.netloc,
         "name": name,
@@ -205,4 +207,13 @@ def extract_product_from_url(url: str) -> dict:
         "image": image,
         "sku": sku,
         "raw_has_product_jsonld": bool(product),
+        "ingredients": [],
+        "claims": [],
+        "retailer": None,
+        "ingredient_source": None,
     }
+
+    if "sephora.fr" in parsed.netloc.lower():
+        return enrich_sephora_fr(soup, base)
+
+    return base

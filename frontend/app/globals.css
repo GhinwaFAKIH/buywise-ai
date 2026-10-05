@@ -511,3 +511,65 @@ footer p {
     gap: 10px;
   }
 }
+
+
+.urlCard {
+  max-width: 1180px;
+  margin: 0 auto 28px;
+  border: 1px solid var(--line);
+  background: var(--cream);
+  padding: 24px;
+}
+
+.urlRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+}
+
+.secondaryButton {
+  border: none;
+  background: var(--green);
+  color: white;
+  padding: 0 22px;
+  min-height: 48px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.secondaryButton:disabled {
+  opacity: 0.6;
+}
+
+.extractedSummary {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.extractedSummary img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  background: white;
+}
+
+.extractedSummary p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .urlRow {
+    grid-template-columns: 1fr;
+  }
+
+  .secondaryButton {
+    min-height: 46px;
+  }
+}

@@ -79,3 +79,19 @@ POST `/analyze`
 ## Disclaimer
 
 BuyWise AI is an informational shopping assistant and is not medical or dermatological advice.
+
+
+## Run the frontend
+
+In a second terminal:
+
+```bash
+cd frontend
+npm install
+cp .env.example .env.local
+npm run dev
+```
+
+Open http://localhost:3000.
+
+The frontend reads `NEXT_PUBLIC_API_URL` and defaults to the local FastAPI server at `http://127.0.0.1:8000`.

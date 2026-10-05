@@ -85,6 +85,7 @@ export default function Home() {
     setError("");
     setExtracted(null);
     setResult(null);
+    let productFound = false;
 
     try {
       const response = await fetch(`${API_URL}/extract`, {
@@ -100,6 +101,7 @@ export default function Home() {
       }
 
       setExtracted(data);
+      productFound = true;
 
       const nextForm = {
         name: data.name || "",
@@ -132,7 +134,7 @@ export default function Home() {
       }
     } catch (err) {
       setShowManual(true);
-      if (!extracted) {
+      if (!productFound) {
         setForm({ name: "", brand: "", price_eur: "", size_ml: "", ingredients: "", claims: "", rating: "", review_count: "" });
       }
       setError(`${err.message || "Could not extract this product page."} You can enter the product details below to continue.`);

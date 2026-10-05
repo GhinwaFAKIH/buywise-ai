@@ -63,6 +63,8 @@ export default function Home() {
         size_ml: data.size_ml ?? current.size_ml,
         rating: data.rating ?? current.rating,
         review_count: data.review_count ?? current.review_count,
+        ingredients: data.ingredients?.length ? data.ingredients.join(", ") : current.ingredients,
+        claims: data.claims?.length ? data.claims.join(", ") : current.claims,
       }));
     } catch (err) {
       setError(err.message || "Could not extract this product page.");

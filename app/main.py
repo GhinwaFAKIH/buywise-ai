@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.extractor import ProductExtractionError, extract_product_from_url
 from app.models import ProductInput, ProductAnalysis
 from app.scoring import analyze_product
-from app.url_models import ExtractedProduct, ProductUrlInput
+from app.url_models import ExtractedProduct, ProductUrlInput, WaitlistInput
 
 app = FastAPI(
     title="BuyWise AI API",
@@ -58,3 +58,28 @@ def extract(payload: ProductUrlInput):
 @app.post("/analyze", response_model=ProductAnalysis)
 def analyze(product: ProductInput):
     return analyze_product(product)
+
+
+@app.post("/waitlist")
+def join_waitlist(payload: WaitlistInput):
+    webhook_url = os.getenv("WAITLIST_WEBHOOK_URL")
+    forwarded = False
+
+    if webhook_url:
+        try:
+            import requests
+            response = requests.post(
+                webhook_url,
+                json={"email": payload.email},
+                timeout=10,
+            )
+            response.raise_for_status()
+            forwarded = True
+        except requests.RequestException:
+            forwarded = False
+
+    return {
+        "ok": True,
+        "message": "Thanks — you're on the BuyWise early-access list.",
+        "forwarded": forwarded,
+    }

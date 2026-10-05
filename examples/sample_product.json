@@ -1,0 +1,17 @@
+{
+  "name": "Glow Serum",
+  "brand": "Demo Beauty",
+  "price_eur": 39.0,
+  "size_ml": 30,
+  "ingredients": [
+    "niacinamide",
+    "hyaluronic acid",
+    "fragrance"
+  ],
+  "claims": [
+    "brightens skin",
+    "supports hydration"
+  ],
+  "rating": 4.4,
+  "review_count": 1250
+}

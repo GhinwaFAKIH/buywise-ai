@@ -19,3 +19,7 @@ class ExtractedProduct(BaseModel):
     image: str | None = None
     sku: str | None = None
     raw_has_product_jsonld: bool = False
+    ingredients: list[str] = []
+    claims: list[str] = []
+    retailer: str | None = None
+    ingredient_source: str | None = None

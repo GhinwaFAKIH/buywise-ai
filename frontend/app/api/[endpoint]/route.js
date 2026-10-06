@@ -1,7 +1,7 @@
 export const runtime = "nodejs";
 export const maxDuration = 60;
 
-const endpoints = new Set(["extract", "analyze", "waitlist"]);
+const endpoints = new Set(["extract", "analyze", "waitlist", "signup", "login", "account", "logout", "checkout", "portal"]);
 
 export async function POST(request, { params }) {
   const { endpoint } = await params;
@@ -23,7 +23,7 @@ export async function POST(request, { params }) {
   try {
     const response = await fetch(`${baseUrl}/${endpoint}`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "Cookie": request.headers.get("cookie") || "" },
       body: JSON.stringify(payload),
       cache: "no-store",
       signal: AbortSignal.timeout(55000),
@@ -38,7 +38,10 @@ export async function POST(request, { params }) {
         { status: 502 }
       );
     }
-    return Response.json(data, { status: response.status });
+    const headers = {};
+    const cookie = response.headers.get("set-cookie");
+    if (cookie) headers["Set-Cookie"] = cookie;
+    return Response.json(data, { status: response.status, headers });
   } catch {
     return Response.json(
       { detail: "The analysis service is starting up or unavailable. Wait a minute and try again." },

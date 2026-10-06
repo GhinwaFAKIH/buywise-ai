@@ -1,6 +1,9 @@
 """Optional hosted explanation; never replaces the deterministic scoring result."""
 import json
 import os
+import logging
+
+logger = logging.getLogger("uvicorn.error")
 
 import requests
 from pydantic import BaseModel, Field
@@ -18,7 +21,7 @@ class AIReport(BaseModel):
 
 
 def explain_product(product, analysis):
-    key = os.getenv("OLLAMA_API_KEY")
+    key = os.getenv("OLLAMA_API_KEY", "").strip()
     if not key:
         return None, "not_configured"
     evidence = []
@@ -63,5 +66,17 @@ def explain_product(product, analysis):
         response.raise_for_status()
         report = AIReport.model_validate_json(response.json()["message"]["content"])
         return report.model_dump(), "generated"
-    except (requests.RequestException, ValueError, KeyError, TypeError):
-        return None, "unavailable"
+    except requests.Timeout:
+        logger.warning("BuyWise Ollama: request timed out")
+        return None, "timeout"
+    except requests.HTTPError as exc:
+        status = exc.response.status_code if exc.response is not None else 0
+        reason = {401: "authentication_failed", 403: "access_denied", 404: "model_not_found", 429: "usage_limit", 400: "request_rejected"}.get(status, "provider_error")
+        logger.warning("BuyWise Ollama: HTTP %s (%s)", status, reason)
+        return None, reason
+    except requests.RequestException:
+        logger.warning("BuyWise Ollama: network connection failed")
+        return None, "connection_failed"
+    except (ValueError, KeyError, TypeError):
+        logger.warning("BuyWise Ollama: response did not match the report schema")
+        return None, "invalid_response"

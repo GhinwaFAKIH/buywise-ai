@@ -225,7 +225,7 @@ export default function Home() {
                     <h4>Next steps</h4>
                     <ul>{result.ai_report.next_steps.map((note, i) => <li key={i}>{note}</li>)}</ul>
                     <small>AI explanation based on your inputs and a limited internal knowledge base. No live source verification.</small>
-                  </> : <p>{result.ai_status === "unavailable" ? "The AI explanation is temporarily unavailable. Your ingredient and price assessment is below." : "Ingredient and price assessment below. AI explanations are not enabled yet."}</p>}
+                  </> : <p>{result.ai_status && result.ai_status !== "not_configured" ? "The AI explanation is temporarily unavailable. Your ingredient and price assessment is below." : "Ingredient and price assessment below. AI explanations are not enabled yet."}</p>}
                 </section>
                 <div className="reportHeader">
                   <div>

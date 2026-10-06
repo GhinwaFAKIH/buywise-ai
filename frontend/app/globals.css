@@ -384,11 +384,14 @@ small {
 
 .alternativeMeta {
   text-align: right;
-  min-width: 80px;
+  min-width: 120px;
+  max-width: 160px;
+  flex-shrink: 0;
 }
 
 .alternativeMeta span,
-.alternativeMeta strong {
+.alternativeMeta strong,
+.alternativeMeta small {
   display: block;
 }
 
@@ -616,3 +619,8 @@ footer p {
   .pricingGrid, .waitlistSection { grid-template-columns: 1fr; }
   .pricingSection, .faqSection, .waitlistSection { padding-left: 20px; padding-right: 20px; }
 }
+
+.alternativeMeta small { margin-top: 4px; font-size: 11px; }
+.insightCard details { margin: 12px 0; font-size: 12px; }
+.insightCard summary { cursor: pointer; }
+.insightCard li a { text-decoration: underline; }

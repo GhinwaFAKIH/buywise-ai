@@ -32,6 +32,10 @@ class Alternative(BaseModel):
     brand: str
     price_eur: float | None = None
     score: float | None = None
+    size_ml: float | None = None
+    price_per_10ml: float | None = None
+    price_checked: str | None = None
+    price_difference_percent: float | None = None
     url: str
     reason: str
 
@@ -48,5 +52,9 @@ class ProductAnalysis(BaseModel):
     warnings: List[str]
     alternatives: List[Alternative]
     methodology: str
+    ingredient_roles: list[dict] = Field(default_factory=list)
+    recognition_coverage: float = 0
+    ingredient_count: int = 0
+    recognized_count: int = 0
     ai_report: dict | None = None
     ai_status: str = "not_configured"

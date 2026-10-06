@@ -8,7 +8,7 @@ logger = logging.getLogger("uvicorn.error")
 import requests
 from pydantic import BaseModel, Field
 
-from app.data import INGREDIENTS
+from app.data import INGREDIENTS, INGREDIENT_ROLES
 from app.scoring import normalize
 
 
@@ -26,7 +26,7 @@ def explain_product(product, analysis):
         return None, "not_configured"
     evidence = []
     for ingredient in product.ingredients:
-        info = INGREDIENTS.get(normalize(ingredient))
+        info = INGREDIENT_ROLES.get(normalize(ingredient)) or INGREDIENTS.get(normalize(ingredient))
         if info:
             evidence.append({"ingredient": ingredient, "knowledge_base_entry": info})
     context = {
@@ -67,6 +67,8 @@ def explain_product(product, analysis):
         if content.startswith("```") and content.endswith("```"):
             content = content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
         report = AIReport.model_validate_json(content)
+        report.summary = " ".join(report.summary.split()[:35])
+        report.ingredient_notes = [" ".join(note.split()[:18]) for note in report.ingredient_notes[:3]]
         report.value_explanation = f"€{analysis.price_per_10ml:.2f} per 10 ml, based on your entered price and size."
         recognized = [normalize(item["ingredient"]) for item in evidence]
         report.ingredient_notes = [

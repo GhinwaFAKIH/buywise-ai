@@ -1,7 +1,7 @@
 from statistics import mean
 import re
 
-from app.data import INGREDIENTS, SUPPORTED_CLAIMS, ALTERNATIVE_CATALOG, VERIFIED_ALTERNATIVES
+from app.data import INGREDIENTS, SUPPORTED_CLAIMS, ALTERNATIVE_CATALOG, VERIFIED_ALTERNATIVES, INGREDIENT_ROLES
 from app.models import (
     Alternative,
     ProductAnalysis,
@@ -14,7 +14,7 @@ def normalize(text: str) -> str:
     value = " ".join(text.lower().strip().split())
     value = re.sub(r"\s*\([^)]*\)", "", value).strip()
     value = re.sub(r"\s+\d+(?:\.\d+)?%$", "", value)
-    return {"parfum": "fragrance", "alcohol denat.": "denatured alcohol", "alcohol denat": "denatured alcohol", "sodium hyaluronate": "hyaluronic acid", "ascorbic acid": "vitamin c"}.get(value, value)
+    return {"water": "aqua", "eau": "aqua", "water/aqua/eau": "aqua", "parfum": "fragrance", "alcohol denat.": "denatured alcohol", "alcohol denat": "denatured alcohol", "sodium hyaluronate": "hyaluronic acid", "ascorbic acid": "vitamin c"}.get(value, value)
 
 
 def score_ingredients(product: ProductInput) -> tuple[float | None, list[str], list[str]]:
@@ -104,7 +104,7 @@ def score_reviews(product: ProductInput) -> float | None:
 
 def find_alternatives(product: ProductInput) -> list[Alternative]:
     ingredients = {normalize(i) for i in product.ingredients}
-    return [Alternative(name=item["name"], brand=item["brand"], url=item["url"], reason=item["reason"])
+    return [Alternative(name=item["name"], brand=item["brand"], url=item["url"], reason=item["reason"], price_eur=item["price_eur"], size_ml=item["size_ml"], price_checked=item["price_checked"], price_per_10ml=round(item["price_eur"] / item["size_ml"] * 10, 2), price_difference_percent=round((item["price_eur"] / item["size_ml"] / (product.price_eur / product.size_ml) - 1) * 100, 1))
             for item in VERIFIED_ALTERNATIVES
             if ingredients.intersection(item["ingredients"]) and normalize(item["brand"]) != normalize(product.brand)][:2]
 
@@ -142,6 +142,10 @@ def analyze_product(product: ProductInput) -> ProductAnalysis:
         strengths.append("Customer feedback is strong relative to the available review volume.")
 
     return ProductAnalysis(
+        ingredient_roles=[{"ingredient": raw, **INGREDIENT_ROLES[normalize(raw)]} for raw in product.ingredients if normalize(raw) in INGREDIENT_ROLES],
+        recognition_coverage=round(sum(normalize(i) in INGREDIENT_ROLES or normalize(i) in INGREDIENTS for i in product.ingredients) / max(1, len(product.ingredients)), 3),
+        ingredient_count=len(product.ingredients),
+        recognized_count=sum(normalize(i) in INGREDIENT_ROLES or normalize(i) in INGREDIENTS for i in product.ingredients),
         product_name=f"{product.brand} {product.name}",
         score=final_score,
         verdict=verdict_for(final_score) if complete else "INSUFFICIENT INFORMATION",

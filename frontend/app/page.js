@@ -224,10 +224,10 @@ export default function Home() {
                 </div>
 
                 {result.score != null && <div className={verdictClass(result.verdict)}>{result.verdict}</div>}
-                <p>Data confidence: <strong>{result.confidence || "Not assessed"}</strong>{result.ingredient_coverage != null && ` · Ingredient coverage: ${Math.round(result.ingredient_coverage * 100)}%`}</p>
+                <p>{result.recognized_count != null ? `${result.recognized_count} of ${result.ingredient_count} ingredients identified` : "Ingredient insights"}. General roles, not a product efficacy rating.</p>
                 <p className="priceNote">€{result.price_per_10ml.toFixed(2)} per 10 ml</p>
 
-                <div className="breakdown">
+                {result.score != null && <div className="breakdown">
                   {Object.entries(result.breakdown).filter(([, value]) => value != null).map(([key, value]) => (
                     <div className="metric" key={key}>
                       <div>
@@ -239,18 +239,22 @@ export default function Home() {
                       </div>
                     </div>
                   ))}
-                </div>
+                </div>}
 
                 <section className="insightCard">
                   {result.ai_report ? <>
                     <p>{result.ai_report.summary}</p>
-                    <ul>{result.ai_report.ingredient_notes.slice(0, 3).map((note, i) => <li key={i}>{note}</li>)}</ul>
-                    <p>{result.ai_report.value_explanation}</p>
+                    
+                    
                     <details><summary>Limits and next steps</summary>
                       <ul>{[...result.ai_report.limitations.slice(0, 1), ...result.ai_report.next_steps.slice(0, 1)].map((note, i) => <li key={i}>{note}</li>)}</ul>
                     </details>
-                  </> : <ul>{result.strengths.slice(0, 3).map((note, i) => <li key={i}>{note}</li>)}</ul>}
-                  {result.score == null && <small>Partial assessment: no overall buying score yet. Missing reviews do not prevent ingredient or price insights.</small>}
+                  </> : <p>Compare the ingredient roles and prices below to decide whether this formula interests you.</p>}
+                  {result.ingredient_roles?.length > 0 && <>
+                    <ul>{result.ingredient_roles.filter(item => !["aqua", "aqua (water)"].includes(item.ingredient.toLowerCase())).slice(0, 3).map(item => <li key={item.ingredient}><strong>{item.ingredient}:</strong> {item.role}</li>)}</ul>
+                    <details><summary>All ingredient roles and sources</summary><ul>{result.ingredient_roles.map(item => <li key={item.ingredient}><strong>{item.ingredient}:</strong> {item.role} <a href={item.source} target="_blank" rel="noopener noreferrer">Source</a></li>)}</ul></details>
+                  </>}
+                  {result.score == null && <small>No overall score: ingredient roles alone do not establish effectiveness. Claims and review data are still missing or limited.</small>}
                 </section>
 
                 <div className="alternatives">
@@ -266,10 +270,13 @@ export default function Home() {
                       </div>
                       <div className="alternativeMeta">
                         <span>{item.price_eur != null ? `€${item.price_eur.toFixed(2)}` : "Check current price"}</span>
-                        {item.score != null && <strong>{Math.round(item.score)}/100</strong>}
+                        {item.size_ml != null && <small>{item.size_ml} ml · €{item.price_per_10ml.toFixed(2)} / 10 ml</small>}
+                        {item.price_difference_percent != null && <small>{item.price_difference_percent === 0 ? "Same price per ml" : `${Math.abs(item.price_difference_percent).toFixed(0)}% ${item.price_difference_percent < 0 ? "less" : "more"} per ml`}</small>}
+                        {item.price_checked && <small>Price checked {item.price_checked}; shipping excluded</small>}
                       </div>
                     </div>
                   )) : <p>No verified alternative available.</p>}
+                  {result.alternatives.some(item => item.price_eur != null) && <p className="microcopy">Manufacturer list prices may change. A similar active ingredient does not mean equal results.</p>}
                 </div>
 
                 <details className="methodology"><summary>How this assessment works</summary><p>{result.methodology}</p><p>AI uses entered details and a limited internal database. Similar products come from manufacturer pages checked on 6 October 2026; they are not ranked as better or cheaper.</p></details>

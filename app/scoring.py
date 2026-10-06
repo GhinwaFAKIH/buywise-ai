@@ -109,6 +109,29 @@ def find_alternatives(product: ProductInput) -> list[Alternative]:
             if ingredients.intersection(item["ingredients"]) and normalize(item["brand"]) != normalize(product.brand)][:2]
 
 
+def shopping_assessment(product, alternatives, price_score):
+    """A transparent shopping heuristic, separate from formulation efficacy."""
+    current = product.price_eur / product.size_ml
+    prices = [item.price_eur / item.size_ml for item in alternatives
+              if item.price_eur is not None and item.size_ml and item.price_eur > 0]
+    # Compare against the cheapest listed alternative; cap the heuristic at 95.
+    value = round(min(95, min(prices) / current * 100), 1) if prices else price_score
+    has_reviews = product.rating is not None and bool(product.review_count)
+    reviews = round(product.rating / 5 * 100, 1) if has_reviews else None
+    score = round(value * .6 + reviews * .4, 1) if has_reviews else value
+    provisional = not has_reviews or not prices or product.review_count < 50
+    verdict = ('WORTH CONSIDERING' if score >= 80 else 'COMPARE BEFORE BUYING' if score >= 60 else 'LOOK AT ALTERNATIVES') if has_reviews and prices else 'PRICE CHECK ONLY' if not has_reviews else 'COMPARE BEFORE BUYING'
+    return {
+        'score': score, 'verdict': verdict, 'provisional': provisional,
+        'basis': 'Price + customer ratings' if has_reviews else 'Price only — reviews unavailable',
+        'components': {'Price comparison' if prices else 'Unit-price heuristic': value, **({'Customer rating': reviews} if has_reviews else {})},
+        'methodology': ('Price 60% + customer rating 40%.' if has_reviews else 'Price is the only scored component; missing reviews are not given a default.') +
+            (' Price = cheapest listed alternative per ml / entered product price per ml × 100, capped at 95.' if prices else ' Unit-price bands use the internal skincare price heuristic; no market-price comparison is available.') +
+            ' Ratings are converted from /5 to /100. A high score is not proof of effectiveness or skin suitability.',
+        'limits': 'Provisional: few reviews or missing comparisons.' if provisional else 'Based on listed prices and one supplied or retrieved rating source.',
+    }
+
+
 def verdict_for(score: float) -> str:
     if score >= 80:
         return "WORTH IT"
@@ -141,7 +164,9 @@ def analyze_product(product: ProductInput) -> ProductAnalysis:
     if review_score is not None and review_score >= 80:
         strengths.append("Customer feedback is strong relative to the available review volume.")
 
+    alternatives = find_alternatives(product)
     return ProductAnalysis(
+        shopping_assessment=shopping_assessment(product, alternatives, value_score),
         ingredient_roles=[{"ingredient": raw, **INGREDIENT_ROLES[normalize(raw)]} for raw in product.ingredients if normalize(raw) in INGREDIENT_ROLES],
         recognition_coverage=round(sum(normalize(i) in INGREDIENT_ROLES or normalize(i) in INGREDIENTS for i in product.ingredients) / max(1, len(product.ingredients)), 3),
         ingredient_count=len(product.ingredients),
@@ -160,7 +185,7 @@ def analyze_product(product: ProductInput) -> ProductAnalysis:
         ),
         strengths=strengths[:6],
         warnings=warnings[:6],
-        alternatives=find_alternatives(product),
+        alternatives=alternatives,
         methodology=(
             "Score = ingredients 35% + evidence 30% + value 20% + reviews 15%. "
             "Overall scoring requires 80% ingredient coverage, recognized claims and review data. Missing data gets no default score. Data confidence is not clinical certainty. These scores are V1 heuristics, not verified product-level evidence."

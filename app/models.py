@@ -43,6 +43,7 @@ class Alternative(BaseModel):
 class ProductAnalysis(BaseModel):
     product_name: str
     score: float | None
+    shopping_assessment: dict = Field(default_factory=dict)
     confidence: str
     ingredient_coverage: float
     verdict: str

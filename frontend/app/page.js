@@ -73,6 +73,7 @@ export default function Home() {
   async function manageBilling() { setBillingBusy(true); try { const data = await api("portal"); window.location.assign(data.url); } catch (err) { setNotice(err.message); } finally { setBillingBusy(false); } }
   async function joinWaitlist(event) { event.preventDefault(); try { const data = await api("waitlist", { email: waitlistEmail }); setWaitlistMessage(data.message); } catch (err) { setWaitlistMessage(err.message); } }
   const assessment = result ? buyingAssessment(result) : null;
+  const shopping = result ? (result.shopping_assessment?.score != null ? result.shopping_assessment : {score:result.breakdown.value,verdict:"PRICE CHECK ONLY",provisional:true,basis:"Price only — reviews not included",components:{"Unit-price heuristic":result.breakdown.value},methodology:"This provisional score uses internal unit-price bands. It does not assess effectiveness.",limits:"Price only; product effectiveness has not been scored."}) : null;
   return <main>
     <nav className="topNav"><a href="#" className="logo"><Mark/>BuyWise<span>ai</span></a><div className="navLinks"><a href="#analyze">Analyze</a><a href="#how">How it works</a><a href="#pricing">Pricing</a></div><button className="navAccount" onClick={async () => { if (account.user) { await api("logout"); await refreshAccount(); } else if (account.accounts_enabled) { setAuthError(""); setAuthMode("login"); } else { document.getElementById("analyze").scrollIntoView({ behavior: "smooth" }); } }}>{account.user ? "Sign out" : account.accounts_enabled ? "Sign in" : "Try BuyWise ↗"}</button></nav>
     <section className="hero">
@@ -87,24 +88,26 @@ export default function Home() {
               <div className="report">
                 <div className="reportHeader">
                   <div>
-                    <span className="label">{result.score == null ? "PRODUCT ASSESSMENT" : "BUYWISE SCORE"}</span>
+                    <span className="label">BUYWISE SHOPPING SCORE</span>
                     <h3>{result.product_name}</h3>
                   </div>
-                  {result.score != null && <div className="scoreCircle">
-                    <strong>{Math.round(result.score)}</strong>
+                  {<div className="scoreCircle">
+                    <strong>{Math.round(shopping.score)}</strong>
                     <span>/100</span>
                   </div>}
                 </div>
 
-                {result.score != null && <div className={verdictClass(result.verdict)}>{result.verdict}</div>}
+                <div className={shopping.score >= 80 ? "verdict good" : shopping.score >= 60 ? "verdict maybe" : "verdict bad"}>{shopping.verdict}</div>
+                <p className="scoreBasis"><strong>{shopping.basis}</strong>{shopping.provisional && " · Provisional"}</p>
+                <p className="microcopy">Shopping guidance, not an effectiveness rating.</p>
                 <p>{result.recognized_count != null ? `${result.recognized_count} of ${result.ingredient_count} ingredients identified` : "Ingredient insights"}. General roles, not a product efficacy rating.</p>
                 <p className="priceNote">€{result.price_per_10ml.toFixed(2)} per 10 ml</p>
 
-                {result.score != null && <div className="breakdown">
-                  {Object.entries(result.breakdown).filter(([, value]) => value != null).map(([key, value]) => (
+                {<div className="breakdown">
+                  {Object.entries(shopping.components).map(([key, value]) => (
                     <div className="metric" key={key}>
                       <div>
-                        <span>{key === "ingredients" ? "Recognized ingredients (limited assessment)" : key === "value" ? "Price heuristic" : key}</span>
+                        <span>{key}</span>
                         <strong>{value == null ? "Insufficient information" : Math.round(value)}</strong>
                       </div>
                       <div className="bar">
@@ -123,7 +126,7 @@ export default function Home() {
                     <ul>{result.ingredient_roles.filter(item => !["aqua", "aqua (water)"].includes(item.ingredient.toLowerCase())).slice(0, 3).map(item => <li key={item.ingredient}><strong>{item.ingredient}:</strong> {item.role}</li>)}</ul>
                     <details><summary>All ingredient roles and sources</summary><ul>{result.ingredient_roles.map(item => <li key={item.ingredient}><strong>{item.ingredient}:</strong> {item.role} <a href={item.source} target="_blank" rel="noopener noreferrer">Source</a></li>)}</ul></details>
                   </>}
-                  {result.score == null && <details><summary>Why there is no numerical score</summary><p>We searched for product information and ingredient studies. Finding sources does not automatically justify a numerical efficacy score; the evidence still needs to match the exact formula and claimed outcome.</p></details>}
+                  <details><summary>What this score includes</summary><p>{shopping.methodology}</p><p>{shopping.limits}</p></details>
                 </section>
 
                 <section className="insightCard" style={{ marginTop: 16 }}>
@@ -145,13 +148,13 @@ export default function Home() {
                 <div className="alternatives">
                   <div className="alternativesHeading">
                     <span>COMPARE</span>
-                    <h4>Similar products</h4>
+                    <h4>Similar products to compare</h4>
                   </div>
                   {result.alternatives.length ? result.alternatives.map((item) => (
                     <div className="alternative" key={item.name}>
                       <div>
                         <a href={item.url} target="_blank" rel="noopener noreferrer"><strong>{item.brand} {item.name}</strong></a>
-                        <p>{item.reason}</p>
+                        <p>{item.reason}</p><a className="compareLink" href={item.url} target="_blank" rel="noopener noreferrer">View product ↗</a>
                       </div>
                       <div className="alternativeMeta">
                         <span>{item.price_eur != null ? `€${item.price_eur.toFixed(2)}` : "Check current price"}</span>
@@ -164,13 +167,13 @@ export default function Home() {
                   {result.alternatives.some(item => item.price_eur != null) && <p className="microcopy">Manufacturer list prices may change. A similar active ingredient does not mean equal results.</p>}
                 </div>
 
-                <details className="methodology"><summary>How this assessment works</summary><p>{result.methodology}</p><p>Online research searches product pages and ingredient studies. Search excerpts may be incomplete or outdated; linked sources show what was retrieved. Ingredient evidence, manufacturer claims and customer ratings are different kinds of information. Comparison prices were checked on 6 October 2026.</p></details>
+                <details className="methodology"><summary>How this assessment works</summary><p>{shopping.methodology}</p><p>Online research searches product pages and ingredient studies. Search excerpts may be incomplete or outdated; linked sources show what was retrieved. Ingredient evidence, manufacturer claims and customer ratings are different kinds of information. Comparison prices were checked on 6 October 2026.</p></details>
               </div>
             )}
     </div></div></section>
     <section className="howItWorks" id="how"><div className="sectionHeading"><span className="eyebrow">FROM “MAYBE” TO A CLEARER CHOICE</span><h2>Three steps. Less guesswork.</h2></div><div className="steps"><div><strong>01 / THE FORMULA</strong><h3>Look past the label.</h3><p>Understand the roles of identified ingredients and what the formula can tell you.</p></div><div><strong>02 / THE RESEARCH</strong><h3>Check the story.</h3><p>Explore product pages, ingredient studies and available reviews, with links to the sources.</p></div><div><strong>03 / THE COMPARISON</strong><h3>Put price in context.</h3><p>Compare cost per ml with similar products. See what you’re paying for before switching.</p></div></div></section>
     <section className="pricingSection" id="pricing"><div className="sectionHeading"><span className="eyebrow">SMALL PRICE. SMARTER SHOPPING.</span><h2>A second opinion<br/>that won’t cost a serum.</h2><p>Start with three free analyses. Choose more when you need them.</p></div><div className="pricingGrid">{[{id:"free",name:"The curious shopper",price:"0",label:"FREE",limit:"3 analyses total",description:"A little clarity for your next purchase."},{id:"starter",name:"The thoughtful shopper",price:"2.99",label:"STARTER",limit:"20 analyses / month",description:"For building a routine you feel good about."},{id:"plus",name:"The comparison lover",price:"5.99",label:"PLUS",limit:"60 analyses / month",description:"For researching, comparing and exploring."}].map(plan => <div key={plan.id} className={`priceCard ${plan.id === "starter" ? "featuredPrice" : ""}`}><span className="priceTag">{plan.label}{plan.id === "starter" && " · GREAT VALUE"}</span><h3>{plan.name}</h3><p>{plan.description}</p><div className="price">€{plan.price}{plan.id !== "free" && <small>/ month</small>}</div><strong>{plan.limit}</strong><ul><li>Ingredient and formula insights</li><li>Online source & review research</li><li>Similar-product price comparisons</li></ul><button className="priceButton" disabled={billingBusy} onClick={() => { if (plan.id === "free") { if (account.accounts_enabled && !account.user) {setAuthError("");setAuthMode("signup");} else document.getElementById("analyze").scrollIntoView({behavior:"smooth"}); } else subscribe(plan.id); }}>{plan.id === "free" ? "Start exploring →" : billingBusy ? "Opening checkout…" : account.billing_enabled ? (account.billing_mode === "test" ? "Test " : "Choose ") + plan.label.toLowerCase() + " →" : "Notify me at launch →"}</button><small>{plan.id === "free" ? "No card required" : "Monthly subscription · cancel future renewal anytime"}</small></div>)}</div><p className="pricingNote">Paid analyses reset each billing month and do not roll over. Free analyses are a one-time allowance per account. {account.billing_enabled ? account.billing_mode === "test" ? "Stripe test mode: no real payments are collected." : "Payment is handled securely by Stripe." : "Paid plans are not open for purchase yet."}</p></section>
-    <section className="faqSection"><div className="sectionHeading"><span className="eyebrow">A FEW GOOD QUESTIONS</span><h2>Before you dive in.</h2></div><div className="faqList"><details><summary>Can I use it for any product?</summary><p>BuyWise currently focuses on skincare. Enter the product details and full ingredient list from its packaging.</p></details><details><summary>Will I always get a numerical score?</summary><p>You’ll get a formula and price assessment. A numerical score appears only when the scoring rules have enough information. Ingredient roles and customer reviews alone do not prove effectiveness.</p></details><details><summary>Do you actually search for reviews?</summary><p>Yes. We search for matching products and try to open review pages. Some retailers block access, and visible reviews may be only a small sample. Every retrieved rating includes its source.</p></details><details><summary>How do subscriptions work?</summary><p>Your first three analyses are free per account. Starter includes 20 analyses and Plus includes 60 per billing month. Paid plans renew monthly; you can manage or cancel renewal through the billing portal.</p></details><details><summary>Is this medical advice?</summary><p>No. BuyWise helps with product research and shopping decisions. It does not diagnose conditions or determine individual skin tolerance.</p></details></div></section>
+    <section className="faqSection"><div className="sectionHeading"><span className="eyebrow">A FEW GOOD QUESTIONS</span><h2>Before you dive in.</h2></div><div className="faqList"><details><summary>Can I use it for any product?</summary><p>BuyWise currently focuses on skincare. Enter the product details and full ingredient list from its packaging.</p></details><details><summary>Will I always get a numerical score?</summary><p>Every completed analysis includes a shopping score based on price and available customer ratings. When ratings are missing, it is clearly marked as a provisional price-only score. This score does not measure product effectiveness.</p></details><details><summary>Do you actually search for reviews?</summary><p>Yes. We search for matching products and try to open review pages. Some retailers block access, and visible reviews may be only a small sample. Every retrieved rating includes its source.</p></details><details><summary>How do subscriptions work?</summary><p>Your first three analyses are free per account. Starter includes 20 analyses and Plus includes 60 per billing month. Paid plans renew monthly; you can manage or cancel renewal through the billing portal.</p></details><details><summary>Is this medical advice?</summary><p>No. BuyWise helps with product research and shopping decisions. It does not diagnose conditions or determine individual skin tolerance.</p></details></div></section>
     <section className="waitlistSection" id="launch"><div><span className="eyebrow">KEEP IN THE LOOP</span><h2>Your next good buy<br/>starts here.</h2><p>Hear when accounts and paid plans open, plus new BuyWise features.</p></div><form className="waitlistForm" onSubmit={joinWaitlist}><label className="srOnly" htmlFor="launchEmail">Email address</label><input id="launchEmail" type="email" placeholder="Your email address" value={waitlistEmail} onChange={event => setWaitlistEmail(event.target.value)} required/><button className="primaryButton">Keep me posted ↗</button>{waitlistMessage && <p role="status">{waitlistMessage}</p>}</form></section>
     <footer><a className="logo" href="#"><Mark/>BuyWise<span>ai</span></a><p>A little clarity before you checkout.<br/><small>Product information, not medical advice.</small></p><a href="#pricing">Plans ↗</a></footer>
     {authMode && <div className="modalBackdrop" onClick={event => { if (event.target === event.currentTarget) setAuthMode(null); }}><section className="authModal" ref={modal} role="dialog" aria-modal="true" aria-labelledby="authTitle"><button className="closeModal" onClick={() => setAuthMode(null)} aria-label="Close">×</button><div className="logo"><Mark/>BuyWise<span>ai</span></div><h2 id="authTitle">{authMode === "signup" ? "Your next good buy starts here." : "Good to see you again."}</h2><p>{authMode === "signup" ? "Create an account for your 3 free analyses. No card needed." : "Sign in to continue exploring."}</p><form onSubmit={authenticate}><label>Email<input autoFocus type="email" name="email" autoComplete="email" required maxLength={254}/></label><label>Password<input type="password" name="password" minLength={10} maxLength={128} autoComplete={authMode === "signup" ? "new-password" : "current-password"} required/><small>At least 10 characters.</small></label>{authError && <p className="error" role="alert">{authError}</p>}<button className="submitButton" disabled={authBusy}>{authBusy ? "One moment…" : authMode === "signup" ? "Create my free account →" : "Sign in →"}</button></form><button className="authSwitch" onClick={() => {setAuthError("");setAuthMode(authMode === "signup" ? "login" : "signup");}}>{authMode === "signup" ? "Already have an account? Sign in" : "New here? Create a free account"}</button></section></div>}

@@ -219,7 +219,7 @@ export default function Home() {
             </div>
 
             <button type="submit" className="submitButton" disabled={loading}>
-              {loading ? "Analyzing..." : "Analyze product"}
+              {loading ? "Searching sources and analyzing..." : "Analyze product"}
             </button>
 
           </form>
@@ -275,7 +275,22 @@ export default function Home() {
                     <ul>{result.ingredient_roles.filter(item => !["aqua", "aqua (water)"].includes(item.ingredient.toLowerCase())).slice(0, 3).map(item => <li key={item.ingredient}><strong>{item.ingredient}:</strong> {item.role}</li>)}</ul>
                     <details><summary>All ingredient roles and sources</summary><ul>{result.ingredient_roles.map(item => <li key={item.ingredient}><strong>{item.ingredient}:</strong> {item.role} <a href={item.source} target="_blank" rel="noopener noreferrer">Source</a></li>)}</ul></details>
                   </>}
-                  {result.score == null && <details><summary>Why there is no numerical score</summary><p>The assessment above uses ingredient roles and the listed prices. A full efficacy rating needs stronger product evidence; missing review data is not a negative review.</p></details>}
+                  {result.score == null && <details><summary>Why there is no numerical score</summary><p>We searched for product information and ingredient studies. Finding sources does not automatically justify a numerical efficacy score; the evidence still needs to match the exact formula and claimed outcome.</p></details>}
+                </section>
+
+                <section className="insightCard" style={{ marginTop: 16 }}>
+                  <h4>What we found online</h4>
+                  {result.research_status === "retrieved" ? <>
+                    {(result.ai_report?.research_findings || []).map((finding, i) => {
+                      const source = result.research_sources?.[finding.source_index];
+                      return source ? <div key={i}><p><strong>{source.category === "ingredient_study" ? "Ingredient research" : "Product information"}:</strong> {finding.interpretation}</p><p><q>{finding.quote}</q> <a href={source.url} target="_blank" rel="noopener noreferrer">Source</a></p></div> : null;
+                    })}
+                    {result.retrieved_reviews && <p><strong>Customer feedback:</strong> {result.retrieved_reviews.rating}/5 from {result.retrieved_reviews.review_count} reviews. <a href={result.retrieved_reviews.source_url} target="_blank" rel="noopener noreferrer">Review source</a>. Consumer ratings are not clinical evidence.</p>}
+                    {!result.ai_report?.research_findings?.length && <p>Search results are available below. No supported AI interpretation was returned for this request.</p>}
+                    <details><summary>Retrieved sources ({result.research_sources?.length || 0})</summary>
+                      {(result.research_sources || []).map((source, i) => <div key={source.url}><p><a href={source.url} target="_blank" rel="noopener noreferrer"><strong>{source.title}</strong></a> · {source.category === "ingredient_study" ? "Ingredient study" : "Product search result"} · Retrieved {source.retrieved_at}</p><p>{source.excerpt.split(/\s+/).slice(0, 25).join(" ")}…</p></div>)}
+                    </details>
+                  </> : <p>{result.research_status === "no_results" ? "We searched but found no usable sources for this product." : result.research_status === "not_configured" ? "Online search is unavailable because the backend search key is not configured." : "Online search could not complete this time. Ingredient and price insights remain available; try again for research."}</p>}
                 </section>
 
                 <div className="alternatives">
@@ -300,7 +315,7 @@ export default function Home() {
                   {result.alternatives.some(item => item.price_eur != null) && <p className="microcopy">Manufacturer list prices may change. A similar active ingredient does not mean equal results.</p>}
                 </div>
 
-                <details className="methodology"><summary>How this assessment works</summary><p>{result.methodology}</p><p>AI uses entered details and a limited internal database. Similar products come from manufacturer pages checked on 6 October 2026; they are not ranked as better or cheaper.</p></details>
+                <details className="methodology"><summary>How this assessment works</summary><p>{result.methodology}</p><p>Online research searches product pages and ingredient studies. Search excerpts may be incomplete or outdated; linked sources show what was retrieved. Ingredient evidence, manufacturer claims and customer ratings are different kinds of information. Comparison prices were checked on 6 October 2026.</p></details>
               </div>
             )}
           </div>

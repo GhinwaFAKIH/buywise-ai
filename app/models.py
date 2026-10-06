@@ -56,5 +56,8 @@ class ProductAnalysis(BaseModel):
     recognition_coverage: float = 0
     ingredient_count: int = 0
     recognized_count: int = 0
+    research_sources: list[dict] = Field(default_factory=list)
+    research_status: str = "not_searched"
+    retrieved_reviews: dict | None = None
     ai_report: dict | None = None
     ai_status: str = "not_configured"

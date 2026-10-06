@@ -7,6 +7,7 @@ from app.extractor import ProductExtractionError, extract_product_from_url
 from app.models import ProductInput, ProductAnalysis
 from app.scoring import analyze_product
 from app.ai_report import explain_product
+from app.research import research_product, retrieve_reviews
 from app.url_models import ExtractedProduct, ProductUrlInput, WaitlistInput
 
 app = FastAPI(
@@ -58,7 +59,15 @@ def extract(payload: ProductUrlInput):
 
 @app.post("/analyze", response_model=ProductAnalysis)
 def analyze(product: ProductInput):
-    analysis = analyze_product(product)
+    sources, status = research_product(product)
+    reviews = retrieve_reviews(product, sources)
+    enriched = product
+    if reviews and product.rating is None and product.review_count is None:
+        enriched = product.model_copy(update={"rating": reviews["rating"], "review_count": reviews["review_count"]})
+    analysis = analyze_product(enriched)
+    analysis.research_sources = sources
+    analysis.research_status = status
+    analysis.retrieved_reviews = reviews
     analysis.ai_report, analysis.ai_status = explain_product(product, analysis)
     return analysis
 

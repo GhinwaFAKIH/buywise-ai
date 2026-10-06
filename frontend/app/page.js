@@ -13,6 +13,29 @@ function verdictClass(verdict) {
   return "verdict bad";
 }
 
+
+function buyingAssessment(result) {
+  const names = (result.ingredient_roles || []).map(item => item.ingredient.toLowerCase().trim());
+  const hasNiacinamide = names.includes("niacinamide");
+  const alternatives = (result.alternatives || []).filter(item => item.price_difference_percent != null);
+  const cheapest = alternatives.length > 0 && alternatives.every(item => item.price_difference_percent > 0);
+  const cheaper = alternatives.filter(item => item.price_difference_percent < 0);
+  const equal = alternatives.some(item => item.price_difference_percent === 0);
+  const formula = hasNiacinamide
+    ? "Worth considering if you are looking for a niacinamide serum: the entered formula includes niacinamide, commonly used in products targeting excess oil."
+    : names.length
+      ? "Some ingredient roles are identified, but there is not enough supported information to judge whether this formula meets your goal."
+      : "We cannot evaluate this formula yet because its ingredients are not covered by the current database.";
+  const price = cheapest
+    ? "Price advantage: your entered price is lower per ml than every listed comparison. Switching to these alternatives would cost more."
+    : cheaper.length
+      ? `Price check: ${cheaper.map(item => item.brand + " " + item.name).join(", ")} costs less per ml. Compare the full formulas before switching.`
+      : equal
+        ? "Price check: at least one listed comparison costs the same per ml, so price alone does not distinguish them."
+        : "Price check: no priced comparison is available, so we cannot tell whether this is competitive.";
+  return { title: hasNiacinamide && cheapest ? "Worth considering — price advantage" : cheaper.length ? "Compare before buying" : "Formula assessment", formula, price };
+}
+
 export default function Home() {
   const [form, setForm] = useState(initialForm);
   const [result, setResult] = useState(null);
@@ -104,6 +127,8 @@ export default function Home() {
     }
   }
 
+  const assessment = result ? buyingAssessment(result) : null;
+
   return (
     <main>
       <section className="hero">
@@ -117,7 +142,7 @@ export default function Home() {
           <h1>Is it actually <em>worth buying?</em></h1>
           <p className="lead">
             BuyWise AI looks at ingredients, product claims, price and customer feedback
-            to give you a transparent value score.
+            to help you understand the formula and compare its price.
           </p>
           <a className="primaryButton" href="#analyze">Check a product</a>
           <p className="microcopy">No sponsored rankings. No mystery score.</p>
@@ -242,19 +267,15 @@ export default function Home() {
                 </div>}
 
                 <section className="insightCard">
-                  {result.ai_report ? <>
-                    <p>{result.ai_report.summary}</p>
-                    
-                    
-                    <details><summary>Limits and next steps</summary>
-                      <ul>{[...result.ai_report.limitations.slice(0, 1), ...result.ai_report.next_steps.slice(0, 1)].map((note, i) => <li key={i}>{note}</li>)}</ul>
-                    </details>
-                  </> : <p>Compare the ingredient roles and prices below to decide whether this formula interests you.</p>}
+                  <h4>{assessment.title}</h4>
+                  <p><strong>Formula fit:</strong> {assessment.formula}</p>
+                  <p><strong>Value:</strong> {assessment.price}</p>
+                  <p><strong>Before buying:</strong> The ingredient list does not establish how well the finished product works or whether your skin will tolerate it.</p>
                   {result.ingredient_roles?.length > 0 && <>
                     <ul>{result.ingredient_roles.filter(item => !["aqua", "aqua (water)"].includes(item.ingredient.toLowerCase())).slice(0, 3).map(item => <li key={item.ingredient}><strong>{item.ingredient}:</strong> {item.role}</li>)}</ul>
                     <details><summary>All ingredient roles and sources</summary><ul>{result.ingredient_roles.map(item => <li key={item.ingredient}><strong>{item.ingredient}:</strong> {item.role} <a href={item.source} target="_blank" rel="noopener noreferrer">Source</a></li>)}</ul></details>
                   </>}
-                  {result.score == null && <small>No overall score: ingredient roles alone do not establish effectiveness. Claims and review data are still missing or limited.</small>}
+                  {result.score == null && <details><summary>Why there is no numerical score</summary><p>The assessment above uses ingredient roles and the listed prices. A full efficacy rating needs stronger product evidence; missing review data is not a negative review.</p></details>}
                 </section>
 
                 <div className="alternatives">
@@ -288,12 +309,12 @@ export default function Home() {
 
       <section className="howItWorks">
         <span className="eyebrow">HOW IT WORKS</span>
-        <h2>A score you can actually understand.</h2>
+        <h2>A buying assessment you can actually use.</h2>
         <div className="steps">
           <div><strong>01</strong><h3>Ingredients</h3><p>We check known ingredients against a structured knowledge base.</p></div>
           <div><strong>02</strong><h3>Evidence</h3><p>Claims are evaluated separately instead of being accepted at face value.</p></div>
           <div><strong>03</strong><h3>Value</h3><p>Price and quantity are normalized so expensive packaging does not hide poor value.</p></div>
-          <div><strong>04</strong><h3>Verdict</h3><p>The score is deterministic, and AI is used to explain rather than invent it.</p></div>
+          <div><strong>04</strong><h3>Verdict</h3><p>You get a short assessment of formula fit, comparative price and what remains uncertain.</p></div>
         </div>
       </section>
 
@@ -311,7 +332,7 @@ export default function Home() {
             <div className="price">€0</div>
             <ul>
               <li>3 product checks per month</li>
-              <li>BuyWise score and verdict</li>
+              <li>Formula and price assessment</li>
               <li>Ingredient and value breakdown</li>
             </ul>
             <a className="priceButton" href="#analyze">Try it free</a>

@@ -1,5 +1,6 @@
 from typing import List
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
+import re
 
 
 class ProductInput(BaseModel):
@@ -8,7 +9,13 @@ class ProductInput(BaseModel):
     price_eur: float = Field(gt=0)
     size_ml: float = Field(gt=0)
     ingredients: List[str]
-    claims: List[str] = []
+    @field_validator("ingredients", mode="before")
+    @classmethod
+    def split_ingredients(cls, value):
+        items = [value] if isinstance(value, str) else value
+        return [part.strip() for item in items for part in re.split(r"[,;\n]+", item) if part.strip()]
+
+    claims: List[str] = Field(default_factory=list)
     rating: float | None = Field(default=None, ge=0, le=5)
     review_count: int | None = Field(default=None, ge=0)
 
@@ -40,3 +47,5 @@ class ProductAnalysis(BaseModel):
     warnings: List[str]
     alternatives: List[Alternative]
     methodology: str
+    ai_report: dict | None = None
+    ai_status: str = "not_configured"

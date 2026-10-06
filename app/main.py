@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.extractor import ProductExtractionError, extract_product_from_url
 from app.models import ProductInput, ProductAnalysis
 from app.scoring import analyze_product
+from app.ai_report import explain_product
 from app.url_models import ExtractedProduct, ProductUrlInput, WaitlistInput
 
 app = FastAPI(
@@ -57,7 +58,9 @@ def extract(payload: ProductUrlInput):
 
 @app.post("/analyze", response_model=ProductAnalysis)
 def analyze(product: ProductInput):
-    return analyze_product(product)
+    analysis = analyze_product(product)
+    analysis.ai_report, analysis.ai_status = explain_product(product, analysis)
+    return analysis
 
 
 @app.post("/waitlist")

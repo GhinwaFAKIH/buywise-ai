@@ -34,11 +34,11 @@ export default function Home() {
       price_eur: Number(source.price_eur),
       size_ml: Number(source.size_ml),
       ingredients: source.ingredients
-        .split(",")
+        .split(/[,;\n]+/)
         .map((item) => item.trim())
         .filter(Boolean),
       claims: source.claims
-        .split(",")
+        .split(/[,;\n]+/)
         .map((item) => item.trim())
         .filter(Boolean),
       rating: source.rating === "" ? null : Number(source.rating),
@@ -168,7 +168,7 @@ export default function Home() {
                 rows="3"
                 required
               />
-              <small>Separate ingredients with commas.</small>
+              <small>Paste the full ingredient list; commas, semicolons and line breaks are accepted.</small>
             </label>
 
             <label>
@@ -212,6 +212,21 @@ export default function Home() {
 
             {result && (
               <div className="report">
+                <section className="insightCard">
+                  <h4>Product assessment</h4>
+                  {result.ai_report ? <>
+                    <p>{result.ai_report.summary}</p>
+                    <h4>Ingredient insights</h4>
+                    <ul>{result.ai_report.ingredient_notes.map((note, i) => <li key={i}>{note}</li>)}</ul>
+                    <h4>Price explained</h4>
+                    <p>{result.ai_report.value_explanation}</p>
+                    <h4>What remains uncertain</h4>
+                    <ul>{result.ai_report.limitations.map((note, i) => <li key={i}>{note}</li>)}</ul>
+                    <h4>Next steps</h4>
+                    <ul>{result.ai_report.next_steps.map((note, i) => <li key={i}>{note}</li>)}</ul>
+                    <small>AI explanation based on your inputs and a limited internal knowledge base. No live source verification.</small>
+                  </> : <p>{result.ai_status === "unavailable" ? "The AI explanation is temporarily unavailable. Your ingredient and price assessment is below." : "Ingredient and price assessment below. AI explanations are not enabled yet."}</p>}
+                </section>
                 <div className="reportHeader">
                   <div>
                     <span className="label">BUYWISE SCORE</span>

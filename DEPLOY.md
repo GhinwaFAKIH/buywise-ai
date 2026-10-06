@@ -56,3 +56,12 @@ Also verify:
 ## Notes
 
 Some retailer sites block automated requests from cloud servers. If a URL cannot be extracted, BuyWise will fall back to the editable product form. Retailer-specific integrations can be added over time.
+
+## Hosted AI explanations (Ollama Cloud)
+
+In Render → service → Environment, add:
+
+- `OLLAMA_API_KEY`: your Ollama Cloud key, kept on the backend only.
+- `OLLAMA_MODEL`: `gpt-oss:20b`, or a model available to your account.
+
+Save and deploy the latest commit. Never put the key in a NEXT_PUBLIC variable or GitHub. Model access and credits depend on your Ollama account; check pricing and usage limits. Product details are sent to Ollama when enabled. Without a key, or if the provider fails, rule-based analysis remains available. Explanations use entered data and the internal V1 knowledge base; no live scientific sources are retrieved.

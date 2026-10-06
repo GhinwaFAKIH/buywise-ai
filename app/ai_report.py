@@ -42,7 +42,6 @@ def explain_product(product, analysis):
             json={
                 "model": os.getenv("OLLAMA_MODEL", "gpt-oss:20b"),
                 "stream": False,
-                "format": "json",
                 "options": {"temperature": 0, "num_predict": 1200},
                 "messages": [
                     {"role": "system", "content": (
@@ -64,7 +63,10 @@ def explain_product(product, analysis):
             timeout=(5, 35),
         )
         response.raise_for_status()
-        report = AIReport.model_validate_json(response.json()["message"]["content"])
+        content = response.json()["message"]["content"].strip()
+        if content.startswith("```") and content.endswith("```"):
+            content = content.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+        report = AIReport.model_validate_json(content)
         return report.model_dump(), "generated"
     except requests.Timeout:
         logger.warning("BuyWise Ollama: request timed out")

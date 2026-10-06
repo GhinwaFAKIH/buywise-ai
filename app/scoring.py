@@ -1,7 +1,7 @@
 from statistics import mean
 import re
 
-from app.data import INGREDIENTS, SUPPORTED_CLAIMS, ALTERNATIVE_CATALOG
+from app.data import INGREDIENTS, SUPPORTED_CLAIMS, ALTERNATIVE_CATALOG, VERIFIED_ALTERNATIVES
 from app.models import (
     Alternative,
     ProductAnalysis,
@@ -102,33 +102,11 @@ def score_reviews(product: ProductInput) -> float | None:
     return round(rating_component * confidence + 60 * (1 - confidence), 1)
 
 
-def find_alternatives(product: ProductInput, final_score: float) -> list[Alternative]:
-    product_ingredients = {normalize(i) for i in product.ingredients}
-    alternatives = []
-
-    for item in ALTERNATIVE_CATALOG:
-        overlap = product_ingredients.intersection(item["ingredients"])
-
-        if not overlap:
-            continue
-
-        if item["price_eur"] >= product.price_eur and item["base_score"] <= final_score:
-            continue
-
-        alternatives.append(
-            Alternative(
-                name=item["name"],
-                brand=item["brand"],
-                price_eur=item["price_eur"],
-                score=item["base_score"],
-                reason=(
-                    f"Shares {', '.join(sorted(overlap))} and offers stronger value "
-                    f"at €{item['price_eur']:.2f}."
-                ),
-            )
-        )
-
-    return sorted(alternatives, key=lambda x: (-x.score, x.price_eur))[:3]
+def find_alternatives(product: ProductInput) -> list[Alternative]:
+    ingredients = {normalize(i) for i in product.ingredients}
+    return [Alternative(name=item["name"], brand=item["brand"], url=item["url"], reason=item["reason"])
+            for item in VERIFIED_ALTERNATIVES
+            if ingredients.intersection(item["ingredients"]) and normalize(item["brand"]) != normalize(product.brand)][:2]
 
 
 def verdict_for(score: float) -> str:
@@ -178,7 +156,7 @@ def analyze_product(product: ProductInput) -> ProductAnalysis:
         ),
         strengths=strengths[:6],
         warnings=warnings[:6],
-        alternatives=[],
+        alternatives=find_alternatives(product),
         methodology=(
             "Score = ingredients 35% + evidence 30% + value 20% + reviews 15%. "
             "Overall scoring requires 80% ingredient coverage, recognized claims and review data. Missing data gets no default score. Data confidence is not clinical certainty. These scores are V1 heuristics, not verified product-level evidence."

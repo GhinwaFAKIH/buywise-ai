@@ -13,7 +13,7 @@ class ProductInput(BaseModel):
     @classmethod
     def split_ingredients(cls, value):
         items = [value] if isinstance(value, str) else value
-        return [part.strip() for item in items for part in re.split(r"[,;\n]+", item) if part.strip()]
+        return [part.strip() for item in items for part in re.split(r"[,;\n]+|\.(?=\s|$)", item) if part.strip()]
 
     claims: List[str] = Field(default_factory=list)
     rating: float | None = Field(default=None, ge=0, le=5)
@@ -30,8 +30,9 @@ class ScoreBreakdown(BaseModel):
 class Alternative(BaseModel):
     name: str
     brand: str
-    price_eur: float
-    score: float
+    price_eur: float | None = None
+    score: float | None = None
+    url: str
     reason: str
 
 

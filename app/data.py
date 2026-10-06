@@ -77,3 +77,9 @@ ALTERNATIVE_CATALOG = [
         "base_score": 85.0,
     },
 ]
+
+# Manufacturer-listed comparison products, checked 2026-10-06. No efficacy ranking.
+VERIFIED_ALTERNATIVES = [
+    {"brand": "Geek & Gorgeous", "name": "B-Bomb", "ingredients": ["niacinamide", "zinc pca"], "url": "https://www.geekandgorgeous.fr/products/b-bomb", "reason": "Manufacturer lists 10% niacinamide and Zinc PCA. Compare its full formula and current price."},
+    {"brand": "The INKEY List", "name": "10% Niacinamide Serum", "ingredients": ["niacinamide", "hyaluronic acid"], "url": "https://eu.theinkeylist.com/products/niacinamide-serum", "reason": "Manufacturer lists 10% niacinamide and hyaluronic acid. Compare its full formula and current price."},
+]

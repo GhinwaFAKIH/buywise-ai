@@ -34,11 +34,11 @@ export default function Home() {
       price_eur: Number(source.price_eur),
       size_ml: Number(source.size_ml),
       ingredients: source.ingredients
-        .split(/[,;\n]+/)
+        .split(/[,;\n]+|\.(?=\s|$)/)
         .map((item) => item.trim())
         .filter(Boolean),
       claims: source.claims
-        .split(/[,;\n]+/)
+        .split(/[,;\n]+|\.(?=\s|$)/)
         .map((item) => item.trim())
         .filter(Boolean),
       rating: source.rating === "" ? null : Number(source.rating),
@@ -168,7 +168,7 @@ export default function Home() {
                 rows="3"
                 required
               />
-              <small>Paste the full ingredient list; commas, semicolons and line breaks are accepted.</small>
+              <small>Paste the full ingredient list; commas, full stops, semicolons and line breaks are accepted.</small>
             </label>
 
             <label>
@@ -212,41 +212,26 @@ export default function Home() {
 
             {result && (
               <div className="report">
-                <section className="insightCard">
-                  <h4>Product assessment</h4>
-                  {result.ai_report ? <>
-                    <p>{result.ai_report.summary}</p>
-                    <h4>Ingredient insights</h4>
-                    <ul>{result.ai_report.ingredient_notes.map((note, i) => <li key={i}>{note}</li>)}</ul>
-                    <h4>Price explained</h4>
-                    <p>{result.ai_report.value_explanation}</p>
-                    <h4>What remains uncertain</h4>
-                    <ul>{result.ai_report.limitations.map((note, i) => <li key={i}>{note}</li>)}</ul>
-                    <h4>Next steps</h4>
-                    <ul>{result.ai_report.next_steps.map((note, i) => <li key={i}>{note}</li>)}</ul>
-                    <small>AI explanation based on your inputs and a limited internal knowledge base. No live source verification.</small>
-                  </> : <p>{result.ai_status && result.ai_status !== "not_configured" ? "The AI explanation is temporarily unavailable. Your ingredient and price assessment is below." : "Ingredient and price assessment below. AI explanations are not enabled yet."}</p>}
-                </section>
                 <div className="reportHeader">
                   <div>
-                    <span className="label">BUYWISE SCORE</span>
+                    <span className="label">{result.score == null ? "PRODUCT ASSESSMENT" : "BUYWISE SCORE"}</span>
                     <h3>{result.product_name}</h3>
                   </div>
-                  <div className="scoreCircle">
-                    <strong>{result.score == null ? "—" : Math.round(result.score)}</strong>
+                  {result.score != null && <div className="scoreCircle">
+                    <strong>{Math.round(result.score)}</strong>
                     <span>/100</span>
-                  </div>
+                  </div>}
                 </div>
 
-                <div className={verdictClass(result.verdict)}>{result.verdict}</div>
+                {result.score != null && <div className={verdictClass(result.verdict)}>{result.verdict}</div>}
                 <p>Data confidence: <strong>{result.confidence || "Not assessed"}</strong>{result.ingredient_coverage != null && ` · Ingredient coverage: ${Math.round(result.ingredient_coverage * 100)}%`}</p>
                 <p className="priceNote">€{result.price_per_10ml.toFixed(2)} per 10 ml</p>
 
                 <div className="breakdown">
-                  {Object.entries(result.breakdown).map(([key, value]) => (
+                  {Object.entries(result.breakdown).filter(([, value]) => value != null).map(([key, value]) => (
                     <div className="metric" key={key}>
                       <div>
-                        <span>{key}</span>
+                        <span>{key === "ingredients" ? "Recognized ingredients (limited assessment)" : key === "value" ? "Price heuristic" : key}</span>
                         <strong>{value == null ? "Insufficient information" : Math.round(value)}</strong>
                       </div>
                       <div className="bar">
@@ -256,42 +241,38 @@ export default function Home() {
                   ))}
                 </div>
 
-                <div className="insightGrid">
-                  <div className="insightCard">
-                    <h4>✓ Strengths</h4>
-                    {result.strengths.length ? (
-                      <ul>{result.strengths.map((item) => <li key={item}>{item}</li>)}</ul>
-                    ) : <p>No major strengths detected yet.</p>}
-                  </div>
-
-                  <div className="insightCard warningCard">
-                    <h4>⚠ Watch out</h4>
-                    {result.warnings.length ? (
-                      <ul>{result.warnings.map((item) => <li key={item}>{item}</li>)}</ul>
-                    ) : <p>No major warnings detected.</p>}
-                  </div>
-                </div>
+                <section className="insightCard">
+                  {result.ai_report ? <>
+                    <p>{result.ai_report.summary}</p>
+                    <ul>{result.ai_report.ingredient_notes.slice(0, 3).map((note, i) => <li key={i}>{note}</li>)}</ul>
+                    <p>{result.ai_report.value_explanation}</p>
+                    <details><summary>Limits and next steps</summary>
+                      <ul>{[...result.ai_report.limitations.slice(0, 1), ...result.ai_report.next_steps.slice(0, 1)].map((note, i) => <li key={i}>{note}</li>)}</ul>
+                    </details>
+                  </> : <ul>{result.strengths.slice(0, 3).map((note, i) => <li key={i}>{note}</li>)}</ul>}
+                  {result.score == null && <small>Partial assessment: no overall buying score yet. Missing reviews do not prevent ingredient or price insights.</small>}
+                </section>
 
                 <div className="alternatives">
                   <div className="alternativesHeading">
-                    <span>BETTER VALUE</span>
-                    <h4>Possible alternatives</h4>
+                    <span>COMPARE</span>
+                    <h4>Similar products</h4>
                   </div>
                   {result.alternatives.length ? result.alternatives.map((item) => (
                     <div className="alternative" key={item.name}>
                       <div>
-                        <strong>{item.brand} {item.name}</strong>
+                        <a href={item.url} target="_blank" rel="noopener noreferrer"><strong>{item.brand} {item.name}</strong></a>
                         <p>{item.reason}</p>
                       </div>
                       <div className="alternativeMeta">
-                        <span>€{item.price_eur.toFixed(2)}</span>
-                        <strong>{Math.round(item.score)}/100</strong>
+                        <span>{item.price_eur != null ? `€${item.price_eur.toFixed(2)}` : "Check current price"}</span>
+                        {item.score != null && <strong>{Math.round(item.score)}/100</strong>}
                       </div>
                     </div>
                   )) : <p>No verified alternative available.</p>}
                 </div>
 
-                <p className="methodology">{result.methodology}</p>
+                <details className="methodology"><summary>How this assessment works</summary><p>{result.methodology}</p><p>AI uses entered details and a limited internal database. Similar products come from manufacturer pages checked on 6 October 2026; they are not ranked as better or cheaper.</p></details>
               </div>
             )}
           </div>

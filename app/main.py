@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.extractor import ProductExtractionError, extract_product_from_url
 from app.models import ProductInput, ProductAnalysis
+from app.comparison import ComparisonRequest, compare_products
 from app.scoring import analyze_product
 from app.ai_report import explain_product
 from app.research import research_product, retrieve_reviews
@@ -56,6 +57,11 @@ def extract(payload: ProductUrlInput):
         return ExtractedProduct(**data)
     except ProductExtractionError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+@app.post("/compare")
+def compare(payload: ComparisonRequest):
+    return compare_products(payload)
 
 
 @app.post("/analyze", response_model=ProductAnalysis)

@@ -1,7 +1,7 @@
 export const runtime = "nodejs";
 export const maxDuration = 60;
 
-const endpoints = new Set(["extract", "analyze", "waitlist", "signup", "login", "account", "logout", "checkout", "portal"]);
+const endpoints = new Set(["extract", "analyze", "compare", "waitlist", "signup", "login", "account", "logout", "checkout", "portal"]);
 
 export async function POST(request, { params }) {
   const { endpoint } = await params;

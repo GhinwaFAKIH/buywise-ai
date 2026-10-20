@@ -48,5 +48,5 @@ def compare_products(payload: ComparisonRequest) -> dict:
         "products": items,
         "lowest_unit_price_index": cheapest,
         "lowest_unit_price_product": items[cheapest]["name"],
-        "methodology": "Price per 10 ml is a unit-price comparison, not a quality ranking. Compare only similar products. Skincare scores use V1 heuristics; haircare and beauty efficacy scores are withheld pending validation.",
+        "methodology": f"Price per 10 {payload.products[0].unit} is a unit-price comparison, not a quality ranking. Compare only similar products. Skincare scores use V1 heuristics when measured in ml; haircare and beauty efficacy scores are withheld pending validation.",
     }

@@ -7,6 +7,7 @@ class CosmeticProduct(ProductInput):
     unit: Literal["ml", "g"] = "ml"
 
 from app.scoring import analyze_product
+from app.cosmetic_roles import describe_ingredients
 
 class ComparisonRequest(BaseModel):
     category: Literal["skincare", "haircare", "beauty"]
@@ -32,6 +33,7 @@ def compare_products(payload: ComparisonRequest) -> dict:
             "price_per_10ml": round(product.price_eur / product.size_ml * 10, 2),
             "unit": product.unit,
             "ingredient_count": len(product.ingredients),
+            "ingredient_insights": describe_ingredients(product.ingredients),
             "rating": product.rating,
             "review_count": product.review_count,
             "ingredient_coverage": analysis.ingredient_coverage if analysis else None,

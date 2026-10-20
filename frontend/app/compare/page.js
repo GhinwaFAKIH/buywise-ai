@@ -39,7 +39,7 @@ export default function ComparePage() {
         <h2 style={{fontSize:22,marginBottom:16}}>Product {i+1}</h2>
         <label style={{display:"block",marginBottom:12}}>Unit <select value={p.unit} onChange={e=>change(i,"unit",e.target.value)} style={{marginLeft:8,padding:8}}><option value="ml">ml</option><option value="g">g</option></select></label>
         {["brand","name","price_eur","size_ml","ingredients"].map(field=><label key={field} style={{display:"block",marginBottom:12}}>
-          <span style={{display:"block",textTransform:"capitalize",marginBottom:4}}>{field.replaceAll("_"," ")}{field==="size_ml"?` (${p.unit})`:""}</span>
+          <span style={{display:"block",textTransform:"capitalize",marginBottom:4}}>{field==="size_ml"?"Package size":field.replaceAll("_"," ")}{field==="size_ml"?` (${p.unit})`:""}</span>
           <input required={field!=="ingredients"} type={field==="price_eur"||field==="size_ml"?"number":"text"} min={field==="price_eur"||field==="size_ml"?"0.01":undefined} step="any" value={p[field]} onChange={e=>change(i,field,e.target.value)} style={{width:"100%",padding:10,border:"1px solid #ccc",borderRadius:8}}/>
         </label>)}
         {products.length>2&&<button type="button" onClick={()=>setProducts(v=>v.filter((_,j)=>j!==i))}>Remove</button>}

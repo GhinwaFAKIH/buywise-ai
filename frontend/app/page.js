@@ -76,9 +76,46 @@ export default function Home() {
   const assessment = result ? buyingAssessment(result) : null;
   const shopping = result ? (result.shopping_assessment?.score != null ? result.shopping_assessment : {score:result.breakdown.value,verdict:"PRICE CHECK ONLY",provisional:true,basis:"Price only — reviews not included",components:{"Unit-price heuristic":result.breakdown.value},methodology:"This provisional score uses internal unit-price bands. It does not assess effectiveness.",limits:"Price only; product effectiveness has not been scored."}) : null;
   return <main>
-    <nav className="topNav"><a href="#" className="logo"><Mark/>BuyWise<span>ai</span></a><div className="navLinks"><a href="#analyze">Analyze skincare</a><a href="/compare" className="compareNavHighlight">Compare beauty products ↗</a><a href="#how">How it works</a><a href="#pricing">Pricing</a></div><button className="navAccount" onClick={async () => { if (account.user) { await api("logout"); await refreshAccount(); } else if (account.accounts_enabled) { setAuthError(""); setAuthMode("login"); } else { document.getElementById("analyze").scrollIntoView({ behavior: "smooth" }); } }}>{account.user ? "Sign out" : account.accounts_enabled ? "Sign in" : "Try BuyWise ↗"}</button></nav>
-    <section className="hero referenceHero"><div className="heroContent"><span className="referenceEyebrow">BUYWISE AI · SMARTER BEAUTY CHOICES</span><h1>Your AI Beauty<br/>Shopping <em>Assistant</em></h1><p className="lead">Compare products, understand ingredients, and make smarter choices for your skin, hair and beauty routine.</p><div className="referenceHeroActions"><a className="primaryButton" href="#analyze">↗ Analyze a product</a><a className="referenceOutlineButton" href="/compare">⚖ Compare products</a></div><div className="referenceHeroTrust"><span>✧ Ingredient insights</span><span>♡ Evidence-aware guidance</span><span>✓ Transparent unit prices</span></div></div><div className="referenceHeroPicture referencePhotoHero" role="img" aria-label="Beauty portrait"><img className="referenceHeroModel" src="/download.webp" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/reference-beauty-girl.svg"; }} alt="High-resolution beauty model surrounded by skincare products" /><div className="referencePhotoTint"/><p>Real ingredients.<br/>Real insights.<br/>Smarter choices.</p></div></section><section className="referenceBenefits"><div><span>✧</span><strong>Ingredient Analysis</strong><small>Understand what's in your products</small></div><div><span>⚖</span><strong>Side-by-Side Comparison</strong><small>Compare 2–3 products easily</small></div><div><span>♡</span><strong>Shop Smarter</strong><small>Better value, better information</small></div><div><span>✿</span><strong>Skincare, Haircare & Beauty</strong><small>Your categories in one place</small></div></section>
-    <section className="beautyShowcase" aria-label="Explore beauty categories"><div className="beautyShowcaseHeader"><span>THE BEAUTY EDIT</span><h2>Everything your routine needs.</h2><p>Choose your category, then compare formulas and prices side by side.</p></div><div className="beautyShowcaseGrid"><a className="showcaseTile showcaseSkin" href="/compare?category=skincare"><div><span>01 / SKINCARE</span><h3>Skincare</h3><p>Serums, cleansers & moisturizers</p><strong>Explore →</strong></div><img className="showcasePhoto" src="/beauty-skin.svg" alt="" /></a><a className="showcaseTile showcaseHair" href="/compare?category=haircare"><div><span>02 / HAIRCARE</span><h3>Haircare</h3><p>Shampoos, masks & treatments</p><strong>Explore →</strong></div><img className="showcasePhoto" src="/beauty-hair.svg" alt="" /></a><a className="showcaseTile showcaseMakeup" href="/compare?category=beauty"><div><span>03 / BEAUTY</span><h3>Makeup</h3><p>Foundation, lipstick & more</p><strong>Explore →</strong></div><img className="showcasePhoto" src="/beauty-makeup.svg" alt="" /></a></div><HomeCompare/></section>
+    <nav className="topNav referenceTopNav">
+      <a href="#" className="logo referenceLogo"><span className="leafIcon" aria-hidden="true">❧</span><span className="logoWords">BuyWise AI<small>Smarter Beauty Choices</small></span></a>
+      <div className="navLinks referenceNavLinks"><a className="active" href="#">Home</a><a href="#compare-products">Compare</a><a href="#analyze">Analyze</a><a href="#beauty-categories">Categories⌄</a><a href="#how">Learn⌄</a><a href="#about">About</a></div>
+      <div className="referenceNavActions"><a className="navSearch" href="#analyze" aria-label="Search products">⌕</a><button className="navSignIn" onClick={() => {if(account.accounts_enabled){setAuthError("");setAuthMode("login");}else{document.getElementById("analyze")?.scrollIntoView({behavior:"smooth"});}}}>Sign In</button><a className="navGetStarted" href="#compare-products">Get Started</a></div>
+    </nav>
+    <section className="hero referenceHero exactHero">
+      <div className="heroContent exactHeroContent">
+        <h1>Your AI Beauty<br/>Shopping <em>Assistant</em></h1>
+        <p className="lead">Compare products, understand ingredients, and make smarter choices for your skin, hair and beauty routine.</p>
+        <form className="heroSearchBar" onSubmit={e=>{e.preventDefault();document.getElementById("analyze")?.scrollIntoView({behavior:"smooth"});}}>
+          <span aria-hidden="true">⌕</span><input aria-label="Search products, brands or ingredients" placeholder="Search for a product, brand or ingredient..." />
+          <button type="submit">⌕ Search</button>
+        </form>
+        <div className="heroOr"><span>or</span></div>
+        <div className="referenceHeroActions">
+          <a className="primaryButton heroPasteButton" href="#analyze"><span>↗</span><span>Paste a product link<small>Analyze from any online store</small></span></a>
+          <a className="referenceOutlineButton heroCompareButton" href="#compare-products"><span>▣</span><span>Compare products<small>See ingredients & value side by side</small></span></a>
+        </div>
+      </div>
+      <div className="referenceHeroPicture referencePhotoHero" role="img" aria-label="Beauty model with flowers and skincare products">
+        <img className="referenceHeroModel" src="/download.webp" onError={e=>{e.currentTarget.onerror=null;e.currentTarget.src="/reference-beauty-girl.svg";}} alt="Beauty model with skincare products and flowers"/>
+        <div className="referencePhotoTint" />
+        <p>Real Ingredients<br/>Real Insights<br/>Smarter Choices</p>
+      </div>
+    </section>
+    <section className="referenceBenefits exactBenefits" aria-label="BuyWise benefits">
+      <div><span>✧</span><strong>AI Ingredient Analysis</strong><small>Understand what's in your products</small></div>
+      <div><span>⚖</span><strong>Side-by-Side Comparison</strong><small>Compare 2–3 products easily</small></div>
+      <div><span>🛒</span><strong>Shop Smarter</strong><small>Better value, better ingredients</small></div>
+      <div><span>❧</span><strong>Skincare, Haircare & Beauty</strong><small>All your favorites in one place</small></div>
+      <div><span>♡</span><strong>Evidence-Based Insights</strong><small>Clear, unbiased information</small></div>
+    </section>
+    <section className="beautyShowcase referenceShowcase" id="beauty-categories" aria-label="Explore beauty categories">
+      <div className="beautyShowcaseGrid">
+        <a className="showcaseTile showcaseSkin" href="/compare?category=skincare"><div><h3>Skincare</h3><p>Cleansers, Serums,<br/>Moisturizers & More</p></div><img className="showcasePhoto" src="/beauty-skin.svg" alt="Skincare cream jar"/><span className="showcaseArrow">›</span></a>
+        <a className="showcaseTile showcaseHair" href="/compare?category=haircare"><div><h3>Haircare</h3><p>Shampoos, Conditioners,<br/>Treatments & More</p></div><img className="showcasePhoto" src="/beauty-hair.svg" alt="Haircare bottle"/><span className="showcaseArrow">›</span></a>
+        <a className="showcaseTile showcaseMakeup" href="/compare?category=beauty"><div><h3>Makeup & Beauty</h3><p>Foundations, Lipsticks,<br/>Mascaras & More</p></div><img className="showcasePhoto" src="/beauty-makeup.svg" alt="Makeup brushes"/><span className="showcaseArrow">›</span></a>
+      </div>
+      <HomeCompare />
+    </section>
     <div className="featureStrip"><span>SKINCARE · HAIRCARE · MAKEUP</span><i>✦</i><span>REAL SOURCE LINKS</span><i>✦</i><span>PRICE COMPARISONS</span><i>✦</i><span>REVIEW RESEARCH</span></div>
     {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice("")} aria-label="Dismiss notice">×</button></div>}
     <section className="analyzeSection" id="analyze"><div className="sectionHeading"><span className="eyebrow">MEET YOUR SHOPPING SIDEKICK</span><h2>What’s on your wishlist?</h2><p>Add the basics. We’ll look for product information, research and reviews.</p></div><div className="usageBanner">{account.user ? <><strong>{account.user.remaining} analyses left</strong><span>{account.user.plan === "free" ? "Your 3 free analyses" : `${account.user.plan} · ${account.user.limit} analyses per billing month`}</span><button onClick={refreshAccount}>Refresh account</button>{account.user.plan !== "free" && <button onClick={manageBilling} disabled={billingBusy}>Manage subscription</button>}</> : <><strong>{account.accounts_enabled ? "Your first 3 analyses are free" : "Try the public preview"}</strong><span>{account.accounts_enabled ? "Create an account to keep track of your analyses." : "Accounts and subscriptions are opening soon."}</span>{account.accounts_enabled && <button onClick={() => {setAuthError("");setAuthMode("signup");}}>Create free account →</button>}</>}</div>

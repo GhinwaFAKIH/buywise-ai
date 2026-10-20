@@ -32,3 +32,74 @@ body{background:#fffdfd}.topNav{background:#fff;padding-top:18px;padding-bottom:
 @media(max-width:1050px){.homeCompareGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.homeCompareTop{display:block}.homeCompareSteps{margin-top:15px;flex-wrap:wrap}}@media(max-width:680px){.homeCompareGrid{grid-template-columns:1fr}.homeCompare{padding:16px}.homeCompare h2{font-size:29px}}
 
 .referencePhotoHero{position:relative;overflow:hidden;background:#f5cbd8}.referenceHeroModel{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%}.referencePhotoTint{position:absolute;inset:0;background:linear-gradient(90deg,#f4d5d533,transparent 55%,#ffe1ec66);pointer-events:none}.referencePhotoHero>p{position:absolute;top:20px;right:16px;z-index:2;background:#ffe9e8aa;border-radius:12px;padding:10px;font-size:15px;color:#7b2b45;text-shadow:0 1px 3px #fff}
+
+
+/* Reference homepage design — October 2026 */
+:root{--referencePink:#fa477b;--referenceGreen:#0b3627}
+body{background:#fff;color:#10251e}
+.referenceTopNav{height:61px;max-width:none;padding:7px max(38px,4.2vw);gap:16px;box-shadow:0 1px 7px #17281f0d;position:relative;z-index:5}
+.referenceLogo{gap:10px;color:#11221e;flex:none;font-size:26px;letter-spacing:-1.2px;line-height:1}
+.referenceLogo .leafIcon{font-size:38px;line-height:1;color:#139e4f;font-weight:400}
+.referenceLogo .logoWords{background:transparent;color:#0e211a;padding:0;font-size:26px;display:flex;flex-direction:column;gap:1px;letter-spacing:-1.1px}
+.referenceLogo .logoWords small{font-size:10px;letter-spacing:0;font-weight:400;color:#65716c}
+.referenceNavLinks{display:flex;align-items:center;gap:15px;font-size:13px;font-weight:700}
+.referenceNavLinks a{padding:11px 16px;color:#14221a;border-radius:12px;white-space:nowrap}
+.referenceNavLinks a.active{color:#f43668;background:#ffe6ee;text-decoration:underline;text-underline-offset:4px}
+.referenceNavActions{display:flex;align-items:center;gap:12px;flex:none}
+.referenceNavActions>*{font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap}
+.referenceNavActions .navSearch{width:42px;height:42px;display:grid;place-items:center;border:1px solid #eaedf0;border-radius:50%;font-size:28px;background:white}
+.referenceNavActions .navSignIn{border:0;padding:12px 25px;border-radius:30px;color:#a32447;background:#ffcddb}
+.referenceNavActions .navGetStarted{padding:13px 29px;border-radius:30px;color:white;background:#0a3926}
+.exactHero{height:397px;min-height:397px;max-width:none;display:grid;grid-template-columns:50% 50%;align-items:stretch;gap:0;position:relative;overflow:hidden;padding:0;background:#f9e8e4}
+.exactHeroContent{position:relative;z-index:2;padding:28px 0 24px max(38px,6.5vw);max-width:755px}
+.exactHero h1{font-family:Georgia,'Times New Roman',serif;color:#0a3022;font-size:clamp(40px,4.15vw,62px);font-weight:700;line-height:.98;letter-spacing:-2.2px;margin:2px 0 13px;white-space:nowrap}
+.exactHero h1 em{color:#d82c58}
+.exactHero .lead{font-size:19px;line-height:1.25;color:#243630;max-width:590px;margin:0 0 20px}
+.exactHero .heroSearchBar{display:flex;align-items:center;gap:13px;background:white;border-radius:29px;padding:4px 4px 4px 19px;max-width:660px;width:calc(100% + 35px);box-shadow:0 4px 15px #38252225;position:relative;z-index:3}
+.heroSearchBar>span{font-size:29px;color:#455459;line-height:1}
+.heroSearchBar input{border:0;outline:0;background:transparent;min-width:0;width:100%;flex:1;font-size:14px;padding:10px 0;color:#1b3029}
+.heroSearchBar button{background:#fa477b;color:white;border:3px solid #ffdce7;border-radius:27px;padding:12px 29px;font-weight:700;font-size:14px}
+.heroOr{max-width:660px;width:calc(100% + 35px);display:flex;align-items:center;gap:10px;color:#40544b;font-size:12px;margin:9px 0}
+.heroOr:before,.heroOr:after{content:"";height:1px;flex:1;background:#bcc8c2}
+.exactHero .referenceHeroActions{display:flex;gap:18px;margin:0;max-width:660px;width:calc(100% + 35px)}
+.exactHero .referenceHeroActions a{display:flex;align-items:center;gap:14px;flex:1;padding:11px 18px;min-height:61px;border-radius:14px;font-size:13px;font-weight:800;line-height:1.1;text-decoration:none;justify-content:flex-start;white-space:nowrap}
+.exactHero .referenceHeroActions a>span:first-child{font-size:25px}
+.exactHero .referenceHeroActions small{display:block;font-size:11px;font-weight:500;margin-top:4px}
+.exactHero .heroPasteButton{background:#fb497d;color:white;box-shadow:0 4px 14px #ed426933}
+.exactHero .heroCompareButton{background:#fff9f9dc;color:#15251c;border:1px solid #ffc4d6;box-shadow:0 4px 11px #913b4b19}
+.exactHero .heroCompareButton>span:first-child{color:#eb4e7e}
+.exactHero .referenceHeroPicture{position:absolute;inset:0 0 0 39%;height:auto;width:61%;border:0;overflow:hidden;background:#f2d3c9;z-index:1}
+.exactHero .referenceHeroModel{height:100%;width:100%;object-fit:cover;object-position:center 42%}
+.exactHero .referencePhotoTint{background:linear-gradient(90deg,#f9edeae8 0%,#fff0ec7a 15%,transparent 32%)}
+.exactHero .referencePhotoHero>p{right:5%;top:34px;color:#773126;background:transparent;font-family:Georgia,serif;font-style:italic;font-size:20px;line-height:1.3;transform:rotate(-13deg);text-align:center}
+.exactBenefits{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));max-width:1500px;margin:auto;gap:10px;padding:17px max(28px,4.5vw) 15px;background:#fff}
+.exactBenefits>div{min-width:0;display:grid;grid-template-columns:53px minmax(0,1fr);grid-template-rows:auto auto;column-gap:11px;align-items:center}
+.exactBenefits>div>span{grid-row:1/3;border-radius:50%;height:49px;width:49px;display:grid;place-items:center;color:#f8457c;background:#fff0f4;font-size:28px;font-weight:400}
+.exactBenefits>div:nth-child(4)>span{background:#e9f7ef;color:#0a9d52}
+.exactBenefits strong{font-size:12px;font-weight:800;color:#16221c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.exactBenefits small{font-size:10px;color:#69726f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.referenceShowcase{max-width:none;padding:0 max(30px,4.2vw) 20px;margin:0 auto}
+.referenceShowcase .beautyShowcaseGrid{gap:18px}
+.referenceShowcase .showcaseTile{min-height:115px;border-radius:13px;padding:17px 24px}
+.referenceShowcase .showcaseTile h3{font-family:Georgia,serif;font-size:28px;color:#142820;margin:0 0 6px;line-height:1}
+.referenceShowcase .showcaseTile p{font-size:12px;color:#15231e;max-width:220px;line-height:1.45;margin:0}
+.referenceShowcase .showcasePhoto{position:absolute;height:150px;width:210px;right:0;bottom:-20px;object-fit:contain}
+.referenceShowcase .showcaseArrow{position:absolute;right:13px;bottom:13px;width:35px;height:35px;border-radius:50%;background:#fff;box-shadow:0 1px 8px #0002;display:grid;place-items:center;font-size:26px;color:#12271d;z-index:3}
+.referenceShowcase .showcaseSkin{background:linear-gradient(110deg,#dcebe1,#a0c5a9)}
+.referenceShowcase .showcaseHair{background:linear-gradient(110deg,#ffe2ed,#f8b0bf)}
+.referenceShowcase .showcaseMakeup{background:linear-gradient(110deg,#ffe4b8,#f9c59f)}
+.referenceShowcase .homeCompare{margin-top:17px;padding:17px 20px;background:linear-gradient(110deg,#fffafd,#faf8f9);border:1px solid #f8edf0;border-radius:17px}
+.referenceShowcase .homeCompareTop{align-items:center}
+.referenceShowcase .homeCompareEyebrow{display:none}
+.referenceShowcase .homeCompare h2{font-size:36px;color:#101e19;margin:0 0 3px}
+.referenceShowcase .homeCompare h2 span{font-size:11px;vertical-align:middle}
+.referenceShowcase .homeCompareTop p{font-size:13px}
+.referenceShowcase .homeCompareSteps{color:#2b493b;gap:25px}
+.referenceShowcase .homeCategory{margin:9px 0}
+.referenceShowcase .homeCompareGrid{gap:14px}
+.referenceShowcase .homeCompareCard{border-radius:13px;background:#fff;padding:14px}
+.referenceShowcase .homeCompareAdd{font-size:15px;min-height:160px}
+.referenceShowcase .homeCompareSubmit{padding:12px;background:linear-gradient(90deg,#ffe8ed,#facddd);color:#d14470;font-size:14px;margin-top:12px}
+@media(max-width:1180px){.referenceNavLinks{gap:0}.referenceNavLinks a{padding:10px}.referenceNavActions{gap:5px}.referenceNavActions .navSignIn,.referenceNavActions .navGetStarted{padding:11px 16px}.exactHeroContent{padding-left:5vw}.exactHero h1{font-size:clamp(35px,4.4vw,55px)}.exactHero .lead{font-size:16px;max-width:480px}.exactBenefits{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:12px}}
+@media(max-width:800px){.referenceTopNav{height:auto;flex-wrap:wrap;padding:12px 20px}.referenceNavLinks{order:3;width:100%;justify-content:center;overflow-x:auto}.referenceNavActions{margin-left:auto}.referenceNavActions .navSearch{display:none}.exactHero{height:auto;min-height:0;display:flex;flex-direction:column}.exactHeroContent{padding:30px 24px 15px;max-width:none}.exactHero h1{font-size:clamp(38px,7vw,60px);white-space:normal}.exactHero .heroSearchBar,.exactHero .heroOr,.exactHero .referenceHeroActions{width:100%}.exactHero .referenceHeroPicture{position:relative;inset:auto;width:100%;height:300px}.exactHero .referencePhotoTint{background:transparent}.exactBenefits{grid-template-columns:repeat(2,1fr);padding:15px 20px}.referenceShowcase{padding:0 18px 20px}.referenceShowcase .beautyShowcaseGrid{grid-template-columns:1fr}.referenceShowcase .showcaseTile{min-height:125px}.referenceShowcase .homeCompareTop{display:block}}
+@media(max-width:520px){.referenceLogo .logoWords{font-size:20px}.referenceNavActions .navSignIn{display:none}.referenceNavLinks a{padding:7px;font-size:11px}.exactHero .referenceHeroActions{flex-direction:column;gap:8px}.exactHero .lead{font-size:15px}.exactHero .heroSearchBar button{padding:11px 16px}.exactBenefits{grid-template-columns:1fr 1fr}.exactBenefits strong{font-size:10px}.exactBenefits small{font-size:9px}.referenceShowcase .homeCompare h2{font-size:29px}}

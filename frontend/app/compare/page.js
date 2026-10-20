@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 
-const blank = () => ({ name: "", brand: "", price_eur: "", size_ml: "", ingredients: "" });
+const blank = () => ({ name: "", brand: "", price_eur: "", size_ml: "", ingredients: "", unit: "ml" });
 export default function ComparePage() {
   const [category, setCategory] = useState("skincare");
   const [products, setProducts] = useState([blank(), blank()]);
@@ -18,7 +18,7 @@ export default function ComparePage() {
     try {
       const payload = { category, products: products.map(p => ({
         ...p, price_eur: Number(p.price_eur), size_ml: Number(p.size_ml),
-        ingredients: p.ingredients.split(/[,;\n]+/).map(s => s.trim()).filter(Boolean)
+        unit: p.unit, ingredients: p.ingredients.split(/[,;\n]+/).map(s => s.trim()).filter(Boolean)
       })) };
       const response = await fetch("/api/compare", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
       const data = await response.json();
@@ -37,8 +37,9 @@ export default function ComparePage() {
       <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(250px,1fr))",gap:16}}>
       {products.map((p,i)=><section key={i} style={{background:"white",padding:22,borderRadius:16,border:"1px solid #e4dfee"}}>
         <h2 style={{fontSize:22,marginBottom:16}}>Product {i+1}</h2>
+        <label style={{display:"block",marginBottom:12}}>Unit <select value={p.unit} onChange={e=>change(i,"unit",e.target.value)} style={{marginLeft:8,padding:8}}><option value="ml">ml</option><option value="g">g</option></select></label>
         {["brand","name","price_eur","size_ml","ingredients"].map(field=><label key={field} style={{display:"block",marginBottom:12}}>
-          <span style={{display:"block",textTransform:"capitalize",marginBottom:4}}>{field.replaceAll("_"," ")}{field==="size_ml"?" (ml)":""}</span>
+          <span style={{display:"block",textTransform:"capitalize",marginBottom:4}}>{field.replaceAll("_"," ")}{field==="size_ml"?` (${p.unit})`:""}</span>
           <input required={field!=="ingredients"} type={field==="price_eur"||field==="size_ml"?"number":"text"} min={field==="price_eur"||field==="size_ml"?"0.01":undefined} step="any" value={p[field]} onChange={e=>change(i,field,e.target.value)} style={{width:"100%",padding:10,border:"1px solid #ccc",borderRadius:8}}/>
         </label>)}
         {products.length>2&&<button type="button" onClick={()=>setProducts(v=>v.filter((_,j)=>j!==i))}>Remove</button>}
@@ -55,9 +56,9 @@ export default function ComparePage() {
       <p>Lowest unit price: <strong>{result.lowest_unit_price_product}</strong>. This does not mean it is the best product for you.</p>
       <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:16}}>
         {result.products.map((p,i)=><article key={i} style={{background:"white",padding:20,borderRadius:16,border:"1px solid #e4dfee"}}>
-          <h3>{p.name}</h3><p>€{p.price_eur.toFixed(2)} · {p.size_ml} ml</p>
-          <p><strong>€{p.price_per_10ml.toFixed(2)} / 10 ml</strong></p>
-          <p>Ingredients listed: {p.ingredient_count}</p>
+          <h3>{p.name}</h3><p>€{p.price_eur.toFixed(2)} · {p.size_ml} {p.unit}</p>
+          <p><strong>€{p.price_per_10ml.toFixed(2)} / 10 {p.unit}</strong></p>
+          <p>Ingredients listed: {p.ingredient_count}</p><p>Recognized ingredient roles: {p.ingredient_insights?.recognized?.length || 0}</p>{(p.ingredient_insights?.recognized || []).slice(0,5).map((item,j)=><p key={j} style={{fontSize:13}}><strong>{item.ingredient}</strong>: {item.role}</p>)}
           <p>{p.score==null?"Effectiveness not scored":`Existing skincare heuristic: ${p.score}/100`}</p>
           {(p.warnings||[]).slice(0,2).map((w,j)=><p key={j} style={{fontSize:13}}>{w}</p>)}
         </article>)}

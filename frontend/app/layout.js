@@ -1,5 +1,6 @@
 import "./globals.css";
 import { siteUrl } from "./site-url";
+import Script from "next/script";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -28,7 +29,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>{children}{process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN ? <Script defer data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN} src="https://plausible.io/js/script.js" strategy="afterInteractive" /> : null}</body>
     </html>
   );
 }

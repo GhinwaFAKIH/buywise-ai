@@ -31,6 +31,7 @@ export const guides = [
       }
     ],
     "affiliateUrl": "https://link.amazon/A0hGJNtvI",
+    "shoppingLinks": [{ "title": "The Ordinary Niacinamide 10% + Zinc 1%", "url": "https://link.amazon/A0hGJNtvI", "affiliate": true }],
     "relatedSlugs": [
       "niacinamide-vs-vitamin-c",
       "how-to-compare-skincare-prices",

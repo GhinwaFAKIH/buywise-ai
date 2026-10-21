@@ -125,3 +125,6 @@ body{background:#fff;color:#10251e}
 .guideFaq details{background:#fff9fb;border:1px solid #f0dce4;border-radius:12px;padding:16px 19px;margin:11px 0}
 .guideFaq summary{cursor:pointer;font-weight:750;color:#335a42;line-height:1.5}
 .guideFaq details p{margin:12px 0 0;font-size:15px}
+
+/* Quiet editorial sharing link */
+.guideShareButton{background:#fff4f7;border:1px solid #f2cfdb;color:#bd3566;border-radius:9px;padding:11px 17px;font:inherit;font-size:14px;font-weight:750;cursor:pointer;margin:5px 0 16px}.guideShareButton:hover{background:#fce8ef}.guideShareButton:focus-visible{outline:3px solid #3a7355;outline-offset:3px}

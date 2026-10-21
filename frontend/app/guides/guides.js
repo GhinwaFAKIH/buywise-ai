@@ -464,6 +464,22 @@ export const guides = [
   "category": "Product comparisons",
   "description": "An evidence-aware comparison of three niacinamide serums, with a repeatable value checklist instead of guessed discounts.",
   "sections": [
+{
+  "heading": "What we checked on the manufacturers' sites",
+  "body": "The Ordinary publishes a 10% niacinamide plus zinc PCA formula and warns that ingredient lists can change by purchase location. The INKEY List describes a 10% niacinamide serum with hyaluronic acid and lists glycerin, squalane, allantoin and panthenol among its formula ingredients. Geek & Gorgeous B-Bomb lists 10% niacinamide, zinc PCA and sarcosine and describes a thin gel texture. These are manufacturer statements, not independent head-to-head clinical tests."
+},
+{
+  "heading": "Which difference matters most?",
+  "body": "For shoppers who prefer zinc PCA as a supporting ingredient, The Ordinary and B-Bomb both list it. B-Bomb also lists sarcosine; The INKEY List instead emphasizes hydrating supporting ingredients. None is automatically superior: consider the complete INCI list, tolerance, your existing moisturizer and whether an extra serum is necessary."
+},
+{
+  "heading": "An original value comparison you can repeat",
+  "body": "Write down each product's actual Amazon checkout price, bottle size and shipping costs today. Calculate price per 10 ml as (total delivered price / volume in ml) × 10. For example, a fictional 30 ml serum costing €9 delivered is €3 per 10 ml. Do not mistake an illustrative calculation for a verified current deal."
+},
+{
+  "heading": "Sources checked and limits",
+  "body": "Official product pages reviewed: https://theordinary.com/fr-fr/niacinamide-10-zinc-1-serum-100436.html ; https://www.theinkeylist.com/products/niacinamide-serum ; https://geekandgorgeous.com/products/b-bomb . Brand descriptions establish what the brands say they sell, not proof that one option performs better than another. Verify the package for your country before buying."
+},
     {
       "heading": "Products covered",
       "body": "The Ordinary Niacinamide 10% + Zinc 1%; The INKEY List Niacinamide Serum; Geek & Gorgeous B-Bomb. These are examples for careful comparison, not a performance ranking."

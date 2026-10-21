@@ -35,8 +35,52 @@ export const guides = [
       "niacinamide-vs-vitamin-c",
       "how-to-compare-skincare-prices",
       "how-to-read-ingredient-lists"
+    ],
+    "comparison": {
+      "caption": "Illustrative comparison, not a clinical ranking",
+      "headers": [
+        "Factor",
+        "This serum",
+        "What to consider"
+      ],
+      "rows": [
+        [
+          "Ingredients",
+          "Niacinamide 10% + Zinc PCA",
+          "Check the whole formula"
+        ],
+        [
+          "Concentration",
+          "10% niacinamide",
+          "More is not always better"
+        ],
+        [
+          "Example cost",
+          "€7.95 / 30 ml = €2.65 per 10 ml",
+          "Verify current price"
+        ],
+        [
+          "Tolerance",
+          "Individual response varies",
+          "Consider sensitivity and existing routine"
+        ]
+      ]
+    },
+    "faq": [
+      {
+        "question": "Is 10% niacinamide better than 5%?",
+        "answer": "Not necessarily. Concentration alone does not establish better results or tolerance."
+      },
+      {
+        "question": "Does this replace acne treatment?",
+        "answer": "No. Cosmetic serum is not a substitute for appropriate acne treatment."
+      },
+      {
+        "question": "Is €7.95 the current price?",
+        "answer": "No. It is an illustrative example. Check the retailer for current pricing."
+      }
     ]
-  }
+  },
   {
     "slug": "niacinamide-vs-vitamin-c",
     "title": "Niacinamide vs Vitamin C: Which Fits Your Routine?",
@@ -73,8 +117,47 @@ export const guides = [
       "the-ordinary-niacinamide-10-zinc-1",
       "how-to-read-ingredient-lists",
       "how-to-compare-skincare-prices"
+    ],
+    "comparison": {
+      "caption": "Compare ingredient categories, not claims about specific products",
+      "headers": [
+        "Consideration",
+        "Niacinamide",
+        "Vitamin C"
+      ],
+      "rows": [
+        [
+          "Often used for",
+          "Barrier and oiliness-focused routines",
+          "Antioxidant and tone-focused routines"
+        ],
+        [
+          "Key formulation variable",
+          "Concentration and complete formula",
+          "Form, stability and packaging"
+        ],
+        [
+          "Buying checklist",
+          "Tolerance and price",
+          "Form, packaging, tolerance and price"
+        ]
+      ]
+    },
+    "faq": [
+      {
+        "question": "Can niacinamide and vitamin C be used together?",
+        "answer": "Many routines can include both; introduce products gradually and watch for irritation."
+      },
+      {
+        "question": "Which is best for dark spots?",
+        "answer": "Neither is universally best. The complete formulation and sunscreen use matter."
+      },
+      {
+        "question": "Do I need both serums?",
+        "answer": "Not necessarily. First check the products you already own."
+      }
     ]
-  }
+  },
   {
     "slug": "hyaluronic-acid-serums-guide",
     "title": "Hyaluronic Acid Serums: What Do They Really Do?",
@@ -241,8 +324,47 @@ export const guides = [
       "the-ordinary-niacinamide-10-zinc-1",
       "how-to-read-ingredient-lists",
       "niacinamide-vs-vitamin-c"
+    ],
+    "comparison": {
+      "caption": "Illustrative prices only; these are not current retail offers",
+      "headers": [
+        "Product example",
+        "Price / size",
+        "Cost per 10 ml"
+      ],
+      "rows": [
+        [
+          "Serum A",
+          "€7.95 / 30 ml",
+          "€2.65"
+        ],
+        [
+          "Serum B",
+          "€14 / 50 ml",
+          "€2.80"
+        ],
+        [
+          "Serum C",
+          "€12 / 60 ml",
+          "€2.00"
+        ]
+      ]
+    },
+    "faq": [
+      {
+        "question": "How do I calculate price per 10 ml?",
+        "answer": "Divide the price by the volume in ml, then multiply by 10."
+      },
+      {
+        "question": "Is cheapest per ml always best?",
+        "answer": "No. Compare ingredients, purpose, tolerance, packaging and expected use."
+      },
+      {
+        "question": "Can I compare grams and ml directly?",
+        "answer": "Not without knowing the density. Use comparable units."
+      }
     ]
-  }
+  },
   {
     "slug": "how-to-read-ingredient-lists",
     "title": "How to Read an INCI Ingredient List",

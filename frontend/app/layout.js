@@ -1,6 +1,9 @@
 import "./globals.css";
+import { siteUrl } from "./site-url";
 
 export const metadata = {
+  metadataBase: new URL(siteUrl),
+  alternates: { canonical: "/" },
   title: {
     default: "BuyWise AI | Is That Skincare Product Worth Buying?",
     template: "%s | BuyWise AI",

@@ -128,3 +128,5 @@ body{background:#fff;color:#10251e}
 
 /* Quiet editorial sharing link */
 .guideShareButton{background:#fff4f7;border:1px solid #f2cfdb;color:#bd3566;border-radius:9px;padding:11px 17px;font:inherit;font-size:14px;font-weight:750;cursor:pointer;margin:5px 0 16px}.guideShareButton:hover{background:#fce8ef}.guideShareButton:focus-visible{outline:3px solid #3a7355;outline-offset:3px}
+
+.guideShopLinks{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}.guideShopLinks a{display:inline-block;padding:12px 15px;border-radius:10px;background:#fff;color:#ae315f;border:1px solid #f1c6d7;font-weight:750;text-decoration:none;font-size:14px}.guideShopLinks a:hover{text-decoration:underline}

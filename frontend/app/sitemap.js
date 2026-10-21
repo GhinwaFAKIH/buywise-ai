@@ -6,6 +6,8 @@ export default function sitemap() {
     { url: siteUrl, changeFrequency: "weekly", priority: 1 },
     { url: `${siteUrl}/guides`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/shop`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${siteUrl}/about`, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${siteUrl}/methodology`, changeFrequency: "monthly", priority: 0.5 },
     ...guides.map(({ slug }) => ({
       url: `${siteUrl}/guides/${slug}`,
       changeFrequency: "monthly",

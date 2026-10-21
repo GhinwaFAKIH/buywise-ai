@@ -3,48 +3,78 @@ export const guides = [
     "slug": "the-ordinary-niacinamide-10-zinc-1",
     "title": "The Ordinary Niacinamide 10% + Zinc 1%: Is It Worth Buying?",
     "category": "Skincare",
-    "description": "A practical look at what niacinamide and zinc PCA can—and cannot—tell you about this popular serum.",
+    "description": "Is The Ordinary Niacinamide 10% + Zinc 1% worth buying? Compare ingredients, concentration, tolerance and a transparent price-per-10-ml example.",
     "sections": [
       {
-        "heading": "What is it?",
-        "body": "The Ordinary Niacinamide 10% + Zinc 1% is a water-based serum marketed for blemish-prone and oily-looking skin. Niacinamide is a form of vitamin B3; zinc PCA is commonly used in products intended for oiliness. The percentage on a label describes concentration, not a guarantee of results."
+        "heading": "Who might consider this serum?",
+        "body": "The Ordinary Niacinamide 10% + Zinc 1% is a water-based serum generally marketed for blemish-prone and oily-looking skin. It may interest shoppers looking for a niacinamide step, but whether it is worthwhile depends on the rest of your routine, sensitivity and budget. It is not a substitute for acne treatment when that is needed."
       },
       {
-        "heading": "What the ingredients suggest",
-        "body": "Niacinamide has research supporting roles in skin barrier function and the appearance of uneven tone. Zinc PCA is included in some oil-control formulations, but evidence for a finished product depends on the complete formula and how it is used. Humectants and stabilizers can also influence texture and tolerance."
+        "heading": "Niacinamide 10% versus lower concentrations",
+        "body": "Niacinamide (vitamin B3) is studied for skin barrier support and changes in the appearance of uneven tone. A 10% label tells you the concentration, not that the finished product is twice as effective as a 5% formula. Clinical evidence for an ingredient cannot automatically be transferred to every product containing it."
       },
       {
-        "heading": "Potential downsides",
-        "body": "A 10% niacinamide concentration is not automatically better than a lower one. Some people report stinging, redness or pilling, especially when layering products. Patch-test if your skin is reactive, and stop if irritation develops."
+        "heading": "What does Zinc PCA add?",
+        "body": "Zinc PCA is commonly included in formulas marketed for oily skin. Its presence does not establish how much sebum a finished serum will reduce. Humectants, solvents, preservatives and the complete formula influence texture, compatibility and comfort; see our ingredient-list guide for how to interpret INCI labels."
       },
       {
-        "heading": "Buying checklist",
-        "body": "Check the full current INCI list and size on the seller’s page. Compare cost per 10 ml, check return policies, and verify the seller rather than relying on a single review score. If you already use a niacinamide moisturizer, another high-strength serum may be unnecessary."
+        "heading": "Possible downsides before you buy",
+        "body": "High-strength niacinamide products can sting or feel irritating for some users, and layering several serums may cause pilling. Introduce a new product gradually, patch-test if your skin is reactive, and stop using it if irritation develops. Avoid assuming a trendy ingredient is necessary if your moisturizer already contains niacinamide."
+      },
+      {
+        "heading": "Example price comparison—not a live offer",
+        "body": "At an illustrative price of €7.95 for 30 ml, the unit price is €2.65 per 10 ml (€7.95 ÷ 30 × 10). This is an example, not a verified current retailer price. Compare today's price, bottle size, seller, shipping and return policies with similar formulas using our guide to skincare unit pricing."
+      },
+      {
+        "heading": "Verdict: is it worth buying?",
+        "body": "It may be reasonable if you want a dedicated niacinamide serum, tolerate the formulation and find a fair unit price. It is less compelling if you already use an equivalent product or your skin reacts to concentrated formulas. BuyWise AI can help organize ingredient and price information, but cannot predict your personal results."
       }
     ],
-    "affiliateUrl": "https://link.amazon/A0hGJNtvI"
-  },
+    "affiliateUrl": "https://link.amazon/A0hGJNtvI",
+    "relatedSlugs": [
+      "niacinamide-vs-vitamin-c",
+      "how-to-compare-skincare-prices",
+      "how-to-read-ingredient-lists"
+    ]
+  }
   {
     "slug": "niacinamide-vs-vitamin-c",
     "title": "Niacinamide vs Vitamin C: Which Fits Your Routine?",
     "category": "Ingredients",
-    "description": "Compare two common skincare ingredients without assuming that one is universally better.",
+    "description": "Niacinamide vs vitamin C for skincare: compare goals, formulation stability, layering and value before choosing a serum.",
     "sections": [
       {
-        "heading": "The big difference",
-        "body": "Niacinamide is often chosen for barrier support and oiliness concerns, while forms of vitamin C are frequently used in brightening or antioxidant-focused formulas. Product form, concentration and formulation affect performance."
+        "heading": "Niacinamide vs vitamin C: what is different?",
+        "body": "Niacinamide is a vitamin B3 derivative commonly used in barrier-support and oiliness-focused products. Vitamin C is an umbrella term that includes ascorbic acid and several derivatives, used in products marketed for antioxidant support and the appearance of uneven tone. The specific formula matters more than the headline ingredient name."
       },
       {
-        "heading": "Can you use both?",
-        "body": "Many people can use both in a routine. There is no general rule that modern niacinamide and vitamin C products cannot be layered, although sensitive skin may do better introducing one at a time."
+        "heading": "Which is better for your goal?",
+        "body": "If your priority is a simple routine focused on barrier comfort, a niacinamide-containing formula may be worth comparing. If your goal is a brightening-focused routine, look at the particular vitamin C form, concentration, formulation and packaging rather than assuming every vitamin C serum performs equally. Neither ingredient replaces sunscreen."
       },
       {
-        "heading": "Before buying",
-        "body": "Compare formulation type, packaging, fragrance and your existing routine. For sun-related pigmentation concerns, daily sunscreen is more important than relying on any single serum."
+        "heading": "Can niacinamide and vitamin C be used together?",
+        "body": "There is no blanket rule that modern niacinamide and vitamin C skincare cannot be used together. Many people use both, but introducing one new product at a time makes it easier to identify irritation. Consider the combined routine, especially if it also contains exfoliating acids or retinoids."
+      },
+      {
+        "heading": "How to compare two bottles fairly",
+        "body": "Compare price per 10 ml for products with similar uses, then review full INCI lists, packaging, fragrance, storage instructions and whether the ingredients overlap with products you own. For example, a €12 bottle of 30 ml costs €4 per 10 ml, while an €18 bottle of 60 ml costs €3 per 10 ml; these are illustrative numbers, not current offers."
+      },
+      {
+        "heading": "What the ingredient list cannot prove",
+        "body": "An INCI list helps identify ingredients but does not reveal every exact concentration, stability result or clinical performance outcome. Product claims should be weighed against available evidence. Read our ingredient-list guide, and compare our dedicated The Ordinary niacinamide buying guide if you are considering that product."
+      },
+      {
+        "heading": "Practical choice",
+        "body": "Start with your existing products and one concrete skin goal. A well-tolerated moisturizer and sunscreen may be a better purchase than adding two overlapping serums. If you do buy one, choose based on formula, budget and personal tolerability—not which ingredient is trending."
       }
     ],
-    "affiliateUrl": null
-  },
+    "affiliateUrl": null,
+    "relatedSlugs": [
+      "the-ordinary-niacinamide-10-zinc-1",
+      "how-to-read-ingredient-lists",
+      "how-to-compare-skincare-prices"
+    ]
+  }
   {
     "slug": "hyaluronic-acid-serums-guide",
     "title": "Hyaluronic Acid Serums: What Do They Really Do?",
@@ -175,23 +205,44 @@ export const guides = [
     "slug": "how-to-compare-skincare-prices",
     "title": "How to Compare Skincare Prices Fairly",
     "category": "Shopping tips",
-    "description": "Use unit pricing and evidence quality to make more useful beauty comparisons.",
+    "description": "Learn to compare serum and moisturizer prices using cost per 10 ml or 100 ml, with practical examples and a buying checklist.",
     "sections": [
       {
-        "heading": "Start with unit price",
-        "body": "For liquids, divide product price by volume and multiply by 10 to obtain a price per 10 ml. A €9 serum in a 30 ml bottle costs €3 per 10 ml; a €12 serum in 60 ml costs €2 per 10 ml."
+        "heading": "Why the sticker price can mislead",
+        "body": "A €10 serum is not automatically cheaper than a €15 serum: bottle size can change the comparison. Unit pricing gives a fairer starting point for similar product types and avoids judging value by the headline price alone."
       },
       {
-        "heading": "Unit price is not enough",
-        "body": "Check whether the products do the same job. Texture, delivery system, active ingredients, packaging, retailer reliability and skin tolerance can matter more than a few euros."
+        "heading": "How to calculate price per 10 ml",
+        "body": "Divide the price in euros by the number of millilitres, then multiply by 10. Formula: (price ÷ volume in ml) × 10. For example, €9 for 30 ml costs €3 per 10 ml; €12 for 60 ml costs €2 per 10 ml. Both prices are illustrative."
       },
       {
-        "heading": "Use BuyWise as a second opinion",
-        "body": "Run an ingredient and price analysis, look at supporting sources, and treat an insufficient-information result as a useful warning—not as a bad product verdict."
+        "heading": "Example: comparing two serums",
+        "body": "Imagine Serum A costs €7.95 for 30 ml: its unit price is €2.65 per 10 ml. Serum B costs €14 for 50 ml: its unit price is €2.80 per 10 ml. A is slightly cheaper per 10 ml, despite the lower total bottle size. Neither calculation tells you whether one formula will work better."
+      },
+      {
+        "heading": "When price per 100 ml is better",
+        "body": "For bigger bottles of cleanser, lotion or moisturizer, price per 100 ml may be easier to read: (price ÷ volume in ml) × 100. Compare products using the same units, and do not compare millilitres with grams as if they were identical without density information."
+      },
+      {
+        "heading": "Check what the unit price misses",
+        "body": "Compare products intended for similar uses and check ingredient lists, packaging, expiry guidance, retailer trust, delivery costs, refunds and how often you will use the formula. Concentrated formulas may use smaller amounts per application, so cost per use can sometimes be more relevant than cost per ml."
+      },
+      {
+        "heading": "A simple checklist before checkout",
+        "body": "Write down the product name, price, size, unit price, key ingredients, retailer and any missing evidence. Check whether you already own something with the same function. If available information is incomplete, delay a confident verdict rather than guessing."
+      },
+      {
+        "heading": "Compare the product with BuyWise AI",
+        "body": "Use BuyWise AI to review an ingredient list and price details together. Results depend on the information you provide and should be treated as shopping support rather than proof of product effectiveness. For a real example of how unit pricing informs a buying decision, read our The Ordinary niacinamide guide."
       }
     ],
-    "affiliateUrl": null
-  },
+    "affiliateUrl": null,
+    "relatedSlugs": [
+      "the-ordinary-niacinamide-10-zinc-1",
+      "how-to-read-ingredient-lists",
+      "niacinamide-vs-vitamin-c"
+    ]
+  }
   {
     "slug": "how-to-read-ingredient-lists",
     "title": "How to Read an INCI Ingredient List",

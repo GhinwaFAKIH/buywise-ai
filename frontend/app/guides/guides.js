@@ -31,7 +31,7 @@ export const guides = [
       }
     ],
     "affiliateUrl": "https://link.amazon/A0hGJNtvI",
-    "shoppingLinks": [{ "title": "The Ordinary Niacinamide 10% + Zinc 1%", "url": "https://link.amazon/A0hGJNtvI", "affiliate": true }],
+    "shoppingLinks": [{"title":"The Ordinary Niacinamide 10% + Zinc 1%","url":"https://link.amazon/A0hGJNtvI","affiliate":true}],
     "relatedSlugs": [
       "niacinamide-vs-vitamin-c",
       "how-to-compare-skincare-prices",
@@ -454,7 +454,8 @@ export const guides = [
     "the-ordinary-niacinamide-10-zinc-1",
     "how-to-compare-skincare-prices"
   ],
-  "affiliateUrl": null
+  "affiliateUrl": null,
+  "shoppingLinks": [{"title":"The Ordinary Niacinamide 10% + Zinc 1%","url":"https://link.amazon/A0hGJNtvI","affiliate":true},{"title":"The INKEY List Niacinamide Serum","url":"https://link.amazon/B02cDCxiY","affiliate":true}]
 },
 {
   "slug": "budget-niacinamide-serums-comparison",
@@ -526,7 +527,8 @@ export const guides = [
     "the-ordinary-vs-inkey-list-niacinamide",
     "how-to-compare-skincare-prices"
   ],
-  "affiliateUrl": null
+  "affiliateUrl": null,
+  "shoppingLinks": [{"title":"The Ordinary Niacinamide 10% + Zinc 1%","url":"https://link.amazon/A0hGJNtvI","affiliate":true},{"title":"The INKEY List Niacinamide Serum","url":"https://link.amazon/B02cDCxiY","affiliate":true},{"title":"Geek & Gorgeous B-Bomb","url":"https://link.amazon/B0cJvvkT1","affiliate":true}]
 },
 {
   "slug": "geek-and-gorgeous-b-bomb-vs-ordinary",
@@ -594,7 +596,8 @@ export const guides = [
     "budget-niacinamide-serums-comparison",
     "niacinamide-vs-vitamin-c"
   ],
-  "affiliateUrl": null
+  "affiliateUrl": null,
+  "shoppingLinks": [{"title":"Geek & Gorgeous B-Bomb","url":"https://link.amazon/B0cJvvkT1","affiliate":true},{"title":"The Ordinary Niacinamide 10% + Zinc 1%","url":"https://link.amazon/A0hGJNtvI","affiliate":true}]
 },
 {
   "slug": "the-ordinary-hyaluronic-acid-vs-hyalu-b5",
@@ -802,7 +805,8 @@ export const guides = [
     "budget-niacinamide-serums-comparison",
     "how-to-read-ingredient-lists"
   ],
-  "affiliateUrl": null
+  "affiliateUrl": null,
+  "shoppingLinks": [{"title":"The Ordinary Niacinamide 10% + Zinc 1%","url":"https://link.amazon/A0hGJNtvI","affiliate":true},{"title":"The INKEY List Niacinamide Serum","url":"https://link.amazon/B02cDCxiY","affiliate":true},{"title":"Geek & Gorgeous B-Bomb","url":"https://link.amazon/B0cJvvkT1","affiliate":true}]
 }
 ];
 export const getGuide = slug => guides.find(g => g.slug === slug);

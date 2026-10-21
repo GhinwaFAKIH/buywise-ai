@@ -165,6 +165,22 @@ export const guides = [
     "category": "Ingredients",
     "description": "Understand hydration claims, humectants and when a simple moisturizer is enough.",
     "sections": [
+{
+  "heading": "What The Ordinary lists",
+  "body": "The Ordinary's French Hyaluronic Acid 2% + B5 (with Ceramides) page lists several forms of sodium hyaluronate and hyaluronic acid, plus panthenol and glycerin, and describes a water-based hydrating serum. It is not interchangeable with the brand's older formula; check the packaging."
+},
+{
+  "heading": "What La Roche-Posay lists",
+  "body": "The French Hyalu B5 Sérum Suractivé product page describes four hyaluronic-acid forms and vitamin B5. Its published ingredient list also includes glycerin, alcohol denat., panthenol and fragrance. Formula details can differ by region and version, so do not generalize one listing to every Hyalu B5 product."
+},
+{
+  "heading": "An evidence-aware shopping test",
+  "body": "If your current moisturizer already feels comfortable and contains humectants, buying another hydrating serum might not add enough practical value to justify its price. Otherwise compare skin feel, ingredient preferences, your current routine and cost per 10 ml from the real delivered price."
+},
+{
+  "heading": "Manufacturer sources and limitations",
+  "body": "The Ordinary: https://theordinary.com/fr-fr/acide-hyaluronique-2-b5-serum-100637.html . La Roche-Posay France: https://www.laroche-posay.fr/gammes/visage/hyalu-b5/hyalu-b5-serum-suractive/3337875920568.html . Descriptions are from the brands; no independent head-to-head efficacy test or live price verification was performed."
+},
       {
         "heading": "How it works",
         "body": "Hyaluronic acid and sodium hyaluronate are humectants that help bind water. A serum may improve how hydrated skin feels, but results depend on the whole product and environment."
@@ -228,6 +244,22 @@ export const guides = [
     "category": "Ingredients",
     "description": "How barrier-friendly moisturizers work—and how to assess marketing claims.",
     "sections": [
+{
+  "heading": "CeraVe Moisturizing Cream: ingredient evidence",
+  "body": "The French CeraVe Baume Hydratant manufacturer page lists glycerin, petrolatum, ceramide NP/AP/EOP, sodium hyaluronate and cholesterol. It describes a rich fragrance-free face-and-body moisturizer for dry to very dry skin. These are label facts and manufacturer descriptions, not our own clinical test."
+},
+{
+  "heading": "What those ingredients mean in practice",
+  "body": "Glycerin and sodium hyaluronate are humectants; petrolatum and dimethicone can help limit moisture loss; ceramides and cholesterol are components relevant to barrier care. The final formula and texture matter more than the presence of one headline ingredient."
+},
+{
+  "heading": "Compare CeraVe fairly before buying",
+  "body": "Check whether you need a rich cream or a lighter lotion, then compare actual package sizes and delivered prices in your market. Jars sometimes list grams rather than millilitres: calculate price per 100 g for mass-labeled packs and per 100 ml for volume-labeled packs; do not equate them without density data."
+},
+{
+  "heading": "Official source and important limitation",
+  "body": "Manufacturer source: https://www.cerave.fr/nos-produits/hydratants/baume-hydratant . The brand notes its ingredient lists change, so use the packaging of the exact Amazon listing to confirm the variant. Buying links may earn BuyWise an affiliate commission but do not establish product superiority."
+},
       {
         "heading": "The basics",
         "body": "Ceramides are lipids naturally present in the skin barrier. Moisturizers may include ceramides alongside humectants and occlusives to help reduce dryness."
@@ -622,6 +654,18 @@ export const guides = [
   "category": "Product comparisons",
   "description": "Compare two hydration-focused serums by formula goals, texture, routine fit and unit price.",
   "sections": [
+{
+  "heading": "What differs in the listed formulas",
+  "body": "The Ordinary's French formula lists sodium hyaluronate, hydrolyzed hyaluronic acid, panthenol and glycerin, while the French La Roche-Posay Hyalu B5 Sérum Suractivé formula lists multiple hyaluronic-acid forms, panthenol, glycerin, alcohol denat. and fragrance. People who prefer to avoid fragrance or alcohol denat. should inspect the exact listing rather than infer universal tolerability."
+},
+{
+  "heading": "Which one is better value?",
+  "body": "Compare the total delivered price and actual bottle volume on the same day: cost per 10 ml = (delivered price / ml) × 10. Texture, compatibility with your moisturizer and the entire INCI list remain relevant. A lower unit price does not prove better outcomes."
+},
+{
+  "heading": "Official sources checked",
+  "body": "The Ordinary France: https://theordinary.com/fr-fr/acide-hyaluronique-2-b5-serum-100637.html . La Roche-Posay France: https://www.laroche-posay.fr/gammes/visage/hyalu-b5/hyalu-b5-serum-suractive/3337875920568.html . These reflect publicly listed formulations that may change; verify your local package. No independent comparative performance claim is made."
+},
     {
       "heading": "Products covered",
       "body": "The Ordinary Hyaluronic Acid 2% + B5 (with Ceramides); La Roche-Posay Hyalu B5 Serum. These are examples for careful comparison, not a performance ranking."
@@ -690,6 +734,18 @@ export const guides = [
   "category": "Skincare",
   "description": "Decide whether a separate HA serum adds value when you already use a moisturizer.",
   "sections": [
+{
+  "heading": "A three-question decision framework",
+  "body": "First, does your current moisturizer leave skin feeling comfortable? Second, are you buying the serum for a specific hydration need or because of a trend? Third, could a moisturizer with humectants and barrier-supporting ingredients cover the same goal in fewer steps?"
+},
+{
+  "heading": "Two examples, not universal winners",
+  "body": "The Ordinary Hyaluronic Acid 2% + B5 (with Ceramides) includes hyaluronic-acid forms, panthenol and glycerin. La Roche-Posay's French Hyalu B5 Sérum Suractivé lists hyaluronic-acid forms, panthenol, glycerin and fragrance. Their finished formulas and skin feel can differ; no product is automatically necessary."
+},
+{
+  "heading": "Where to verify ingredients",
+  "body": "The Ordinary: https://theordinary.com/fr-fr/acide-hyaluronique-2-b5-serum-100637.html . La Roche-Posay France: https://www.laroche-posay.fr/gammes/visage/hyalu-b5/hyalu-b5-serum-suractive/3337875920568.html . Check your exact product and buy only if the added step solves a meaningful problem."
+},
     {
       "heading": "Products covered",
       "body": "The Ordinary Hyaluronic Acid 2% + B5 (with Ceramides); La Roche-Posay Hyalu B5 Serum. These are examples for careful comparison, not a performance ranking."

@@ -241,7 +241,8 @@ export const guides = [
         "body": "Evaluate ingredients, size, cost per 100 ml and packaging. For eczema or persistent inflammation, seek individualized medical advice."
       }
     ],
-    "affiliateUrl": null
+    "affiliateUrl": null,
+    "shoppingLinks": [{"title":"CeraVe Moisturizing Cream","url":"https://link.amazon/B00om4HAe","affiliate":true}]
   },
   {
     "slug": "sulfate-free-shampoo-explained",

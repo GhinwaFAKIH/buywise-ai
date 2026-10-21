@@ -125,3 +125,49 @@ body{background:#fff;color:#10251e}
 .guideFaq details{background:#fff9fb;border:1px solid #f0dce4;border-radius:12px;padding:16px 19px;margin:11px 0}
 .guideFaq summary{cursor:pointer;font-weight:750;color:#335a42;line-height:1.5}
 .guideFaq details p{margin:12px 0 0;font-size:15px}
+
+/* Beauty Guides editorial browse experience */
+.guideFeatured{max-width:1180px;margin:48px auto 12px;padding:0 28px;display:grid;grid-template-columns:1.08fr .92fr;gap:0;min-height:330px}
+.guideFeaturedCopy{padding:45px 42px;background:#f9eef1;border:1px solid #f1dce4;border-radius:22px 0 0 22px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.guideEyebrow{font-size:11px;font-weight:850;letter-spacing:2px;color:#d83d6f}
+.guideFeaturedCopy h2{font-size:clamp(30px,3.5vw,47px);line-height:1.12;color:#183d2c;margin:17px 0}
+.guideFeaturedCopy p{line-height:1.7;color:#526b5b;font-size:15px;max-width:475px;margin:0 0 22px}
+.guideFeaturedLink,.guideBrowseCta>a{display:inline-block;background:#ed477b;border-radius:10px;padding:13px 20px;color:white;font-weight:750;text-decoration:none;font-size:14px}
+.guideFeaturedMedia{display:block;min-width:0;overflow:hidden;border-radius:0 22px 22px 0}
+.guideBrowse{max-width:1180px;margin:75px auto 65px;padding:0 28px}
+.guideBrowseTop{display:flex;gap:25px;justify-content:space-between;align-items:end}
+.guideBrowseTop h2{font-size:clamp(29px,3.7vw,42px);line-height:1.2;margin:9px 0}
+.guideBrowseTop p{color:#607568;font-size:15px}
+.guideSearch{flex:0 1 300px}.guideSearch input{width:100%;border:1px solid #e6cbd4;border-radius:11px;padding:14px 16px;background:#fff;font:inherit;outline-offset:3px;color:#193e2c}
+.guideFilters{display:flex;flex-wrap:wrap;gap:9px;margin:26px 0 14px}
+.guideFilters button,.guideEmpty button{border:1px solid #e6d3d9;color:#335a43;background:#fff;border-radius:999px;padding:10px 17px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.guideFilters button.isActive{background:#1c4932;border-color:#1c4932;color:#fff}
+.guideResultCount{font-size:13px;color:#718173;margin-bottom:8px}
+.guidesGrid--illustrated{padding:8px 0 0;grid-template-columns:repeat(3,minmax(0,1fr))}
+.guideTile--illustrated{padding:0;overflow:hidden;min-height:unset}
+.guideTileImage{display:block;overflow:hidden}
+.guideTileBody{padding:23px 25px 26px;display:flex;flex:1;flex-direction:column}
+.guideTileBody h3{font-size:23px;line-height:1.26;margin:13px 0 12px;color:#173e2b}
+.guideTileBody h3 a{color:inherit;text-decoration:none}
+.guideTileBody h3 a:hover,.guideReadLink:hover{text-decoration:underline}
+.guideTileBody p{font-size:14px;line-height:1.6;color:#607366;flex:1;margin:0 0 20px}
+.guideReadLink{font-weight:750;color:#d43a6c;text-decoration:none;font-size:14px}
+.guideArt{height:190px;position:relative;overflow:hidden;display:flex;justify-content:center;align-items:center;background:linear-gradient(145deg,#fff1f6,#e7f3eb)}
+.guideArt--featured{height:100%;min-height:330px}
+.guideArt--vitamins,.guideArt--acid{background:linear-gradient(135deg,#f9e8ef,#f2e2d7)}
+.guideArt--drops,.guideArt--cream{background:linear-gradient(135deg,#e1f3ec,#e7eff5)}
+.guideArt--price,.guideArt--ingredients{background:linear-gradient(135deg,#f4efdf,#f8e8e8)}
+.guideArt--bottle{background:linear-gradient(135deg,#e9f1ec,#f1e1e9)}
+.guideArtOrbit{position:absolute;border:1px solid #ffffffaa;border-radius:50%;width:290px;height:290px;transform:rotate(-24deg)}
+.guideArtOrbitOne{left:-60px;top:-165px}.guideArtOrbitTwo{right:-90px;bottom:-210px}
+.guideArtProduct{position:relative;display:flex;flex-direction:column;align-items:center;filter:drop-shadow(13px 15px 9px #1e503126)}
+.guideArtCap{width:70px;height:24px;background:linear-gradient(90deg,#f0f0e5,#fff,#c7d1c7);border-radius:7px 7px 1px 1px;border:1px solid #d3d8d1}
+.guideArtBottle{width:120px;height:128px;background:linear-gradient(110deg,#fffdf5,#fff,#e8f0e9);border:1px solid #dce5dc;border-radius:9px 9px 19px 19px;padding:18px 8px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#244c38;text-align:center}
+.guideArtBottle>span{font-size:8px;letter-spacing:1.5px;font-weight:750}.guideArtBottle>strong{font-size:17px;line-height:1.1}.guideArtBottle>em{font-size:9px;letter-spacing:1px;font-style:normal;color:#a33e67}
+.guideArt--featured .guideArtProduct{transform:scale(1.45)}
+.guideArtCorner{position:absolute;right:24px;top:18px;color:#cf7190;font-size:23px}
+.guideEmpty{text-align:center;padding:56px 20px;background:#fff4f7;border-radius:15px;color:#274d36}.guideEmpty p{color:#617267}
+.guideBrowseCta{max-width:1124px;margin:30px auto 50px;padding:35px 40px;border:1px solid #e7d3dc;border-radius:22px;background:linear-gradient(105deg,#fff0f4,#eaf5e9);display:flex;align-items:center;justify-content:space-between;gap:30px}
+.guideBrowseCta h2{font-size:30px;color:#19452f;margin:10px 0}.guideBrowseCta p{max-width:620px;color:#5e7665;line-height:1.6;margin:0}.guideBrowseCta>a{flex-shrink:0}
+@media(max-width:850px){.guideFeatured{grid-template-columns:1fr}.guideFeaturedCopy{border-radius:22px 22px 0 0}.guideFeaturedMedia{border-radius:0 0 22px 22px}.guideArt--featured{min-height:230px}.guidesGrid--illustrated{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.guideFeatured{padding:0 18px;margin-top:24px}.guideFeaturedCopy{padding:30px 25px}.guideBrowse{padding:0 18px;margin:45px auto}.guideBrowseTop{align-items:stretch;flex-direction:column}.guideSearch{flex:auto;width:100%}.guidesGrid--illustrated{grid-template-columns:1fr}.guideBrowseCta{margin:25px 18px;padding:27px 24px;display:block}.guideBrowseCta>a{margin-top:18px}}

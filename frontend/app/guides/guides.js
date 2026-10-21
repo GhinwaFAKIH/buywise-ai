@@ -386,5 +386,422 @@ export const guides = [
     ],
     "affiliateUrl": null
   }
+,
+{
+  "slug": "the-ordinary-vs-inkey-list-niacinamide",
+  "title": "The Ordinary vs The INKEY List Niacinamide: Which Should You Choose?",
+  "category": "Product comparisons",
+  "description": "Compare two 10% niacinamide serums by supporting ingredients, tolerance, packaging and cost per 10 ml.",
+  "sections": [
+    {
+      "heading": "Products covered",
+      "body": "The Ordinary Niacinamide 10% + Zinc 1%; The INKEY List Niacinamide Serum. These are examples for careful comparison, not a performance ranking."
+    },
+    {
+      "heading": "What the official product information says",
+      "body": "The Ordinary lists 10% niacinamide and zinc PCA in its water-based formula. The INKEY List lists 10% niacinamide alongside humectants including glycerin and hyaluronic acid."
+    },
+    {
+      "heading": "What actually matters when choosing",
+      "body": "Both highlight 10% niacinamide, but their supporting ingredients and textures are not identical. Choosing based only on the concentration ignores tolerability, finish and other routine steps."
+    },
+    {
+      "heading": "Compare the real checkout cost",
+      "body": "Check current price, bottle volume and shipping in your country. To compare prices fairly, calculate (price ÷ millilitres) × 10 for cost per 10 ml. Prices change, and a lower unit price does not guarantee a better product."
+    },
+    {
+      "heading": "Who might prefer each option?",
+      "body": "Compare whether you need a separate serum at all, then check complete ingredients, packaging, skin sensitivity and your existing routine. Patch-test according to manufacturer advice and stop if irritation occurs."
+    },
+    {
+      "heading": "Official product sources and verification",
+      "body": "Official product information: https://theordinary.com/fr-fr/niacinamide-10-zinc-1-serum-100436.html | https://www.theinkeylist.com/products/niacinamide-serum. Sources describe marketed formulations; review packaging for the batch and market you buy. These links are editorial references, not affiliate endorsements."
+    }
+  ],
+  "comparison": {
+    "caption": "Qualitative comparison only. Verify current ingredients, volume and checkout price on the official websites.",
+    "headers": [
+      "Product",
+      "Useful comparison point"
+    ],
+    "rows": [
+      [
+        "The Ordinary Niacinamide 10% + Zinc 1%",
+        "The Ordinary lists 10% niacinamide and zinc PCA in its water-based formula."
+      ],
+      [
+        "The INKEY List Niacinamide Serum",
+        "The INKEY List lists 10% niacinamide alongside humectants including glycerin and hyaluronic acid."
+      ]
+    ]
+  },
+  "faq": [
+    {
+      "question": "Which product is better?",
+      "answer": "There is no universal winner. The best fit depends on your goals, the complete formula, tolerance and real delivered cost."
+    },
+    {
+      "question": "Are these current retail prices?",
+      "answer": "No live price comparison is provided. Verify current prices with each seller and compare cost per 10 ml."
+    },
+    {
+      "question": "Can a percentage or ingredient list prove results?",
+      "answer": "No. Formula, use, individual response and quality of evidence all matter."
+    }
+  ],
+  "relatedSlugs": [
+    "the-ordinary-niacinamide-10-zinc-1",
+    "how-to-compare-skincare-prices"
+  ],
+  "affiliateUrl": null
+},
+{
+  "slug": "budget-niacinamide-serums-comparison",
+  "title": "Budget Niacinamide Serums: The Ordinary, The INKEY List and Geek & Gorgeous",
+  "category": "Product comparisons",
+  "description": "An evidence-aware comparison of three niacinamide serums, with a repeatable value checklist instead of guessed discounts.",
+  "sections": [
+    {
+      "heading": "Products covered",
+      "body": "The Ordinary Niacinamide 10% + Zinc 1%; The INKEY List Niacinamide Serum; Geek & Gorgeous B-Bomb. These are examples for careful comparison, not a performance ranking."
+    },
+    {
+      "heading": "What the official product information says",
+      "body": "The Ordinary pairs 10% niacinamide with zinc PCA. The INKEY List lists 10% niacinamide with hyaluronic acid among its ingredients. Geek & Gorgeous B-Bomb contains 10% niacinamide, zinc PCA and sarcosine and lists a 30 ml size."
+    },
+    {
+      "heading": "What actually matters when choosing",
+      "body": "These formulas overlap in their headline ingredient, but they are not interchangeable. Compare each complete INCI list, sensory preferences, stated size and regional checkout total."
+    },
+    {
+      "heading": "Compare the real checkout cost",
+      "body": "Check current price, bottle volume and shipping in your country. To compare prices fairly, calculate (price ÷ millilitres) × 10 for cost per 10 ml. Prices change, and a lower unit price does not guarantee a better product."
+    },
+    {
+      "heading": "Who might prefer each option?",
+      "body": "Compare whether you need a separate serum at all, then check complete ingredients, packaging, skin sensitivity and your existing routine. Patch-test according to manufacturer advice and stop if irritation occurs."
+    },
+    {
+      "heading": "Official product sources and verification",
+      "body": "Official product information: https://theordinary.com/fr-fr/niacinamide-10-zinc-1-serum-100436.html | https://www.theinkeylist.com/products/niacinamide-serum | https://geekandgorgeous.com/products/b-bomb. Sources describe marketed formulations; review packaging for the batch and market you buy. These links are editorial references, not affiliate endorsements."
+    }
+  ],
+  "comparison": {
+    "caption": "Qualitative comparison only. Verify current ingredients, volume and checkout price on the official websites.",
+    "headers": [
+      "Product",
+      "Useful comparison point"
+    ],
+    "rows": [
+      [
+        "The Ordinary Niacinamide 10% + Zinc 1%",
+        "The Ordinary pairs 10% niacinamide with zinc PCA."
+      ],
+      [
+        "The INKEY List Niacinamide Serum",
+        "The INKEY List lists 10% niacinamide with hyaluronic acid among its ingredients."
+      ],
+      [
+        "Geek & Gorgeous B-Bomb",
+        "Geek & Gorgeous B-Bomb contains 10% niacinamide, zinc PCA and sarcosine and lists a 30 ml size."
+      ]
+    ]
+  },
+  "faq": [
+    {
+      "question": "Which product is better?",
+      "answer": "There is no universal winner. The best fit depends on your goals, the complete formula, tolerance and real delivered cost."
+    },
+    {
+      "question": "Are these current retail prices?",
+      "answer": "No live price comparison is provided. Verify current prices with each seller and compare cost per 10 ml."
+    },
+    {
+      "question": "Can a percentage or ingredient list prove results?",
+      "answer": "No. Formula, use, individual response and quality of evidence all matter."
+    }
+  ],
+  "relatedSlugs": [
+    "the-ordinary-vs-inkey-list-niacinamide",
+    "how-to-compare-skincare-prices"
+  ],
+  "affiliateUrl": null
+},
+{
+  "slug": "geek-and-gorgeous-b-bomb-vs-ordinary",
+  "title": "Geek & Gorgeous B-Bomb vs The Ordinary Niacinamide: Formula and Value",
+  "category": "Product comparisons",
+  "description": "Two serums with 10% niacinamide and zinc PCA, compared without assuming identical performance.",
+  "sections": [
+    {
+      "heading": "Products covered",
+      "body": "Geek & Gorgeous B-Bomb; The Ordinary Niacinamide 10% + Zinc 1%. These are examples for careful comparison, not a performance ranking."
+    },
+    {
+      "heading": "What the official product information says",
+      "body": "B-Bomb lists 10% niacinamide, zinc PCA and sarcosine and a 30 ml size. The Ordinary lists 10% niacinamide and zinc PCA in its formula."
+    },
+    {
+      "heading": "What actually matters when choosing",
+      "body": "The shared headline ingredients are useful context, but the rest of the formula and personal tolerability matter. Check both up-to-date ingredient lists before purchase."
+    },
+    {
+      "heading": "Compare the real checkout cost",
+      "body": "Check current price, bottle volume and shipping in your country. To compare prices fairly, calculate (price ÷ millilitres) × 10 for cost per 10 ml. Prices change, and a lower unit price does not guarantee a better product."
+    },
+    {
+      "heading": "Who might prefer each option?",
+      "body": "Compare whether you need a separate serum at all, then check complete ingredients, packaging, skin sensitivity and your existing routine. Patch-test according to manufacturer advice and stop if irritation occurs."
+    },
+    {
+      "heading": "Official product sources and verification",
+      "body": "Official product information: https://geekandgorgeous.com/products/b-bomb | https://theordinary.com/fr-fr/niacinamide-10-zinc-1-serum-100436.html. Sources describe marketed formulations; review packaging for the batch and market you buy. These links are editorial references, not affiliate endorsements."
+    }
+  ],
+  "comparison": {
+    "caption": "Qualitative comparison only. Verify current ingredients, volume and checkout price on the official websites.",
+    "headers": [
+      "Product",
+      "Useful comparison point"
+    ],
+    "rows": [
+      [
+        "Geek & Gorgeous B-Bomb",
+        "B-Bomb lists 10% niacinamide, zinc PCA and sarcosine and a 30 ml size."
+      ],
+      [
+        "The Ordinary Niacinamide 10% + Zinc 1%",
+        "The Ordinary lists 10% niacinamide and zinc PCA in its formula."
+      ]
+    ]
+  },
+  "faq": [
+    {
+      "question": "Which product is better?",
+      "answer": "There is no universal winner. The best fit depends on your goals, the complete formula, tolerance and real delivered cost."
+    },
+    {
+      "question": "Are these current retail prices?",
+      "answer": "No live price comparison is provided. Verify current prices with each seller and compare cost per 10 ml."
+    },
+    {
+      "question": "Can a percentage or ingredient list prove results?",
+      "answer": "No. Formula, use, individual response and quality of evidence all matter."
+    }
+  ],
+  "relatedSlugs": [
+    "budget-niacinamide-serums-comparison",
+    "niacinamide-vs-vitamin-c"
+  ],
+  "affiliateUrl": null
+},
+{
+  "slug": "the-ordinary-hyaluronic-acid-vs-hyalu-b5",
+  "title": "The Ordinary Hyaluronic Acid vs La Roche-Posay Hyalu B5: How to Compare",
+  "category": "Product comparisons",
+  "description": "Compare two hydration-focused serums by formula goals, texture, routine fit and unit price.",
+  "sections": [
+    {
+      "heading": "Products covered",
+      "body": "The Ordinary Hyaluronic Acid 2% + B5 (with Ceramides); La Roche-Posay Hyalu B5 Serum. These are examples for careful comparison, not a performance ranking."
+    },
+    {
+      "heading": "What the official product information says",
+      "body": "The Ordinary describes a hyaluronic-acid and B5 formula that includes ceramides. La Roche-Posay's Hyalu B5 range focuses on hyaluronic acid and vitamin B5; product variants and formulations can vary by market."
+    },
+    {
+      "heading": "What actually matters when choosing",
+      "body": "These products focus on hydration, but the whole formulation, sensory experience and regional variants can differ. Neither label proves one product will hydrate every person better."
+    },
+    {
+      "heading": "Compare the real checkout cost",
+      "body": "Check current price, bottle volume and shipping in your country. To compare prices fairly, calculate (price ÷ millilitres) × 10 for cost per 10 ml. Prices change, and a lower unit price does not guarantee a better product."
+    },
+    {
+      "heading": "Who might prefer each option?",
+      "body": "Compare whether you need a separate serum at all, then check complete ingredients, packaging, skin sensitivity and your existing routine. Patch-test according to manufacturer advice and stop if irritation occurs."
+    },
+    {
+      "heading": "Official product sources and verification",
+      "body": "Official product information: https://theordinary.com/fr-fr/the-most-loved-collection-300128.html | https://www.laroche-posay.us/our-products/face/face-serum/hyalu-b5-pure-hyaluronic-acid-serum-hyaluB5serum.html. Sources describe marketed formulations; review packaging for the batch and market you buy. These links are editorial references, not affiliate endorsements."
+    }
+  ],
+  "comparison": {
+    "caption": "Qualitative comparison only. Verify current ingredients, volume and checkout price on the official websites.",
+    "headers": [
+      "Product",
+      "Useful comparison point"
+    ],
+    "rows": [
+      [
+        "The Ordinary Hyaluronic Acid 2% + B5 (with Ceramides)",
+        "The Ordinary describes a hyaluronic-acid and B5 formula that includes ceramides."
+      ],
+      [
+        "La Roche-Posay Hyalu B5 Serum",
+        "La Roche-Posay's Hyalu B5 range focuses on hyaluronic acid and vitamin B5; product variants and formulations can vary by market."
+      ]
+    ]
+  },
+  "faq": [
+    {
+      "question": "Which product is better?",
+      "answer": "There is no universal winner. The best fit depends on your goals, the complete formula, tolerance and real delivered cost."
+    },
+    {
+      "question": "Are these current retail prices?",
+      "answer": "No live price comparison is provided. Verify current prices with each seller and compare cost per 10 ml."
+    },
+    {
+      "question": "Can a percentage or ingredient list prove results?",
+      "answer": "No. Formula, use, individual response and quality of evidence all matter."
+    }
+  ],
+  "relatedSlugs": [
+    "hyaluronic-acid-serums-guide",
+    "how-to-compare-skincare-prices"
+  ],
+  "affiliateUrl": null
+},
+{
+  "slug": "is-hyaluronic-acid-serum-worth-it",
+  "title": "Is Hyaluronic Acid Serum Worth Buying or Is Moisturizer Enough?",
+  "category": "Skincare",
+  "description": "Decide whether a separate HA serum adds value when you already use a moisturizer.",
+  "sections": [
+    {
+      "heading": "Products covered",
+      "body": "The Ordinary Hyaluronic Acid 2% + B5 (with Ceramides); La Roche-Posay Hyalu B5 Serum. These are examples for careful comparison, not a performance ranking."
+    },
+    {
+      "heading": "What the official product information says",
+      "body": "Both product families promote hydration-focused ingredients. A moisturizer can already contain humectants and barrier-supporting ingredients; a separate serum is optional."
+    },
+    {
+      "heading": "What actually matters when choosing",
+      "body": "A standalone hydrating serum may be pleasant or useful in some routines, but it is not an essential purchase for everyone. Judge your existing moisturizer first."
+    },
+    {
+      "heading": "Compare the real checkout cost",
+      "body": "Check current price, bottle volume and shipping in your country. To compare prices fairly, calculate (price ÷ millilitres) × 10 for cost per 10 ml. Prices change, and a lower unit price does not guarantee a better product."
+    },
+    {
+      "heading": "Who might prefer each option?",
+      "body": "Compare whether you need a separate serum at all, then check complete ingredients, packaging, skin sensitivity and your existing routine. Patch-test according to manufacturer advice and stop if irritation occurs."
+    },
+    {
+      "heading": "Official product sources and verification",
+      "body": "Official product information: https://theordinary.com/fr-fr/the-most-loved-collection-300128.html | https://www.laroche-posay.us/our-products/face/face-serum/hyalu-b5-pure-hyaluronic-acid-serum-hyaluB5serum.html. Sources describe marketed formulations; review packaging for the batch and market you buy. These links are editorial references, not affiliate endorsements."
+    }
+  ],
+  "comparison": {
+    "caption": "Qualitative comparison only. Verify current ingredients, volume and checkout price on the official websites.",
+    "headers": [
+      "Product",
+      "Useful comparison point"
+    ],
+    "rows": [
+      [
+        "The Ordinary Hyaluronic Acid 2% + B5 (with Ceramides)",
+        "Both product families promote hydration-focused ingredients."
+      ],
+      [
+        "La Roche-Posay Hyalu B5 Serum",
+        "A moisturizer can already contain humectants and barrier-supporting ingredients; a separate serum is optional."
+      ]
+    ]
+  },
+  "faq": [
+    {
+      "question": "Which product is better?",
+      "answer": "There is no universal winner. The best fit depends on your goals, the complete formula, tolerance and real delivered cost."
+    },
+    {
+      "question": "Are these current retail prices?",
+      "answer": "No live price comparison is provided. Verify current prices with each seller and compare cost per 10 ml."
+    },
+    {
+      "question": "Can a percentage or ingredient list prove results?",
+      "answer": "No. Formula, use, individual response and quality of evidence all matter."
+    }
+  ],
+  "relatedSlugs": [
+    "the-ordinary-hyaluronic-acid-vs-hyalu-b5",
+    "ceramides-moisturizer-guide"
+  ],
+  "affiliateUrl": null
+},
+{
+  "slug": "niacinamide-serum-buying-checklist",
+  "title": "Niacinamide Serum Buying Checklist: 5% vs 10%, Ingredients and Value",
+  "category": "Shopping tips",
+  "description": "Compare concentration, supporting ingredients, fragrance preferences and actual unit cost before buying.",
+  "sections": [
+    {
+      "heading": "Products covered",
+      "body": "The Ordinary Niacinamide 10% + Zinc 1%; The INKEY List Niacinamide Serum; Geek & Gorgeous B-Bomb. These are examples for careful comparison, not a performance ranking."
+    },
+    {
+      "heading": "What the official product information says",
+      "body": "Several mainstream serums use 10% niacinamide, but identical headline concentrations do not mean identical formulas. Ingredient lists and concentrations do not establish comparative clinical effectiveness on their own."
+    },
+    {
+      "heading": "What actually matters when choosing",
+      "body": "Start with a specific skincare goal, review your current products, then compare the remaining formula and price. Avoid assuming higher percentages are always better."
+    },
+    {
+      "heading": "Compare the real checkout cost",
+      "body": "Check current price, bottle volume and shipping in your country. To compare prices fairly, calculate (price ÷ millilitres) × 10 for cost per 10 ml. Prices change, and a lower unit price does not guarantee a better product."
+    },
+    {
+      "heading": "Who might prefer each option?",
+      "body": "Compare whether you need a separate serum at all, then check complete ingredients, packaging, skin sensitivity and your existing routine. Patch-test according to manufacturer advice and stop if irritation occurs."
+    },
+    {
+      "heading": "Official product sources and verification",
+      "body": "Official product information: https://theordinary.com/fr-fr/niacinamide-10-zinc-1-serum-100436.html | https://www.theinkeylist.com/products/niacinamide-serum | https://geekandgorgeous.com/products/b-bomb. Sources describe marketed formulations; review packaging for the batch and market you buy. These links are editorial references, not affiliate endorsements."
+    }
+  ],
+  "comparison": {
+    "caption": "Qualitative comparison only. Verify current ingredients, volume and checkout price on the official websites.",
+    "headers": [
+      "Product",
+      "Useful comparison point"
+    ],
+    "rows": [
+      [
+        "The Ordinary Niacinamide 10% + Zinc 1%",
+        "Several mainstream serums use 10% niacinamide, but identical headline concentrations do not mean identical formulas."
+      ],
+      [
+        "The INKEY List Niacinamide Serum",
+        "Ingredient lists and concentrations do not establish comparative clinical effectiveness on their own."
+      ],
+      [
+        "Geek & Gorgeous B-Bomb",
+        "Check the complete product description and ingredient list."
+      ]
+    ]
+  },
+  "faq": [
+    {
+      "question": "Which product is better?",
+      "answer": "There is no universal winner. The best fit depends on your goals, the complete formula, tolerance and real delivered cost."
+    },
+    {
+      "question": "Are these current retail prices?",
+      "answer": "No live price comparison is provided. Verify current prices with each seller and compare cost per 10 ml."
+    },
+    {
+      "question": "Can a percentage or ingredient list prove results?",
+      "answer": "No. Formula, use, individual response and quality of evidence all matter."
+    }
+  ],
+  "relatedSlugs": [
+    "budget-niacinamide-serums-comparison",
+    "how-to-read-ingredient-lists"
+  ],
+  "affiliateUrl": null
+}
 ];
 export const getGuide = slug => guides.find(g => g.slug === slug);

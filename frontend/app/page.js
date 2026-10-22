@@ -165,6 +165,12 @@ export default function Home() {
                   <details><summary>What this score includes</summary><p>{shopping.methodology}</p><p>{shopping.limits}</p></details>
                 </section>
 
+                {result.semantic_evidence && <section className="insightCard" style={{ marginTop: 16 }}>
+                  <h4>Knowledge graph evidence</h4>
+                  <p>Matched ingredients and attributed product descriptions from BuyWise's curated semantic model. These are not clinical effectiveness ratings.</p>
+                  {result.semantic_evidence.findings?.length ? <ul>{result.semantic_evidence.findings.map((item,i)=><li key={item.entity_id+"-"+i}><strong>{item.entity}</strong> · {item.relation === "ingredient_match" ? "Ingredient linked" : "Manufacturer description"}<p>{item.statement}</p><small>{item.limitation} <a href={item.source_url} target="_blank" rel="noopener noreferrer">Source ↗</a></small></li>)}</ul> : <p>No curated graph match for the submitted labels. This does not imply a product is ineffective.</p>}
+                  <p><small>{result.semantic_evidence.disclaimer} <a href="/ontology">Explore the ontology ↗</a></small></p>
+                </section>}
                 <section className="insightCard" style={{ marginTop: 16 }}>
                   <h4>What we found online</h4>
                   {result.research_status === "retrieved" ? <>

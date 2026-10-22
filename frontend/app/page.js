@@ -101,6 +101,7 @@ export default function Home() {
         <p>Real Ingredients<br/>Real Insights<br/>Smarter Choices</p>
       </div>
     </section>
+    <section className="quickStart" aria-label="Choose what you want to do"><div className="quickStartHeader"><span className="eyebrow">START HERE</span><h2>What would you like to do?</h2><p>Choose one simple way to shop smarter.</p></div><div className="quickStartGrid"><a href="#analyze" className="quickStartItem"><span className="quickStartIcon" aria-hidden="true">✦</span><strong>Check ingredients</strong><span>Understand a product's formula</span><b>Analyze a product →</b></a><a href="/compare-skincare-products" className="quickStartItem"><span className="quickStartIcon" aria-hidden="true">⚖</span><strong>Compare products</strong><span>See differences side by side</span><b>Start comparing →</b></a><a href="/calculator" className="quickStartItem"><span className="quickStartIcon" aria-hidden="true">€</span><strong>Compare prices</strong><span>Calculate the cost per 10 ml</span><b>Open free calculator →</b></a></div></section>
     <section className="referenceBenefits exactBenefits" aria-label="BuyWise benefits">
       <div><span>✧</span><strong>AI Ingredient Analysis</strong><small>Understand what's in your products</small></div>
       <div><span>⚖</span><strong>Side-by-Side Comparison</strong><small>Compare 2–3 products easily</small></div>

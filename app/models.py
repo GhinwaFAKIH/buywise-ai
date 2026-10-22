@@ -62,3 +62,4 @@ class ProductAnalysis(BaseModel):
     retrieved_reviews: dict | None = None
     ai_report: dict | None = None
     ai_status: str = "not_configured"
+    semantic_evidence: dict = Field(default_factory=dict)

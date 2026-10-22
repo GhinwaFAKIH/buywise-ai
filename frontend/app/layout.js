@@ -1,6 +1,7 @@
 import "./globals.css";
 import { siteUrl } from "./site-url";
 import Script from "next/script";
+import { organization, website, serializeJsonLd } from "./lib/semantic";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -29,7 +30,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}<Script src="https://plausible.io/js/pa-ZHzIkDdDGIs2X6vtpTUuF.js" strategy="afterInteractive" /><Script id="plausible-init" strategy="afterInteractive">{`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()`}</Script></body>
+      <body><script type="application/ld+json" dangerouslySetInnerHTML={{__html:serializeJsonLd({"@context":"https://schema.org","@graph":[organization,website]})}}/>{children}<Script src="https://plausible.io/js/pa-ZHzIkDdDGIs2X6vtpTUuF.js" strategy="afterInteractive" /><Script id="plausible-init" strategy="afterInteractive">{`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()`}</Script></body>
     </html>
   );
 }

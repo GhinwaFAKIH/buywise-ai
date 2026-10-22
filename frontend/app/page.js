@@ -83,7 +83,7 @@ export default function Home() {
     </nav>
     <section className="hero referenceHero exactHero">
       <div className="heroContent exactHeroContent">
-        <h1>Your AI Beauty<br/>Shopping <em>Assistant</em></h1>
+        <h1>Compare Skincare Products<br/><em>Before You Buy</em></h1>
         <p className="lead">Compare products, understand ingredients, and make smarter choices for your skin, hair and beauty routine.</p>
         <form className="heroSearchBar" onSubmit={e=>{e.preventDefault();document.getElementById("analyze")?.scrollIntoView({behavior:"smooth"});}}>
           <span aria-hidden="true">⌕</span><input aria-label="Search products, brands or ingredients" placeholder="Search for a product, brand or ingredient..." />

@@ -78,7 +78,7 @@ export default function Home() {
   return <main>
     <nav className="topNav referenceTopNav">
       <a href="#" className="logo referenceLogo"><span className="leafIcon" aria-hidden="true">❧</span><span className="logoWords">BuyWise AI<small>Smarter Beauty Choices</small></span></a>
-      <div className="navLinks referenceNavLinks"><a className="active" href="#">Home</a><a href="#compare-products">Compare</a><a href="#analyze">Analyze</a><a href="#beauty-categories">Categories⌄</a><a href="/guides">Beauty Guides</a><a href="/compare-skincare-products">Compare Skincare</a><a href="/shop">Shop & Compare</a><a href="/calculator">Price Calculator</a><a href="#how">Learn⌄</a><a href="#about">About</a></div>
+      <div className="navLinks referenceNavLinks"><a href="/skin">Skincare</a><a href="/hair">Haircare</a><a href="/makeup">Makeup</a><a href="#analyze">Analyze</a><a href="/calculator">Price calculator</a></div>
       <div className="referenceNavActions"><a className="navSearch" href="#analyze" aria-label="Search products">⌕</a><button className="navSignIn" onClick={() => {if(account.accounts_enabled){setAuthError("");setAuthMode("login");}else{document.getElementById("analyze")?.scrollIntoView({behavior:"smooth"});}}}>Sign In</button><a className="navGetStarted" href="#pricing">View Plans</a></div>
     </nav>
     <section className="hero referenceHero exactHero">
@@ -102,7 +102,8 @@ export default function Home() {
       </div>
     </section>
     <section className="quickStart" aria-label="Choose what you want to do"><div className="quickStartHeader"><span className="eyebrow">START HERE</span><h2>What would you like to do?</h2><p>Choose one simple way to shop smarter.</p></div><div className="quickStartGrid"><a href="#analyze" className="quickStartItem"><span className="quickStartIcon" aria-hidden="true">✦</span><strong>Check ingredients</strong><span>Understand a product's formula</span><b>Analyze a product →</b></a><a href="/compare-skincare-products" className="quickStartItem"><span className="quickStartIcon" aria-hidden="true">⚖</span><strong>Compare products</strong><span>See differences side by side</span><b>Start comparing →</b></a><a href="/calculator" className="quickStartItem"><span className="quickStartIcon" aria-hidden="true">€</span><strong>Compare prices</strong><span>Calculate the cost per 10 ml</span><b>Open free calculator →</b></a></div></section>
-    <section className="referenceBenefits exactBenefits" aria-label="BuyWise benefits">
+    <section className="categoryLanding" aria-label="Explore beauty"><div className="categoryLandingHeading"><h2>Explore beauty your way</h2><p>Simple tips, photos and products to discover.</p></div><div className="categoryLandingGrid"><a href="/skin"><img src="/beauty-skin.svg" alt="Skincare products"/><h3>Skincare</h3><p>Serums & moisturizers</p><strong>Explore skin →</strong></a><a href="/hair"><img src="/beauty-hair.svg" alt="Haircare products"/><h3>Haircare</h3><p>Shampoo, oils & more</p><strong>Explore hair →</strong></a><a href="/makeup"><img src="/beauty-makeup.svg" alt="Makeup products"/><h3>Makeup</h3><p>Glow, primers & more</p><strong>Explore makeup →</strong></a></div></section>
+<section className="referenceBenefits exactBenefits" aria-label="BuyWise benefits">
       <div><span>✧</span><strong>AI Ingredient Analysis</strong><small>Understand what's in your products</small></div>
       <div><span>⚖</span><strong>Side-by-Side Comparison</strong><small>Compare 2–3 products easily</small></div>
       <div><span>🛒</span><strong>Shop Smarter</strong><small>Better value, better ingredients</small></div>

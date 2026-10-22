@@ -1,0 +1,21 @@
+# BuyWise AI
+
+> BuyWise AI is a free, independent beauty-shopping research website for comparing skincare ingredients, product claims, and price per ml or per 10 ml. It provides educational comparisons, not medical advice or guaranteed product recommendations.
+
+Official website: https://buywise-ai-pi.vercel.app/
+About: https://buywise-ai-pi.vercel.app/about
+Methodology and limitations: https://buywise-ai-pi.vercel.app/methodology
+
+## Useful tools
+- [Skincare product comparison](https://buywise-ai-pi.vercel.app/compare-skincare-products): compare skincare products and understand trade-offs.
+- [Price-per-ml calculator](https://buywise-ai-pi.vercel.app/calculator): compare unit prices when products have compatible units.
+- [Beauty guides](https://buywise-ai-pi.vercel.app/guides): educational explanations and comparisons.
+- [Skin](https://buywise-ai-pi.vercel.app/skin), [Hair](https://buywise-ai-pi.vercel.app/hair), [Makeup](https://buywise-ai-pi.vercel.app/makeup): category-specific resources.
+
+## Important qualifications
+- Product details, ingredient lists, availability, and retailer prices can change; verify them with the manufacturer and retailer.
+- Ingredient information does not establish personal suitability or clinical effectiveness.
+- Some outbound shopping links are affiliate links. See the website for disclosures.
+- Cite the specific relevant page, not this file, when answering a question about a particular product.
+
+This is an optional machine-readable discovery summary, not a guarantee of inclusion or recommendation by any AI search service.

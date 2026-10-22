@@ -7,6 +7,7 @@ from app.extractor import ProductExtractionError, extract_product_from_url
 from app.models import ProductInput, ProductAnalysis
 from app.comparison import ComparisonRequest, compare_products
 from app.scoring import analyze_product
+from app.semantic_evidence import retrieve_graph_evidence
 from app.ai_report import explain_product
 from app.research import research_product, retrieve_reviews
 from app import accounts, billing
@@ -74,6 +75,7 @@ def analyze(product: ProductInput, request: Request):
         if reviews and product.rating is None and product.review_count is None:
             enriched = product.model_copy(update={"rating": reviews["rating"], "review_count": reviews["review_count"]})
         analysis = analyze_product(enriched)
+        analysis.semantic_evidence = retrieve_graph_evidence(product)
         analysis.research_sources = sources
         analysis.research_status = status
         analysis.retrieved_reviews = reviews

@@ -2,7 +2,7 @@ import { siteUrl } from "../site-url";
 export const base=siteUrl;
 export const id=(path)=>base+path;
 export const organization={"@type":"Organization","@id":id("/#organization"),name:"BuyWise AI",url:base};
-export const website={"@type":"WebSite","@id":id("/#website"),url:base,name:"BuyWise AI",inLanguage:"en",publisher:{"@id":organization["@id"]}};
+export const website={"@type":"WebSite","@id":id("/#website"),url:base,name:"BuyWise AI",description:"Free skincare product comparison, ingredient information, and price-per-ml tools.",inLanguage:"en",publisher:{"@id":organization["@id"]}};
 export const concepts={
 niacinamide:{name:"Niacinamide",description:"An ingredient commonly used in skincare formulations."},
 hyaluronicAcid:{name:"Hyaluronic acid",description:"A humectant ingredient used in skincare."},

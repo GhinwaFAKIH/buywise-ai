@@ -7,17 +7,17 @@ export const metadata = {
   metadataBase: new URL(siteUrl),
   alternates: { canonical: "/" },
   title: {
-    default: "BuyWise AI | Is That Skincare Product Worth Buying?",
+    default: "Compare Skincare Products & Ingredients Online | BuyWise AI",
     template: "%s | BuyWise AI",
   },
-  description: "Compare skincare ingredients, product claims and price per ml before you buy. Explore practical beauty guides and try a free BuyWise AI product analysis.",
+  description: "Compare skincare products side by side, check ingredients and calculate price per ml. Explore free skincare comparison tools and ingredient guides on BuyWise AI.",
   applicationName: "BuyWise AI",
   keywords: ["skincare product comparison", "skincare ingredient checker", "beauty product value", "price per ml skincare", "BuyWise AI"],
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     siteName: "BuyWise AI",
-    title: "BuyWise AI | Compare Skincare Before You Buy",
+    title: "Compare Skincare Products Online | BuyWise AI",
     description: "Explore skincare ingredients, compare prices and understand product trade-offs with BuyWise AI.",
   },
   twitter: {

@@ -8,6 +8,7 @@ export default function sitemap() {
     { url: `${siteUrl}/calculator`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${siteUrl}/shop`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/about`, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${siteUrl}/ontology`, changeFrequency: "monthly", priority: 0.5 },
     { url: `${siteUrl}/methodology`, changeFrequency: "monthly", priority: 0.5 },
     ...guides.map(({ slug }) => ({
       url: `${siteUrl}/guides/${slug}`,

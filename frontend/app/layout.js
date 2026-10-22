@@ -7,7 +7,7 @@ export const metadata = {
   metadataBase: new URL(siteUrl),
   alternates: { canonical: "/" },
   title: {
-    default: "Compare Skincare Products & Ingredients Online | BuyWise AI",
+    default: "Skincare Ingredient & Price Comparison | BuyWise AI",
     template: "%s | BuyWise AI",
   },
   description: "Compare skincare products side by side, check ingredients and calculate price per ml. Explore free skincare comparison tools and ingredient guides on BuyWise AI.",
@@ -17,7 +17,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     siteName: "BuyWise AI",
-    title: "Compare Skincare Products Online | BuyWise AI",
+    title: "Skincare Ingredient & Price Comparison | BuyWise AI",
     description: "Explore skincare ingredients, compare prices and understand product trade-offs with BuyWise AI.",
   },
   twitter: {

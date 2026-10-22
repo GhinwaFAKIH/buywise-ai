@@ -179,3 +179,18 @@ body{font-size:17px;line-height:1.7}
 .illus-product-comparisons{background:linear-gradient(135deg,#f7e6f0,#f2e8da)}
 .miniFigure{display:flex;align-items:end;gap:7px;position:absolute;right:20px;bottom:22px;height:44px}.miniFigure i{width:13px;height:18px;border-radius:4px;background:#d48ba6;opacity:.5}.miniFigure i:nth-child(2){height:32px;background:#7ea78b}.miniFigure i:nth-child(3){height:42px}
 @media(max-width:680px){body{font-size:16px}.lead{font-size:18px}.guideTileIllustration{height:116px}.guideFilter{justify-content:flex-start}.referenceBenefits small{font-size:13px}}
+
+.quickStart{max-width:1190px;margin:16px auto 45px;padding:24px 26px}
+.quickStartHeader{text-align:center;margin-bottom:25px}
+.quickStartHeader h2{font-size:clamp(27px,3vw,39px);color:#294c38;margin:9px 0}
+.quickStartHeader p{font-size:18px;margin:0}
+.quickStartGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.quickStartItem{background:#fff;border:1px solid #e8dfe2;border-radius:19px;padding:27px;display:flex;flex-direction:column;gap:11px;text-decoration:none;transition:transform .15s ease,border-color .15s ease}
+.quickStartItem:hover{transform:translateY(-3px);border-color:#8bad92}
+.quickStartIcon{display:flex;align-items:center;justify-content:center;width:65px;height:65px;border-radius:17px;background:#f9e3ea;color:#a9436d;font-size:36px}
+.quickStartItem:nth-child(2) .quickStartIcon{background:#e8f3e9;color:#397a55}
+.quickStartItem:nth-child(3) .quickStartIcon{background:#f4eddc;color:#976e38}
+.quickStartItem strong{font-size:23px;line-height:1.3;color:#234c35}
+.quickStartItem>span:not(.quickStartIcon){font-size:16px;line-height:1.5;color:#637569}
+.quickStartItem b{margin-top:13px;font-size:15px;color:#b93c6b}
+@media(max-width:750px){.quickStartGrid{grid-template-columns:1fr}.quickStartItem{padding:20px}.quickStart{padding:18px}}

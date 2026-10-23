@@ -79,7 +79,7 @@ export default function Home() {
     <nav className="topNav referenceTopNav">
       <a href="#" className="logo referenceLogo"><span className="leafIcon" aria-hidden="true">❧</span><span className="logoWords">GHINÉVA<small>Smarter Beauty Choices</small></span></a>
       <div className="navLinks referenceNavLinks"><a href="/skin">Skincare</a><a href="/hair">Haircare</a><a href="/makeup">Makeup</a><a href="#analyze">Analyze</a><a href="/calculator">Price calculator</a></div>
-      <div className="referenceNavActions"><a className="navSearch" href="#analyze" aria-label="Search products">⌕</a><button className="navSignIn" onClick={() => {if(account.accounts_enabled){setAuthError("");setAuthMode("login");}else{document.getElementById("analyze")?.scrollIntoView({behavior:"smooth"});}}}>Sign In</button><a className="navGetStarted" href="#pricing">View Plans</a></div>
+      <div className="referenceNavActions"><a href="/" lang="en" aria-current="page">EN</a><a href="/fr" lang="fr" hrefLang="fr">FR</a><a className="navSearch" href="#analyze" aria-label="Search products">⌕</a><button className="navSignIn" onClick={() => {if(account.accounts_enabled){setAuthError("");setAuthMode("login");}else{document.getElementById("analyze")?.scrollIntoView({behavior:"smooth"});}}}>Sign In</button><a className="navGetStarted" href="#pricing">View Plans</a></div>
     </nav>
     <section className="hero referenceHero exactHero">
       <div className="heroContent exactHeroContent">

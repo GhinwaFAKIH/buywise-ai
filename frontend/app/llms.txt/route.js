@@ -2,9 +2,9 @@ import {siteUrl} from "../site-url";
 export const dynamic = "force-static";
 export function GET(){
  const text = [
- "# BuyWise AI",
+ "# GHINÉVA",
  "",
- "> BuyWise AI helps shoppers understand skincare ingredients, compare cosmetic product information, and calculate unit prices. It provides general educational guidance, not personal dermatological advice or real-time price guarantees.",
+ "> GHINÉVA helps shoppers understand skincare ingredients, compare cosmetic product information, and calculate unit prices. It provides general educational guidance, not personal dermatological advice or real-time price guarantees.",
  "",
  "Website: "+siteUrl,
  "",
@@ -20,7 +20,7 @@ export function GET(){
  "",
  "## Editorial information",
  "- [Comparison methodology]("+siteUrl+"/methodology)",
- "- [About BuyWise AI]("+siteUrl+"/about)",
+ "- [About GHINÉVA]("+siteUrl+"/about)",
  "- [All beauty guides]("+siteUrl+"/guides)",
  "- [Linked product data]("+siteUrl+"/knowledge-graph.jsonld)",
  "- [Skincare ontology]("+siteUrl+"/ontology.jsonld)",
@@ -29,7 +29,7 @@ export function GET(){
  "- Manufacturer ingredient lists and prices may change; verify labels and current seller listings.",
  "- Example price calculations are not live retailer prices.",
  "- Links to Amazon may be affiliate links and are identified as such on relevant pages.",
- "- BuyWise is not a medical provider and does not guarantee outcomes.",
+ "- GHINÉVA is not a medical provider and does not guarantee outcomes.",
  ""
  ].join("\n");
  return new Response(text,{headers:{"Content-Type":"text/plain; charset=utf-8","Cache-Control":"public, max-age=3600"}});

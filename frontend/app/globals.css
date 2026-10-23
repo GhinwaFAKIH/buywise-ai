@@ -270,3 +270,33 @@ body{font-size:17px;line-height:1.7}
 .editorialCoverPhoto{background-size:cover;background-position:center}
 .categoryLandingGrid a{box-shadow:0 12px 34px rgba(83,42,52,.07);overflow:hidden}
 .categoryLandingGrid img{height:225px;object-fit:cover}
+
+/* Responsive layout safeguards: preserve desktop appearance */
+html,body{max-width:100%;overflow-x:clip}
+img,video,iframe{max-width:100%}
+main,section,article,.guidesPage,.guideArticle,.categoryPage,.categoryProduct,.categoryProductGrid,.categoryLandingGrid{min-width:0}
+@media(max-width:767px){
+  .topNav{padding:16px;gap:12px;flex-wrap:wrap}
+  .navLinks{gap:12px;flex-wrap:wrap}
+  .hero{grid-template-columns:minmax(0,1fr);padding:28px 16px 48px}
+  .heroVisual{min-height:300px}
+  .hero h1{font-size:clamp(34px,9vw,48px)}
+  .categoryPage{padding-left:14px;padding-right:14px}
+  .categoryProductGrid,.categoryLandingGrid,.categoryAdvice>div{grid-template-columns:minmax(0,1fr)}
+  .categoryNav{gap:10px 16px}
+  .categoryIntro h1{font-size:clamp(32px,9vw,44px)}
+  .categoryProductVisual img{object-fit:contain}
+  .guidesPage{width:100%;max-width:100%;padding-left:14px;padding-right:14px}
+  .guidesHero h1{font-size:clamp(32px,9vw,46px);overflow-wrap:anywhere}
+  .guideArticle{width:100%;max-width:100%}
+  .editorialCover{grid-template-columns:minmax(0,1fr)}
+  .editorialCoverPhoto,.editorialCoverCopy{grid-column:1}
+  .editorialCoverPhoto{grid-row:1;min-height:210px}
+  .editorialCoverCopy{grid-row:2;padding:24px 18px}
+}
+@media(max-width:390px){
+  .topNav{padding:12px}
+  .categoryPage,.guidesPage{padding-left:10px;padding-right:10px}
+  .categoryProduct{padding:12px}
+  .editorialCoverCopy{padding:20px 14px}
+}

@@ -27,7 +27,7 @@ export const guides = [
       },
       {
         "heading": "Verdict: is it worth buying?",
-        "body": "It may be reasonable if you want a dedicated niacinamide serum, tolerate the formulation and find a fair unit price. It is less compelling if you already use an equivalent product or your skin reacts to concentrated formulas. BuyWise AI can help organize ingredient and price information, but cannot predict your personal results."
+        "body": "It may be reasonable if you want a dedicated niacinamide serum, tolerate the formulation and find a fair unit price. It is less compelling if you already use an equivalent product or your skin reacts to concentrated formulas. GHINÉVA can help organize ingredient and price information, but cannot predict your personal results."
       }
     ],
     "affiliateUrl": "https://link.amazon/A0hGJNtvI",
@@ -258,7 +258,7 @@ export const guides = [
 },
 {
   "heading": "Official source and important limitation",
-  "body": "Manufacturer source: https://www.cerave.fr/nos-produits/hydratants/baume-hydratant . The brand notes its ingredient lists change, so use the packaging of the exact Amazon listing to confirm the variant. Buying links may earn BuyWise an affiliate commission but do not establish product superiority."
+  "body": "Manufacturer source: https://www.cerave.fr/nos-produits/hydratants/baume-hydratant . The brand notes its ingredient lists change, so use the packaging of the exact Amazon listing to confirm the variant. Buying links may earn GHINÉVA an affiliate commission but do not establish product superiority."
 },
       {
         "heading": "The basics",
@@ -349,8 +349,8 @@ export const guides = [
         "body": "Write down the product name, price, size, unit price, key ingredients, retailer and any missing evidence. Check whether you already own something with the same function. If available information is incomplete, delay a confident verdict rather than guessing."
       },
       {
-        "heading": "Compare the product with BuyWise AI",
-        "body": "Use BuyWise AI to review an ingredient list and price details together. Results depend on the information you provide and should be treated as shopping support rather than proof of product effectiveness. For a real example of how unit pricing informs a buying decision, read our The Ordinary niacinamide guide."
+        "heading": "Compare the product with GHINÉVA",
+        "body": "Use GHINÉVA to review an ingredient list and price details together. Results depend on the information you provide and should be treated as shopping support rather than proof of product effectiveness. For a real example of how unit pricing informs a buying decision, read our The Ordinary niacinamide guide."
       }
     ],
     "affiliateUrl": null,

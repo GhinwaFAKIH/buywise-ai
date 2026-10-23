@@ -40,6 +40,6 @@ export default function GuidesCollection() {
       <p className="guideResultCount" aria-live="polite">{matches.length} {matches.length===1?"guide":"guides"} found</p>
       {matches.length ? <div className="guidesGrid guidesGrid--illustrated">{matches.map(g=><article className="guideTile guideTile--illustrated" key={g.slug}><Link href={`/guides/${g.slug}`} className="guideTileImage" aria-label={`Read ${g.title}`}><GuideArt guide={g}/></Link><div className="guideTileBody"><small>{g.category}</small><h3><Link href={`/guides/${g.slug}`}>{g.title}</Link></h3><p>{g.description}</p><Link className="guideReadLink" href={`/guides/${g.slug}`}>Read guide <span aria-hidden="true">→</span></Link></div></article>)}</div> : <div className="guideEmpty"><strong>No matching guides yet.</strong><p>Try another category or search term.</p><button type="button" onClick={()=>{setCategory("All");setQuery("");}}>Show all guides</button></div>}
     </section>
-    <aside className="guideBrowseCta"><div><span className="guideEyebrow">SHOP WITH MORE CONTEXT</span><h2>Have a product in mind?</h2><p>Explore its ingredient list and unit price with BuyWise AI. Your first three analyses are free.</p></div><Link href="/#analyze">Try BuyWise AI ↗</Link></aside>
+    <aside className="guideBrowseCta"><div><span className="guideEyebrow">SHOP WITH MORE CONTEXT</span><h2>Have a product in mind?</h2><p>Explore its ingredient list and unit price with GHINÉVA. Your first three analyses are free.</p></div><Link href="/#analyze">Try GHINÉVA ↗</Link></aside>
   </>;
 }

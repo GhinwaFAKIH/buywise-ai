@@ -6,7 +6,7 @@ skin:{title:"Skincare",intro:"Simple skincare picks. Compare ingredients before 
 {name:"CeraVe Moisturizing Cream",note:"A richer moisturizer option",image:"https://www.cerave.fr/-/media/project/loreal/brand-sites/cerave/emea/fr/fr-all-product-details-latest/new-pdp-images/baume-hydratant/moisturising-cream-icon-fr-lg.webp?rev=-1?w=667&hash=8028D34F1497BFB84F668EF324A9A7A3",url:"https://link.amazon/B00om4HAe",affiliate:true}
 ]},
 hair:{title:"Haircare",intro:"Keep haircare simple. Choose for your hair needs.",tips:["Choose shampoo for your scalp.","Use conditioner on the lengths.","For dry ends, try a small amount of oil."],products:[
-{name:"Kérastase Elixir Ultime Hair Oil",note:"For shine and smoothing the lengths",image:"https://www.justmylook.com/cdn/shop/files/KE0297.png?v=1765276979",fallbackImage:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=900&auto=format&fit=crop&q=85",url:"https://www.kerastase.fr/gammes-et-produits/gammes/elixir-ultime",kind:"oil"},
+{name:"Kérastase Elixir Ultime Hair Oil",note:"For shine and smoothing the lengths",image:"https://www.justmylook.com/cdn/shop/files/KE0297.png?v=1765276979",fallbackImage:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=900&auto=format&fit=crop&q=85",url:"https://link.amazon/B09vO1xPa",affiliate:true,kind:"oil"},
 {name:"Haircare guides",note:"Learn about shampoos, oils and serums",image:"https://images.unsplash.com/photo-1526947425960-945c6e72858f?w=850&auto=format&fit=crop&q=85",url:"/guides",internal:true,kind:"hair"}
 ]},
 makeup:{title:"Makeup",intro:"Easy makeup choices without the overwhelm.",tips:["Match complexion products to your undertone.","Check the finish: dewy or matte.","Patch-test new products before regular use."],products:[

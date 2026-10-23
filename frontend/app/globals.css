@@ -300,3 +300,48 @@ main,section,article,.guidesPage,.guideArticle,.categoryPage,.categoryProduct,.c
   .categoryProduct{padding:12px}
   .editorialCoverCopy{padding:20px 14px}
 }
+
+/* Mobile hero: image is part of the first screen, not pushed beneath the entire intro */
+@media(max-width:767px){
+  .exactHero.referenceHero{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:auto auto;
+    gap:0;
+    padding:0 0 22px;
+    overflow:hidden;
+    border-radius:0;
+  }
+  .exactHero .referenceHeroPicture{
+    grid-column:1;
+    grid-row:1;
+    position:relative;
+    inset:auto;
+    width:100%;
+    height:clamp(205px,57vw,320px);
+    min-height:0;
+    overflow:hidden;
+    border-radius:0;
+  }
+  .exactHero .referenceHeroModel{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 35%;
+  }
+  .exactHero .exactHeroContent{
+    grid-column:1;
+    grid-row:2;
+    padding:22px 18px 24px;
+    min-width:0;
+  }
+  .exactHero .exactHeroContent h1{
+    font-size:clamp(31px,8.5vw,43px);
+    line-height:1.12;
+    margin:0 0 14px;
+  }
+  .exactHero .exactHeroContent .lead{font-size:15px;line-height:1.45;margin:0 0 16px}
+  .exactHero .referenceHeroActions{gap:10px}
+  .exactHero .referenceHeroActions a{min-height:62px;width:100%}
+}

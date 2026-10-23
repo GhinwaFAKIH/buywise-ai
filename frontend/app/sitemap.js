@@ -6,6 +6,7 @@ export default function sitemap() {
     { url: siteUrl, changeFrequency: "weekly", priority: 1 },
     { url: `${siteUrl}/guides`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/compare-skincare-products`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${siteUrl}/skincare-finder`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${siteUrl}/calculator`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${siteUrl}/shop`, changeFrequency: "weekly", priority: 0.9 },
     ...["skin","hair","makeup"].map(section=>({url: `${siteUrl}/${section}`,changeFrequency:"weekly",priority:0.9})),

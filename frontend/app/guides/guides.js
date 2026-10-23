@@ -440,6 +440,10 @@ export const guides = [
       "body": "Both highlight 10% niacinamide, but their supporting ingredients and textures are not identical. Choosing based only on the concentration ignores tolerability, finish and other routine steps."
     },
     {
+      "heading": "Transparent price-per-10-ml calculation",
+      "body": "A reproducible example (not a live price comparison): if Serum A costs €7.95 for 30 ml, its cost is €2.65 per 10 ml. If Serum B costs €10 for 30 ml, its cost is approximately €3.33 per 10 ml. At those hypothetical checkout prices, Serum A is about 20.4% cheaper per 10 ml. This arithmetic does not establish better effectiveness or overall suitability. Replace both prices with verified current delivered prices before making a buying decision."
+    },
+    {
       "heading": "Compare the real checkout cost",
       "body": "Check current price, bottle volume and shipping in your country. To compare prices fairly, calculate (price ÷ millilitres) × 10 for cost per 10 ml. Prices change, and a lower unit price does not guarantee a better product."
     },

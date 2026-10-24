@@ -13,7 +13,7 @@ foaming:{name:"CeraVe Foaming Cleanser",desc:"Foaming option for oilier skin",im
 hyaluronic:{name:"The Ordinary Hyaluronic Acid 2% + B5",desc:"Hydrating serum for thirsty skin",image:"https://theordinary.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw67286abd/Images/products/The%20Ordinary/ord-hyaluronic-acid-2pct-B5-30ml-Clr-Acu.png?sw=860&sh=860&sm=fit",url:"https://link.amazon/B0howZSx6",affiliate:true},
 niacinamide:{name:"The Ordinary Niacinamide 10% + Zinc 1%",desc:"An option for excess oil and uneven-looking texture",image:"https://theordinary.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwce8a7cdf/Images/products/The%20Ordinary/rdn-niacinamide-10pct-zinc-1pct-30ml.png?sw=860&sh=860&sm=fit",url:"https://link.amazon/A0hGJNtvI",affiliate:true},
 moisturizer:{name:"CeraVe Moisturizing Cream",desc:"Richer moisturizer for dry skin",image:"https://www.cerave.fr/-/media/project/loreal/brand-sites/cerave/emea/fr/fr-all-product-details-latest/new-pdp-images/baume-hydratant/moisturising-cream-icon-fr-lg.webp?rev=-1?w=667&hash=8028D34F1497BFB84F668EF324A9A7A3",url:"https://link.amazon/B00om4HAe",affiliate:true},
-lotion:{name:"CeraVe Facial Moisturising Lotion PM",desc:"Lightweight evening moisturizer",illustration:"cerave",query:"CeraVe facial moisturising lotion PM"},
+lotion:{name:"CeraVe Facial Moisturising Lotion PM",desc:"Lightweight evening moisturizer",illustration:"cerave",url:"https://link.amazon/B0j6SX1P7",affiliate:true},
 spf:{name:"La Roche-Posay Anthelios SPF 50+",desc:"Broad-spectrum daily sun protection",illustration:"anthelios",query:"La Roche Posay Anthelios UVMune 400 SPF 50"}
 };
 const stages=["CLEANSE","TREAT","MOISTURIZE","PROTECT"];

@@ -18,7 +18,7 @@ curl:{name:"L’Oréal Professionnel Curl Expression Mask",desc:"Nourishing care
 oil:{name:"Kérastase Elixir Ultime Hair Oil",desc:"Shine and smoothness",url:"https://link.amazon/B09vO1xPa",image:"https://www.justmylook.com/cdn/shop/files/KE0297.png?v=1765276979",shape:"oil",affiliate:true},
 heat:{name:"Kérastase Genesis Défense Thermique",desc:"Heat protection before styling",search:"Kérastase Genesis Defense Thermique",shape:"spray",image:"https://product-data.raiadrogasil.io/images/16749123.webp"},
 volume:{name:"Color Wow Xtra Large Bombshell Volumizer",desc:"Adds lightweight body",search:"Color Wow Xtra Large Bombshell Volumizer",shape:"spray"},
-mask:{name:"Olaplex No. 8 Bond Intense Moisture Mask",desc:"Weekly moisturizing mask",search:"Olaplex No 8 Bond Intense Moisture Mask",shape:"mask"},
+mask:{name:"Olaplex No. 8 Bond Intense Moisture Mask",desc:"Weekly moisturizing mask",search:"Olaplex No 8 Bond Intense Moisture Mask",shape:"mask",image:"https://cdn.mos.cms.futurecdn.net/whowhatwear/posts/294517/how-to-treat-eczema-on-the-face-1-294517-1627607025768-main.jpg?interlace=true&quality=70"},
 bond:{name:"Olaplex No. 7 Bonding Oil",desc:"For glossy ends",search:"Olaplex No 7 Bonding Oil",shape:"oil"},
 serum:{name:"The Ordinary Multi-Peptide Hair Serum",desc:"Lightweight scalp serum",search:"The Ordinary Multi Peptide Hair Density",shape:"serum"}
 };

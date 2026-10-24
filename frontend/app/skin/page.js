@@ -1,4 +1,4 @@
 import Link from "next/link";
-import {CategoryPage,catalog} from "../components/CategoryPage";
-export const metadata={title:catalog.skin.title+" | BuyWise AI",description:catalog.skin.intro,alternates:{canonical:"/skin"}};
+import {CategoryPage} from "../components/CategoryPage";
+export const metadata={title:"Skincare Routine Finder – Build Your Skin Care Routine",description:"Explore a skincare routine for your skin type. Find skincare recommendations, learn about ingredients and use the free GHINÉVA skincare finder.",alternates:{canonical:"/skin"},openGraph:{title:"Skincare Routine Finder | GHINÉVA",description:"Explore skincare routines and personalized beauty product recommendations.",url:"/skin"},keywords:["skincare routine finder","skin care routine","personalized skincare routine","skincare quiz","skincare recommendations"]};
 export default function Page(){return <><CategoryPage category="skin"/><section className="guideArticle"><aside className="guideCta"><h2>Not sure where to start?</h2><p>Answer three quick questions to explore skincare options based on your priorities.</p><Link href="/skincare-finder">Try the free skincare finder ↗</Link></aside></section></>;}

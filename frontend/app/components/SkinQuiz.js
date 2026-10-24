@@ -8,7 +8,7 @@ const questions=[
 {title:"What is your routine goal?",choices:["Keep it simple","Boost hydration","Improve texture","Support skin barrier"]}
 ];
 const picks={
-cleanser:{name:"CeraVe Hydrating Cleanser",desc:"Gentle, non-stripping cleansing option",image:"https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=600&fit=crop&q=85",query:"CeraVe Hydrating Cleanser"},
+cleanser:{name:"CeraVe Hydrating Cleanser",desc:"Gentle, non-stripping cleansing option",image:"https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=600&fit=crop&q=85",url:"https://link.amazon/B0ffMQKfe",affiliate:true},
 foaming:{name:"CeraVe Foaming Cleanser",desc:"Foaming option for oilier skin",image:"https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=600&fit=crop&q=85",query:"CeraVe Foaming Cleanser"},
 hyaluronic:{name:"The Ordinary Hyaluronic Acid 2% + B5",desc:"Hydrating serum for thirsty skin",image:"https://theordinary.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw67286abd/Images/products/The%20Ordinary/ord-hyaluronic-acid-2pct-B5-30ml-Clr-Acu.png?sw=860&sh=860&sm=fit",url:"https://link.amazon/B0howZSx6",affiliate:true},
 niacinamide:{name:"The Ordinary Niacinamide 10% + Zinc 1%",desc:"An option for excess oil and uneven-looking texture",image:"https://theordinary.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwce8a7cdf/Images/products/The%20Ordinary/rdn-niacinamide-10pct-zinc-1pct-30ml.png?sw=860&sh=860&sm=fit",url:"https://link.amazon/A0hGJNtvI",affiliate:true},

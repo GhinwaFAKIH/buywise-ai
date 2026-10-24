@@ -1,3 +1,3 @@
-import {CategoryPage,catalog} from "../components/CategoryPage";
-export const metadata={title:catalog.hair.title+" | BuyWise AI",description:catalog.hair.intro,alternates:{canonical:"/hair"}};
+import {CategoryPage} from "../components/CategoryPage";
+export const metadata={title:"Hair Routine Finder – Personalized Haircare Quiz",description:"Find your hair routine for straight, wavy, curly, coily or mixed hair. Answer five questions about your scalp, hair concerns and goals to explore personalized haircare products.",alternates:{canonical:"/hair"},openGraph:{title:"Hair Routine Finder | GHINÉVA",description:"Take the free haircare routine quiz and discover product recommendations for your hair type.",url:"/hair"},keywords:["hair routine finder","hair care routine","haircare quiz","routine for wavy hair","curly hair routine","frizzy hair products"]};
 export default function Page(){return <CategoryPage category="hair"/>;}

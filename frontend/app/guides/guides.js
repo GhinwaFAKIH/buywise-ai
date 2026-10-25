@@ -301,7 +301,7 @@ export const guides = [
     "slug": "hair-oils-vs-serums",
     "title": "Hair Oils vs Hair Serums: What Should You Buy?",
     "category": "Haircare",
-    "description": "Understand conditioning, shine and the limits of hair-growth claims.",
+    "description": "Hair oil vs hair serum: compare shine, frizz, application, fine-hair suitability and hair-growth claim limitations before buying.",
     "sections": [
       {
         "heading": "Different jobs",
@@ -316,7 +316,7 @@ export const guides = [
         "body": "A cosmetic product that makes hair look fuller is not necessarily treating the cause of hair loss. For sudden or significant shedding, seek medical assessment."
       }
     ],
-    "affiliateUrl": null
+    "comparison": {"caption":"General formulation comparison, not a ranking of tested products","headers":["Question","Hair oil","Hair serum"],"rows":[["Typical purpose","Adds lubrication and shine to hair lengths","Smooths hair surface and manages frizz"],["Common formulation","Plant oils or blends; ingredients vary","Often silicone-based, but formulas vary"],["Fine hair","Start with a very small amount on ends","Lightweight formulas may feel less heavy"],["Application","Usually mid-lengths to ends; follow label","Usually mid-lengths to ends; follow label"],["Hair growth","No reliable growth guarantee from cosmetic oil alone","No reliable growth guarantee from cosmetic serum alone"],["What to check","Full INCI, fragrance, amount, price per ml","Full INCI, heat-protection evidence, price per ml"]]},"faq":[{"question":"Does hair oil make hair grow faster?","answer":"A cosmetic oil may improve lubrication and appearance but should not be treated as proof of faster hair growth."},{"question":"Should I use oil or serum on fine hair?","answer":"Either may work in a small amount; compare the actual formula and how your hair responds rather than relying on the product category."},{"question":"Is hair serum always a heat protectant?","answer":"No. Only rely on heat protection when the specific product makes a substantiated claim and provides usage directions."}],"affiliateUrl": null
   },
   {
     "slug": "how-to-compare-skincare-prices",

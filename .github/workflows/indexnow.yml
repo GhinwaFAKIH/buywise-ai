@@ -1,0 +1,40 @@
+name: Notify IndexNow after site updates
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'frontend/app/**'
+      - 'frontend/public/**'
+      - 'frontend/data/**'
+      - '!frontend/public/ghineva-indexnow-2026.txt'
+  workflow_dispatch:
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for Vercel deployment and submit updated URLs
+        shell: bash
+        run: |
+          sleep 120
+          python3 - <<'PY'
+          import urllib.request, urllib.error, xml.etree.ElementTree as ET, json, time
+          site='https://ghineva.vercel.app'
+          key='ghineva-indexnow-2026'
+          keyurl=f'{site}/{key}.txt'
+          for attempt in range(4):
+              try:
+                  if urllib.request.urlopen(keyurl,timeout=20).read().decode().strip()==key: break
+              except Exception: pass
+              time.sleep(30)
+          else: raise SystemExit('Key file not publicly available yet; skip submission')
+          xml=urllib.request.urlopen(site+'/sitemap.xml',timeout=30).read()
+          root=ET.fromstring(xml)
+          urls=[e.text for e in root.iter() if e.tag.endswith('loc') and e.text and e.text.startswith(site+'/')]
+          payload=json.dumps({'host':'ghineva.vercel.app','key':key,'keyLocation':keyurl,'urlList':urls}).encode()
+          req=urllib.request.Request('https://api.indexnow.org/indexnow',data=payload,headers={'Content-Type':'application/json; charset=utf-8'},method='POST')
+          try:
+              with urllib.request.urlopen(req,timeout=30) as res: print('IndexNow status:',res.status,'URLs:',len(urls))
+          except urllib.error.HTTPError as err:
+              print('IndexNow HTTP status:',err.code,err.read().decode()[:500])
+              raise
+          PY

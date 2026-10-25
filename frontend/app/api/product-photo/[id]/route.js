@@ -1,0 +1,9 @@
+import { NextResponse } from "next/server";
+const sources=[
+"https://theordinary.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwce8a7cdf/Images/products/The%20Ordinary/rdn-niacinamide-10pct-zinc-1pct-30ml.png?sw=860&sh=860&sm=fit",
+"https://www.theinkeylist.com/cdn/shop/files/TheINKEYList_NiacinamideSerum_30mlbottle_1000x1000_5c1f85db-53c9-48cd-975e-e70371e617a1.png?v=1700586730",
+"https://www.geekandgorgeous.fr/cdn/shop/files/B-Bomb-web.jpg?v=1705586474",
+"https://theordinary.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw67286abd/Images/products/The%20Ordinary/ord-hyaluronic-acid-2pct-B5-30ml-Clr-Acu.png?sw=860&sh=860&sm=fit",
+"https://www.cerave.fr/-/media/project/loreal/brand-sites/cerave/emea/fr/fr-all-product-details-latest/new-pdp-images/baume-hydratant/moisturising-cream-icon-fr-lg.webp?rev=-1?w=667&hash=8028D34F1497BFB84F668EF324A9A7A3"
+];
+export async function GET(request,{params}){const {id}=await params;const index=Number(id);if(!Number.isInteger(index)||index<0||index>=sources.length)return new NextResponse("Not found",{status:404});try{const response=await fetch(sources[index],{headers:{"User-Agent":"Mozilla/5.0 (compatible; GHINEVA/1.0)","Accept":"image/avif,image/webp,image/png,image/jpeg,image/*;q=0.8"},signal:AbortSignal.timeout(9000),next:{revalidate:86400}});const type=response.headers.get("content-type")||"";if(!response.ok||!type.startsWith("image/"))return new NextResponse("Image unavailable",{status:404});const bytes=await response.arrayBuffer();if(bytes.byteLength>5_000_000)return new NextResponse("Image too large",{status:413});return new NextResponse(bytes,{headers:{"Content-Type":type,"Cache-Control":"public, max-age=3600, s-maxage=86400","X-Content-Type-Options":"nosniff"}})}catch{return new NextResponse("Image unavailable",{status:404})}}

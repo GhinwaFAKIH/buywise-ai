@@ -1,5 +1,635 @@
 export const guides = [
   {
+    "slug": "niacinamide-serum-vs-moisturizer",
+    "title": "Niacinamide Serum vs Moisturizer: Which Do You Need?",
+    "category": "Comparisons",
+    "description": "Compare dedicated niacinamide serums with moisturizers that already include niacinamide.",
+    "sections": [
+      {
+        "heading": "What is the main difference?",
+        "body": "Compare dedicated niacinamide serums with moisturizers that already include niacinamide. Products within either category vary substantially in formulation and intended use. Check the complete ingredient list and instructions before comparing."
+      },
+      {
+        "heading": "How to choose for your routine",
+        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+      },
+      {
+        "heading": "Compare costs fairly",
+        "body": "For liquids sold by volume, calculate an illustrative unit price as price divided by millilitres, multiplied by ten. Verify today's retailer prices, bottle size, shipping and promotions. A lower unit price does not establish superior effectiveness."
+      },
+      {
+        "heading": "Evidence and limitations",
+        "body": "These are educational category comparisons, not head-to-head clinical trials or independently tested product rankings. Individual outcomes vary, and ingredient-level evidence does not prove performance of a particular finished formula."
+      }
+    ],
+    "comparison": {
+      "caption": "Qualitative comparison; no unverified prices",
+      "headers": [
+        "Criterion",
+        "Option A",
+        "Option B"
+      ],
+      "rows": [
+        [
+          "Routine fit",
+          "Check whether you need a dedicated step",
+          "Check whether an existing product is sufficient"
+        ],
+        [
+          "Formula",
+          "Review full INCI and directions",
+          "Review full INCI and directions"
+        ],
+        [
+          "Value",
+          "Calculate unit price from verified offers",
+          "Calculate unit price from verified offers"
+        ]
+      ]
+    },
+    "faq": [
+      {
+        "question": "Which is better?",
+        "answer": "Neither is universally better; choose based on formulation, tolerance, routine and budget."
+      },
+      {
+        "question": "Does a higher price mean better results?",
+        "answer": "No. Price alone cannot establish performance."
+      }
+    ],
+    "relatedSlugs": [
+      "how-to-compare-skincare-prices",
+      "how-to-read-ingredient-lists"
+    ]
+  },
+  {
+    "slug": "vitamin-c-serum-vs-niacinamide-serum",
+    "title": "Vitamin C Serum vs Niacinamide Serum: Buying Checklist",
+    "category": "Comparisons",
+    "description": "A practical comparison of formula, goals, tolerability, and unit prices.",
+    "sections": [
+      {
+        "heading": "What is the main difference?",
+        "body": "A practical comparison of formula, goals, tolerability, and unit prices. Products within either category vary substantially in formulation and intended use. Check the complete ingredient list and instructions before comparing."
+      },
+      {
+        "heading": "How to choose for your routine",
+        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+      },
+      {
+        "heading": "Compare costs fairly",
+        "body": "For liquids sold by volume, calculate an illustrative unit price as price divided by millilitres, multiplied by ten. Verify today's retailer prices, bottle size, shipping and promotions. A lower unit price does not establish superior effectiveness."
+      },
+      {
+        "heading": "Evidence and limitations",
+        "body": "These are educational category comparisons, not head-to-head clinical trials or independently tested product rankings. Individual outcomes vary, and ingredient-level evidence does not prove performance of a particular finished formula."
+      }
+    ],
+    "comparison": {
+      "caption": "Qualitative comparison; no unverified prices",
+      "headers": [
+        "Criterion",
+        "Option A",
+        "Option B"
+      ],
+      "rows": [
+        [
+          "Routine fit",
+          "Check whether you need a dedicated step",
+          "Check whether an existing product is sufficient"
+        ],
+        [
+          "Formula",
+          "Review full INCI and directions",
+          "Review full INCI and directions"
+        ],
+        [
+          "Value",
+          "Calculate unit price from verified offers",
+          "Calculate unit price from verified offers"
+        ]
+      ]
+    },
+    "faq": [
+      {
+        "question": "Which is better?",
+        "answer": "Neither is universally better; choose based on formulation, tolerance, routine and budget."
+      },
+      {
+        "question": "Does a higher price mean better results?",
+        "answer": "No. Price alone cannot establish performance."
+      }
+    ],
+    "relatedSlugs": [
+      "how-to-compare-skincare-prices",
+      "how-to-read-ingredient-lists"
+    ]
+  },
+  {
+    "slug": "hyaluronic-acid-serum-vs-moisturizer",
+    "title": "Hyaluronic Acid Serum vs Moisturizer: Value Comparison",
+    "category": "Comparisons",
+    "description": "When a moisturizer may already provide the hydration benefits you want.",
+    "sections": [
+      {
+        "heading": "What is the main difference?",
+        "body": "When a moisturizer may already provide the hydration benefits you want. Products within either category vary substantially in formulation and intended use. Check the complete ingredient list and instructions before comparing."
+      },
+      {
+        "heading": "How to choose for your routine",
+        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+      },
+      {
+        "heading": "Compare costs fairly",
+        "body": "For liquids sold by volume, calculate an illustrative unit price as price divided by millilitres, multiplied by ten. Verify today's retailer prices, bottle size, shipping and promotions. A lower unit price does not establish superior effectiveness."
+      },
+      {
+        "heading": "Evidence and limitations",
+        "body": "These are educational category comparisons, not head-to-head clinical trials or independently tested product rankings. Individual outcomes vary, and ingredient-level evidence does not prove performance of a particular finished formula."
+      }
+    ],
+    "comparison": {
+      "caption": "Qualitative comparison; no unverified prices",
+      "headers": [
+        "Criterion",
+        "Option A",
+        "Option B"
+      ],
+      "rows": [
+        [
+          "Routine fit",
+          "Check whether you need a dedicated step",
+          "Check whether an existing product is sufficient"
+        ],
+        [
+          "Formula",
+          "Review full INCI and directions",
+          "Review full INCI and directions"
+        ],
+        [
+          "Value",
+          "Calculate unit price from verified offers",
+          "Calculate unit price from verified offers"
+        ]
+      ]
+    },
+    "faq": [
+      {
+        "question": "Which is better?",
+        "answer": "Neither is universally better; choose based on formulation, tolerance, routine and budget."
+      },
+      {
+        "question": "Does a higher price mean better results?",
+        "answer": "No. Price alone cannot establish performance."
+      }
+    ],
+    "relatedSlugs": [
+      "how-to-compare-skincare-prices",
+      "how-to-read-ingredient-lists"
+    ]
+  },
+  {
+    "slug": "salicylic-acid-cleanser-vs-serum",
+    "title": "Salicylic Acid Cleanser vs Leave-On Serum",
+    "category": "Comparisons",
+    "description": "Compare wash-off and leave-on salicylic acid formats without assuming equivalent exposure.",
+    "sections": [
+      {
+        "heading": "What is the main difference?",
+        "body": "Compare wash-off and leave-on salicylic acid formats without assuming equivalent exposure. Products within either category vary substantially in formulation and intended use. Check the complete ingredient list and instructions before comparing."
+      },
+      {
+        "heading": "How to choose for your routine",
+        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+      },
+      {
+        "heading": "Compare costs fairly",
+        "body": "For liquids sold by volume, calculate an illustrative unit price as price divided by millilitres, multiplied by ten. Verify today's retailer prices, bottle size, shipping and promotions. A lower unit price does not establish superior effectiveness."
+      },
+      {
+        "heading": "Evidence and limitations",
+        "body": "These are educational category comparisons, not head-to-head clinical trials or independently tested product rankings. Individual outcomes vary, and ingredient-level evidence does not prove performance of a particular finished formula."
+      }
+    ],
+    "comparison": {
+      "caption": "Qualitative comparison; no unverified prices",
+      "headers": [
+        "Criterion",
+        "Option A",
+        "Option B"
+      ],
+      "rows": [
+        [
+          "Routine fit",
+          "Check whether you need a dedicated step",
+          "Check whether an existing product is sufficient"
+        ],
+        [
+          "Formula",
+          "Review full INCI and directions",
+          "Review full INCI and directions"
+        ],
+        [
+          "Value",
+          "Calculate unit price from verified offers",
+          "Calculate unit price from verified offers"
+        ]
+      ]
+    },
+    "faq": [
+      {
+        "question": "Which is better?",
+        "answer": "Neither is universally better; choose based on formulation, tolerance, routine and budget."
+      },
+      {
+        "question": "Does a higher price mean better results?",
+        "answer": "No. Price alone cannot establish performance."
+      }
+    ],
+    "relatedSlugs": [
+      "how-to-compare-skincare-prices",
+      "how-to-read-ingredient-lists"
+    ]
+  },
+  {
+    "slug": "glycolic-acid-vs-lactic-acid",
+    "title": "Glycolic Acid vs Lactic Acid: How to Choose",
+    "category": "Comparisons",
+    "description": "A cautious comparison of exfoliating acids and formula considerations.",
+    "sections": [
+      {
+        "heading": "What is the main difference?",
+        "body": "A cautious comparison of exfoliating acids and formula considerations. Products within either category vary substantially in formulation and intended use. Check the complete ingredient list and instructions before comparing."
+      },
+      {
+        "heading": "How to choose for your routine",
+        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+      },
+      {
+        "heading": "Compare costs fairly",
+        "body": "For liquids sold by volume, calculate an illustrative unit price as price divided by millilitres, multiplied by ten. Verify today's retailer prices, bottle size, shipping and promotions. A lower unit price does not establish superior effectiveness."
+      },
+      {
+        "heading": "Evidence and limitations",
+        "body": "These are educational category comparisons, not head-to-head clinical trials or independently tested product rankings. Individual outcomes vary, and ingredient-level evidence does not prove performance of a particular finished formula."
+      }
+    ],
+    "comparison": {
+      "caption": "Qualitative comparison; no unverified prices",
+      "headers": [
+        "Criterion",
+        "Option A",
+        "Option B"
+      ],
+      "rows": [
+        [
+          "Routine fit",
+          "Check whether you need a dedicated step",
+          "Check whether an existing product is sufficient"
+        ],
+        [
+          "Formula",
+          "Review full INCI and directions",
+          "Review full INCI and directions"
+        ],
+        [
+          "Value",
+          "Calculate unit price from verified offers",
+          "Calculate unit price from verified offers"
+        ]
+      ]
+    },
+    "faq": [
+      {
+        "question": "Which is better?",
+        "answer": "Neither is universally better; choose based on formulation, tolerance, routine and budget."
+      },
+      {
+        "question": "Does a higher price mean better results?",
+        "answer": "No. Price alone cannot establish performance."
+      }
+    ],
+    "relatedSlugs": [
+      "how-to-compare-skincare-prices",
+      "how-to-read-ingredient-lists"
+    ]
+  },
+  {
+    "slug": "retinol-serum-vs-retinol-cream",
+    "title": "Retinol Serum vs Retinol Cream",
+    "category": "Comparisons",
+    "description": "How texture, formulation, tolerance and packaging affect the choice.",
+    "sections": [
+      {
+        "heading": "What is the main difference?",
+        "body": "How texture, formulation, tolerance and packaging affect the choice. Products within either category vary substantially in formulation and intended use. Check the complete ingredient list and instructions before comparing."
+      },
+      {
+        "heading": "How to choose for your routine",
+        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+      },
+      {
+        "heading": "Compare costs fairly",
+        "body": "For liquids sold by volume, calculate an illustrative unit price as price divided by millilitres, multiplied by ten. Verify today's retailer prices, bottle size, shipping and promotions. A lower unit price does not establish superior effectiveness."
+      },
+      {
+        "heading": "Evidence and limitations",
+        "body": "These are educational category comparisons, not head-to-head clinical trials or independently tested product rankings. Individual outcomes vary, and ingredient-level evidence does not prove performance of a particular finished formula."
+      }
+    ],
+    "comparison": {
+      "caption": "Qualitative comparison; no unverified prices",
+      "headers": [
+        "Criterion",
+        "Option A",
+        "Option B"
+      ],
+      "rows": [
+        [
+          "Routine fit",
+          "Check whether you need a dedicated step",
+          "Check whether an existing product is sufficient"
+        ],
+        [
+          "Formula",
+          "Review full INCI and directions",
+          "Review full INCI and directions"
+        ],
+        [
+          "Value",
+          "Calculate unit price from verified offers",
+          "Calculate unit price from verified offers"
+        ]
+      ]
+    },
+    "faq": [
+      {
+        "question": "Which is better?",
+        "answer": "Neither is universally better; choose based on formulation, tolerance, routine and budget."
+      },
+      {
+        "question": "Does a higher price mean better results?",
+        "answer": "No. Price alone cannot establish performance."
+      }
+    ],
+    "relatedSlugs": [
+      "how-to-compare-skincare-prices",
+      "how-to-read-ingredient-lists"
+    ]
+  },
+  {
+    "slug": "ceramide-cream-vs-hyaluronic-serum",
+    "title": "Ceramide Cream vs Hyaluronic Acid Serum",
+    "category": "Comparisons",
+    "description": "Compare barrier-focused moisturizers and humectant serums.",
+    "sections": [
+      {
+        "heading": "What is the main difference?",
+        "body": "Compare barrier-focused moisturizers and humectant serums. Products within either category vary substantially in formulation and intended use. Check the complete ingredient list and instructions before comparing."
+      },
+      {
+        "heading": "How to choose for your routine",
+        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+      },
+      {
+        "heading": "Compare costs fairly",
+        "body": "For liquids sold by volume, calculate an illustrative unit price as price divided by millilitres, multiplied by ten. Verify today's retailer prices, bottle size, shipping and promotions. A lower unit price does not establish superior effectiveness."
+      },
+      {
+        "heading": "Evidence and limitations",
+        "body": "These are educational category comparisons, not head-to-head clinical trials or independently tested product rankings. Individual outcomes vary, and ingredient-level evidence does not prove performance of a particular finished formula."
+      }
+    ],
+    "comparison": {
+      "caption": "Qualitative comparison; no unverified prices",
+      "headers": [
+        "Criterion",
+        "Option A",
+        "Option B"
+      ],
+      "rows": [
+        [
+          "Routine fit",
+          "Check whether you need a dedicated step",
+          "Check whether an existing product is sufficient"
+        ],
+        [
+          "Formula",
+          "Review full INCI and directions",
+          "Review full INCI and directions"
+        ],
+        [
+          "Value",
+          "Calculate unit price from verified offers",
+          "Calculate unit price from verified offers"
+        ]
+      ]
+    },
+    "faq": [
+      {
+        "question": "Which is better?",
+        "answer": "Neither is universally better; choose based on formulation, tolerance, routine and budget."
+      },
+      {
+        "question": "Does a higher price mean better results?",
+        "answer": "No. Price alone cannot establish performance."
+      }
+    ],
+    "relatedSlugs": [
+      "how-to-compare-skincare-prices",
+      "how-to-read-ingredient-lists"
+    ]
+  },
+  {
+    "slug": "mineral-vs-organic-uv-filter-sunscreen",
+    "title": "Mineral vs Organic UV-Filter Sunscreens",
+    "category": "Comparisons",
+    "description": "Understand sunscreen filter categories, labels and real-world usability.",
+    "sections": [
+      {
+        "heading": "What is the main difference?",
+        "body": "Understand sunscreen filter categories, labels and real-world usability. Products within either category vary substantially in formulation and intended use. Check the complete ingredient list and instructions before comparing."
+      },
+      {
+        "heading": "How to choose for your routine",
+        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+      },
+      {
+        "heading": "Compare costs fairly",
+        "body": "For liquids sold by volume, calculate an illustrative unit price as price divided by millilitres, multiplied by ten. Verify today's retailer prices, bottle size, shipping and promotions. A lower unit price does not establish superior effectiveness."
+      },
+      {
+        "heading": "Evidence and limitations",
+        "body": "These are educational category comparisons, not head-to-head clinical trials or independently tested product rankings. Individual outcomes vary, and ingredient-level evidence does not prove performance of a particular finished formula."
+      }
+    ],
+    "comparison": {
+      "caption": "Qualitative comparison; no unverified prices",
+      "headers": [
+        "Criterion",
+        "Option A",
+        "Option B"
+      ],
+      "rows": [
+        [
+          "Routine fit",
+          "Check whether you need a dedicated step",
+          "Check whether an existing product is sufficient"
+        ],
+        [
+          "Formula",
+          "Review full INCI and directions",
+          "Review full INCI and directions"
+        ],
+        [
+          "Value",
+          "Calculate unit price from verified offers",
+          "Calculate unit price from verified offers"
+        ]
+      ]
+    },
+    "faq": [
+      {
+        "question": "Which is better?",
+        "answer": "Neither is universally better; choose based on formulation, tolerance, routine and budget."
+      },
+      {
+        "question": "Does a higher price mean better results?",
+        "answer": "No. Price alone cannot establish performance."
+      }
+    ],
+    "relatedSlugs": [
+      "how-to-compare-skincare-prices",
+      "how-to-read-ingredient-lists"
+    ]
+  },
+  {
+    "slug": "hair-oil-vs-leave-in-conditioner",
+    "title": "Hair Oil vs Leave-In Conditioner",
+    "category": "Comparisons",
+    "description": "Compare the purposes of oils and leave-in conditioners for different hair routines.",
+    "sections": [
+      {
+        "heading": "What is the main difference?",
+        "body": "Compare the purposes of oils and leave-in conditioners for different hair routines. Products within either category vary substantially in formulation and intended use. Check the complete ingredient list and instructions before comparing."
+      },
+      {
+        "heading": "How to choose for your routine",
+        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+      },
+      {
+        "heading": "Compare costs fairly",
+        "body": "For liquids sold by volume, calculate an illustrative unit price as price divided by millilitres, multiplied by ten. Verify today's retailer prices, bottle size, shipping and promotions. A lower unit price does not establish superior effectiveness."
+      },
+      {
+        "heading": "Evidence and limitations",
+        "body": "These are educational category comparisons, not head-to-head clinical trials or independently tested product rankings. Individual outcomes vary, and ingredient-level evidence does not prove performance of a particular finished formula."
+      }
+    ],
+    "comparison": {
+      "caption": "Qualitative comparison; no unverified prices",
+      "headers": [
+        "Criterion",
+        "Option A",
+        "Option B"
+      ],
+      "rows": [
+        [
+          "Routine fit",
+          "Check whether you need a dedicated step",
+          "Check whether an existing product is sufficient"
+        ],
+        [
+          "Formula",
+          "Review full INCI and directions",
+          "Review full INCI and directions"
+        ],
+        [
+          "Value",
+          "Calculate unit price from verified offers",
+          "Calculate unit price from verified offers"
+        ]
+      ]
+    },
+    "faq": [
+      {
+        "question": "Which is better?",
+        "answer": "Neither is universally better; choose based on formulation, tolerance, routine and budget."
+      },
+      {
+        "question": "Does a higher price mean better results?",
+        "answer": "No. Price alone cannot establish performance."
+      }
+    ],
+    "relatedSlugs": [
+      "how-to-compare-skincare-prices",
+      "how-to-read-ingredient-lists"
+    ]
+  },
+  {
+    "slug": "sulfate-free-vs-regular-shampoo",
+    "title": "Sulfate-Free vs Regular Shampoo",
+    "category": "Comparisons",
+    "description": "Compare surfactant types and whole-formula performance without misleading claims.",
+    "sections": [
+      {
+        "heading": "What is the main difference?",
+        "body": "Compare surfactant types and whole-formula performance without misleading claims. Products within either category vary substantially in formulation and intended use. Check the complete ingredient list and instructions before comparing."
+      },
+      {
+        "heading": "How to choose for your routine",
+        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+      },
+      {
+        "heading": "Compare costs fairly",
+        "body": "For liquids sold by volume, calculate an illustrative unit price as price divided by millilitres, multiplied by ten. Verify today's retailer prices, bottle size, shipping and promotions. A lower unit price does not establish superior effectiveness."
+      },
+      {
+        "heading": "Evidence and limitations",
+        "body": "These are educational category comparisons, not head-to-head clinical trials or independently tested product rankings. Individual outcomes vary, and ingredient-level evidence does not prove performance of a particular finished formula."
+      }
+    ],
+    "comparison": {
+      "caption": "Qualitative comparison; no unverified prices",
+      "headers": [
+        "Criterion",
+        "Option A",
+        "Option B"
+      ],
+      "rows": [
+        [
+          "Routine fit",
+          "Check whether you need a dedicated step",
+          "Check whether an existing product is sufficient"
+        ],
+        [
+          "Formula",
+          "Review full INCI and directions",
+          "Review full INCI and directions"
+        ],
+        [
+          "Value",
+          "Calculate unit price from verified offers",
+          "Calculate unit price from verified offers"
+        ]
+      ]
+    },
+    "faq": [
+      {
+        "question": "Which is better?",
+        "answer": "Neither is universally better; choose based on formulation, tolerance, routine and budget."
+      },
+      {
+        "question": "Does a higher price mean better results?",
+        "answer": "No. Price alone cannot establish performance."
+      }
+    ],
+    "relatedSlugs": [
+      "how-to-compare-skincare-prices",
+      "how-to-read-ingredient-lists"
+    ]
+  },
+  {
     "slug": "the-ordinary-niacinamide-10-zinc-1",
     "title": "The Ordinary Niacinamide 10% + Zinc 1%: Is It Worth Buying?",
     "category": "Skincare",

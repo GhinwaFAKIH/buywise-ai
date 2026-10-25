@@ -354,6 +354,7 @@ export const guides = [
       }
     ],
     "affiliateUrl": null,
+    "sources": [{"title":"European Commission — Price Indication Directive","url":"https://commission.europa.eu/law/law-topic/consumer-protection-law/unfair-commercial-practices-and-price-indication/price-indication-directive_en","note":"Explains why standardized unit pricing supports consumer comparison."},{"title":"DGCCRF — L’information sur les prix","url":"https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/linformation-sur-les-prix","note":"French consumer guidance on clear pricing, taxes and additional charges."}],
     "relatedSlugs": [
       "the-ordinary-niacinamide-10-zinc-1",
       "how-to-read-ingredient-lists",

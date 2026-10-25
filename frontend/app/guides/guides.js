@@ -11,7 +11,7 @@ export const guides = [
       },
       {
         "heading": "How to choose for your routine",
-        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+        "body": "If your moisturizer already contains niacinamide and your skin is comfortable, adding a 10% serum may offer little practical benefit. Consider the entire routine and avoid assuming that a higher concentration is automatically better."
       },
       {
         "heading": "Compare costs fairly",
@@ -74,7 +74,7 @@ export const guides = [
       },
       {
         "heading": "How to choose for your routine",
-        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+        "body": "For a vitamin C product, check the precise derivative, packaging and storage guidance. For niacinamide, check concentration and whether your moisturizer already supplies it. Introduce new products gradually."
       },
       {
         "heading": "Compare costs fairly",
@@ -137,7 +137,7 @@ export const guides = [
       },
       {
         "heading": "How to choose for your routine",
-        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+        "body": "Compare the complete moisturizing formula and how your skin feels after application. In dry environments, applying a moisturizer over a humectant serum may be more comfortable than relying on the serum alone."
       },
       {
         "heading": "Compare costs fairly",
@@ -200,7 +200,7 @@ export const guides = [
       },
       {
         "heading": "How to choose for your routine",
-        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+        "body": "Consider frequency of use, contact time and the full formula. Avoid layering multiple exfoliants without considering irritation, and follow product directions."
       },
       {
         "heading": "Compare costs fairly",
@@ -263,7 +263,7 @@ export const guides = [
       },
       {
         "heading": "How to choose for your routine",
-        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+        "body": "Compare pH and concentration when disclosed, start conservatively, and use appropriate sun protection. Stop if persistent irritation occurs."
       },
       {
         "heading": "Compare costs fairly",
@@ -326,7 +326,7 @@ export const guides = [
       },
       {
         "heading": "How to choose for your routine",
-        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+        "body": "Choose a tolerable starting product, introduce it gradually and follow sunscreen guidance. Avoid retinoids during pregnancy unless your clinician advises otherwise."
       },
       {
         "heading": "Compare costs fairly",
@@ -389,7 +389,7 @@ export const guides = [
       },
       {
         "heading": "How to choose for your routine",
-        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+        "body": "If your priority is a simpler routine, look for a moisturizer containing suitable humectants and barrier-supporting ingredients before adding a separate serum."
       },
       {
         "heading": "Compare costs fairly",
@@ -452,7 +452,7 @@ export const guides = [
       },
       {
         "heading": "How to choose for your routine",
-        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+        "body": "Prioritize tested broad-spectrum protection, appropriate SPF, water-resistance where needed and a texture you will use consistently. Do not assume that mineral means inherently safer or that organic filters are ineffective."
       },
       {
         "heading": "Compare costs fairly",
@@ -515,7 +515,7 @@ export const guides = [
       },
       {
         "heading": "How to choose for your routine",
-        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+        "body": "For dry or tangled hair, a leave-in conditioner may help with detangling; a small amount of oil can be used for finish depending on hair type. Check heat-protection claims rather than assuming any oil protects from styling heat."
       },
       {
         "heading": "Compare costs fairly",
@@ -578,7 +578,7 @@ export const guides = [
       },
       {
         "heading": "How to choose for your routine",
-        "body": "Start with your goal, skin or hair tolerance, and what you already use. A more expensive or more concentrated product is not automatically better. Avoid buying an additional step if an existing product already serves the same purpose."
+        "body": "Choose based on scalp comfort, cleansing needs and the full surfactant blend. Both sulfate-containing and sulfate-free formulas can be well or poorly tolerated."
       },
       {
         "heading": "Compare costs fairly",

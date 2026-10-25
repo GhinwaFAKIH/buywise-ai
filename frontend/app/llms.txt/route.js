@@ -1,4 +1,5 @@
 import {siteUrl} from "../site-url";
+import {guides} from "../guides/guides";
 export const dynamic = "force-static";
 export function GET(){
  const text = [
@@ -17,6 +18,9 @@ export function GET(){
  "- [The Ordinary vs The INKEY List Niacinamide]("+siteUrl+"/guides/the-ordinary-vs-inkey-list-niacinamide)",
  "- [Budget niacinamide serum comparison]("+siteUrl+"/guides/budget-niacinamide-serums-comparison)",
  "- [The Ordinary Hyaluronic Acid vs La Roche-Posay Hyalu B5]("+siteUrl+"/guides/the-ordinary-hyaluronic-acid-vs-hyalu-b5)",
+ "",
+ "## Complete guide directory",
+ ...guides.map(g=>"- ["+g.title+"]("+siteUrl+"/guides/"+g.slug+"): "+g.description),
  "",
  "## Editorial information",
  "- [Comparison methodology]("+siteUrl+"/methodology)",

@@ -416,3 +416,46 @@ main,section,article,.guidesPage,.guideArticle,.categoryPage,.categoryProduct,.c
 .ghSlimArt{width:min(100% - 36px,1050px);height:230px;overflow:hidden;border-radius:22px;margin:25px auto 12px;box-shadow:0 12px 30px #53426c16}
 .ghSlimArt .ghEditorialArtwork{display:block;width:100%;height:100%}
 @media(max-width:600px){.ghSlimArt{height:165px;border-radius:16px;margin:14px auto 8px}}
+
+/* Beauty Desk: visual, lightweight routine, wishlist and budget tools */
+.bdSection{max-width:1170px;margin:55px auto;padding:0 24px;color:#2b2540}
+.bdHeading{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:20px}
+.bdHeading h2{font-size:clamp(30px,4vw,49px);margin:7px 0}
+.bdHeading p{margin:5px 0}
+.bdPlan{border-radius:50px;background:#e7dcf9;color:#5c3ca5;padding:9px 15px;letter-spacing:.08em;font-size:11px;font-weight:850;white-space:nowrap}
+.bdTabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:15px}
+.bdTabs button{background:#fff;border:1px solid #e1d8ef;border-radius:30px;padding:11px 18px;color:#574a69;font-weight:800}
+.bdTabs button[aria-pressed=true]{background:#7351c4;color:#fff;border-color:#7351c4}
+.bdBody{background:linear-gradient(130deg,#f6efff,#fff7f8);border-radius:25px;padding:24px;border:1px solid #e5dced}
+.bdColumns,.bdBudget{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.bdForm,.bdSaved,.bdBudget>div{padding:24px;background:#fff;border-radius:20px;border:1px solid #eee7f2}
+.bdForm h3,.bdSaved h3,.bdBudget h3{font-size:22px;margin-bottom:14px}
+.bdForm form{display:grid;gap:12px}
+.bdForm label,.bdBudget label{display:grid;gap:6px;font-size:13px;font-weight:700}
+.bdForm input,.bdForm select,.bdForm textarea,.bdBudget input{width:100%;padding:11px 12px;border-radius:10px;border:1px solid #d9cde9;background:#fff;color:#29223e}
+.bdFields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bdPrimary{border:0;background:#7351c4;color:white;border-radius:12px;padding:13px;font-weight:800}
+.bdForm>small,.bdBudgetStats>small{display:block;margin-top:12px;color:#756983}
+.bdUpgrade{background:#f3ebfc;border-radius:12px;padding:13px;font-size:13px;margin-top:14px}
+.bdUpgrade button{color:#5d3d9c;background:none;border:0;text-decoration:underline;font-weight:800;cursor:pointer}
+.bdItem{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #eee7f1}
+.bdItem>div:first-child{display:grid;gap:3px}
+.bdItem span{font-size:11px;color:#866f9c}
+.bdItem strong{font-size:15px}
+.bdItem small{font-size:12px;color:#80788a}
+.bdItem>div:last-child{text-align:right;min-width:100px}
+.bdItemActions{display:flex;justify-content:end;gap:9px;margin-top:7px}
+.bdItemActions button{border:0;background:#eee8f8;border-radius:8px;padding:5px 7px;color:#59388b;font-size:11px}
+.bdEmpty{min-height:180px;display:grid;place-items:center;color:#8d7b9b;text-align:center}
+.bdBudgetStats{display:flex;flex-direction:column;gap:15px}
+.bdBudgetStats>div:not(.bdBudgetBar){display:flex;justify-content:space-between;gap:12px}
+.bdBudgetStats strong{font-size:23px}
+.bdBudgetBar{height:12px;background:#eee7f4;border-radius:30px;overflow:hidden}
+.bdBudgetBar span{display:block;height:100%;background:#8055c5;border-radius:30px}
+.bdNotice{color:#7852a4;margin:12px 0 0}
+.bdDisclaimer{font-size:12px;margin:10px 8px 0}
+.bdBenefits{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:1100px;margin:18px auto 23px}
+.bdBenefits a{display:grid;gap:6px;text-decoration:none;border:1px solid #e8def2;border-radius:16px;padding:18px;background:#fff}
+.bdBenefits strong{font-size:16px;color:#543383}
+.bdBenefits span{font-size:13px;color:#746e7d}
+@media(max-width:780px){.bdColumns,.bdBudget{grid-template-columns:1fr}.bdBenefits{grid-template-columns:1fr}.bdSection{padding:0 14px}.bdBody{padding:12px}.bdForm,.bdSaved,.bdBudget>div{padding:16px}.bdHeading{align-items:start}.bdPlan{margin-top:8px}}

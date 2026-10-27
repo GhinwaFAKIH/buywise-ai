@@ -1,5 +1,5 @@
-import EditorialVisual from "../components/EditorialVisual";
 "use client";
+import EditorialVisual from "../components/EditorialVisual";
 import Link from "next/link";
 const items=[
 ["The Ordinary Niacinamide 10% + Zinc 1%","Niacinamide serum","A dedicated niacinamide serum; compare with your existing moisturizer.","https://link.amazon/A0hGJNtvI","/guides/the-ordinary-niacinamide-10-zinc-1"],

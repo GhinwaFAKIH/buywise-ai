@@ -385,3 +385,15 @@ main,section,article,.guidesPage,.guideArticle,.categoryPage,.categoryProduct,.c
 @media(max-width:900px){.ghImageGuideGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.ghSpotlightVideo{grid-template-columns:1fr}.ghVideoFrame{min-height:260px}.ghVideoCopy{padding:27px}.ghVideoPoster{min-height:260px}}
 @media(max-width:590px){.ghVisualBrowse{padding:0 15px}.ghDiscoverHeader{align-items:stretch;flex-direction:column}.ghGuideSearch{min-width:0;width:100%}.ghImageGuideGrid{gap:12px}.ghCardPhoto{height:135px}.ghCardContent{padding:12px;min-height:145px}.ghCardContent h3{font-size:14px}.ghSpotlightVideo{border-radius:18px}.ghVideoFrame,.ghVideoPoster{min-height:210px}.ghVideoCopy h2{font-size:30px}}
 @media(prefers-reduced-motion:reduce){.ghImageGuideCard,.ghCardPhoto img,.ghTopicChips button{transition:none}}
+
+.ghQuickPicks{max-width:1180px;margin:24px auto 5px;padding:0 22px;display:flex;gap:9px;flex-wrap:wrap}
+.ghQuickPicks a{display:inline-flex;align-items:center;text-decoration:none;background:#fff;border:1px solid #e2d8ee;color:#664c82;font-weight:750;font-size:13px;padding:11px 15px;border-radius:99px;box-shadow:0 3px 12px #3922460a}
+.ghQuickPicks a:hover{background:#f1e8fc}
+.ghHomeVideoTeaser{max-width:1140px;margin:30px auto;padding:20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:23px;align-items:center;background:#f2eafa;border-radius:25px}
+.ghHomeVideoTeaser .ghHomeVideoThumb{position:relative;display:block;aspect-ratio:16/9;background:#30293a;border-radius:17px;overflow:hidden}
+.ghHomeVideoTeaser .ghHomeVideoThumb img{width:100%;height:100%;object-fit:cover}
+.ghHomeVideoTeaser .ghHomeVideoThumb span{position:absolute;inset:0;display:grid;place-items:center;color:white;font-size:58px;text-shadow:0 4px 22px #0007}
+.ghHomeVideoTeaser h2{font-size:clamp(24px,3vw,36px)}
+.ghHomeVideoTeaser p{margin:8px 0 15px}
+.ghHomeVideoTeaser a.ghHomeVideoAction{display:inline-block;background:#7351c4;color:white;text-decoration:none;border-radius:99px;padding:12px 19px;font-weight:800}
+@media(max-width:650px){.ghHomeVideoTeaser{grid-template-columns:1fr;margin:20px 16px;padding:14px}.ghQuickPicks{padding:0 15px}}

@@ -1,3 +1,4 @@
+import EditorialVisual from "../components/EditorialVisual";
 import Link from "next/link";
 import HomeCompare from "../components/HomeCompare";
 import { id, breadcrumbs, serializeJsonLd } from "../lib/semantic";
@@ -13,6 +14,7 @@ export default function CompareSkincarePage(){
   <script type="application/ld+json" dangerouslySetInnerHTML={{__html:serializeJsonLd(structured)}}/>
   <nav className="guidesNav"><Link href="/">❧ GHINÉVA</Link><Link href="/guides">Beauty Guides</Link><Link href="/calculator">Price Calculator</Link></nav>
   <header className="guidesHero"><span>FREE SKINCARE COMPARISON TOOL</span><h1>Compare skincare products online</h1><p>Compare two or three serums, moisturizers or other beauty products side by side. Enter product details to compare unit prices and recognized ingredient roles. No signup required for this comparison tool.</p><Link href="/guides">Explore skincare comparisons ↗</Link></header>
+  <div className="ghFeatureBanner"><div><span className="ghEyebrow">VISUAL PRODUCT COMPARISON</span><h2>Compare ingredients & prices</h2><p>See what matters before buying.</p></div><EditorialVisual slug="compare-niacinamide-value" topic="serum price comparison" title="Serum comparison" className="ghEditorialArtwork"/></div>
   <HomeCompare/>
   <article className="guideArticle">
    <section><h2>How to compare skincare products fairly</h2><p>Choose two products that serve a similar purpose. Enter their names, brands, current prices, sizes and ingredient lists. GHINÉVA displays available ingredient information and unit-price comparisons so you can assess trade-offs rather than assume a higher price means better results.</p></section>

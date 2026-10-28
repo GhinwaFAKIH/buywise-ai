@@ -1,4 +1,5 @@
 import Link from "next/link";
+import IngredientInteractive from "./IngredientInteractive";
 
 export const metadata = {
   title: "Niacinamide vs Vitamin C: Differences, Uses & Serum Buying Guide",
@@ -19,6 +20,7 @@ export default function Page() {
     <article className="guideArticle"><small>INGREDIENT COMPARISON · GHINÉVA</small>
       <h1>Niacinamide vs Vitamin C: Which Serum Fits Your Routine?</h1>
       <p className="guideIntro">Both ingredients are popular in skincare, but they are not interchangeable. The better choice depends on what you want from your routine, the finished formulation, your skin's tolerance and your budget.</p>
+      <IngredientInteractive />
       <section><h2>At a glance</h2><table><thead><tr><th>What to compare</th><th>Niacinamide</th><th>Vitamin C</th></tr></thead><tbody>{comparison.map(([label,a,b])=><tr key={label}><th scope="row">{label}</th><td>{a}</td><td>{b}</td></tr>)}</tbody></table></section>
       <section><h2>When might niacinamide make sense?</h2><p>Niacinamide is commonly used in formulas focused on skin-barrier support, uneven-looking tone and excess oil. Before buying a separate serum, check whether your existing moisturizer already contains it. A higher percentage is not automatically better.</p></section>
       <section><h2>When might vitamin C make sense?</h2><p>Vitamin C products are often chosen for antioxidant skincare and the appearance of dullness or uneven tone. “Vitamin C” can describe different ingredients, including L-ascorbic acid and derivatives. Packaging, storage instructions and the rest of the formula matter.</p></section>

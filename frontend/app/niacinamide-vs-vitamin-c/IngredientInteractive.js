@@ -1,0 +1,21 @@
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+import "./interactive.css";
+
+const cards=[
+ {id:"niacinamide",name:"Niacinamide",subtitle:"Barrier-focused routines",img:"/ghineva_skincare_value_pin.png",alt:"GHINÉVA skincare comparison visual",summary:"Consider formulas containing niacinamide when you want to support your skin barrier or address the appearance of excess oil. Check your existing moisturizer first."},
+ {id:"vitamin",name:"Vitamin C",subtitle:"Antioxidant-focused routines",img:"/ghineva_niacinamide_vitamin_c_pin.png",alt:"GHINÉVA niacinamide and vitamin C comparison visual",summary:"Explore vitamin C formulas for antioxidant skincare and dull-looking skin. The exact vitamin C form, packaging and tolerability matter."}
+];
+export default function IngredientInteractive(){
+ const [goal,setGoal]=useState("barrier");const [price,setPrice]=useState("12");const [size,setSize]=useState("30");
+ const unit=Number(price)>0&&Number(size)>0?(Number(price)/Number(size)*10).toFixed(2):null;
+ const recommendation={barrier:"Start by checking whether your moisturizer already contains niacinamide. A separate serum may be unnecessary.",glow:"Consider a well-formulated vitamin C product, paying attention to the vitamin C form, packaging and instructions.",simple:"A basic moisturizer and sunscreen may be a better starting point than adding another active serum."}[goal];
+ return <div className="ghExplore">
+ <div className="ghExploreHero"><div><span className="ghEyebrow">EXPLORE THE INGREDIENTS</span><h2>Two ingredients. Different priorities.</h2><p>Tap a card, find your routine focus and calculate value before you buy.</p><div className="ghExploreActions"><a href="#ghGoal">Find my focus ↓</a><a href="#ghPrice">Compare prices ↓</a></div></div><img src="/ghineva_niacinamide_vitamin_c_pin.png" alt="Illustrated niacinamide versus vitamin C skincare guide" loading="lazy"/></div>
+ <div className="ghExploreCards">{cards.map(c=><details key={c.id} className="ghExploreCard"><summary><img src={c.img} alt={c.alt} loading="lazy"/><span><strong>{c.name}</strong><small>{c.subtitle}</small><em>Tap to explore +</em></span></summary><p>{c.summary}</p><Link href="/guides/vitamin-c-serum-vs-niacinamide-serum">Read the detailed comparison →</Link></details>)}</div>
+ <section className="ghInteractivePanel" id="ghGoal"><span className="ghEyebrow">MINI ROUTINE EXPLORER</span><h2>What is your main skincare goal?</h2><div className="ghChoices">{[["barrier","Barrier & oil balance"],["glow","Dull-looking skin"],["simple","Keep my routine simple"]].map(([v,t])=><button type="button" aria-pressed={goal===v} className={goal===v?"selected":""} key={v} onClick={()=>setGoal(v)}>{t}</button>)}</div><p className="ghOutcome" aria-live="polite">{recommendation}</p><small>Educational guidance, not a personalized diagnosis or guarantee of results.</small></section>
+ <section className="ghInteractivePanel" id="ghPrice"><span className="ghEyebrow">FREE PRICE CHECK</span><h2>What does your serum really cost?</h2><div className="ghInputs"><label>Price (€)<input type="number" min="0.01" step="0.01" inputMode="decimal" value={price} onChange={e=>setPrice(e.target.value)}/></label><label>Bottle size (ml)<input type="number" min="0.01" step="0.01" inputMode="decimal" value={size} onChange={e=>setSize(e.target.value)}/></label></div><div className="ghPriceResult" aria-live="polite">{unit?<><strong>€{unit}</strong><span>per 10 ml</span></>:<span>Enter a valid price and bottle size.</span>}</div><p>Unit price helps compare bottle value, not product effectiveness.</p><Link href="/calculator">Open the full skincare price calculator →</Link></section>
+ <section className="ghRelated"><h2>Keep exploring GHINÉVA</h2><div>{[["/skincare-finder","Find skincare","Discover products and routines"],["/compare-skincare-products","Compare products","Review formulas side by side"],["/guides","Read beauty guides","Explore practical ingredient advice"],["/fr/guide-prix-skincare","Guide en français","Comparer les prix des soins"]].map(([href,title,desc])=><Link key={href} href={href}><strong>{title} ↗</strong><span>{desc}</span></Link>)}</div></section>
+ </div>
+}

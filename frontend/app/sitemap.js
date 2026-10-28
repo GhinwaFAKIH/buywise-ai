@@ -4,6 +4,7 @@ import { siteUrl } from "./site-url";
 export default function sitemap() {
   return [
     { url: siteUrl, changeFrequency: "weekly", priority: 1 },
+    { url: `${siteUrl}/niacinamide-vs-vitamin-c`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${siteUrl}/guides`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/compare-skincare-products`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteUrl}/skincare-finder`, changeFrequency: "monthly", priority: 0.9 },

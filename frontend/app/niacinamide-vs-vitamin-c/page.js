@@ -20,7 +20,7 @@ const comparison = [
 export default function Page() {
   const pageUrl = siteUrl + "/niacinamide-vs-vitamin-c";
   const graph = {"@context":"https://schema.org","@graph":[
-    {"@type":"Article","@id":pageUrl+"#article",headline:"Niacinamide vs Vitamin C: Which Serum Fits Your Routine?",description:"Compare niacinamide and vitamin C formulations, tolerability, and price per 10 ml.",mainEntityOfPage:pageUrl,inLanguage:"en",isAccessibleForFree:true,author:{"@id":siteUrl+"/#organization"},publisher:{"@id":siteUrl+"/#organization"},about:[{"@id":term("niacinamide")["@id"]},{"@type":"Thing",name:"Vitamin C skincare"}]},
+    {"@type":"Article","@id":pageUrl+"#article",headline:"Niacinamide vs Vitamin C: Which Serum Fits Your Routine?",description:"Compare niacinamide and vitamin C formulations, tolerability, and price per 10 ml.",mainEntityOfPage:pageUrl,inLanguage:"en",isAccessibleForFree:true,author:{"@id":siteUrl+"/#organization"},publisher:{"@id":siteUrl+"/#organization"},about:[{"@id":term("niacinamide")["@id"]},{"@id":term("vitaminC")["@id"]}]},
     breadcrumbs([{name:"Home",path:"/"},{name:"Guides",path:"/guides"},{name:"Niacinamide vs Vitamin C",path:"/niacinamide-vs-vitamin-c"}])
   ]};
   return <main className="guidesPage"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:serializeJsonLd(graph)}}/><nav className="guidesNav"><Link href="/">GHINÉVA</Link><Link href="/guides">Beauty guides</Link><Link href="/calculator">Price calculator</Link></nav>

@@ -4,6 +4,7 @@ export const id=(path)=>base+path;
 export const organization={"@type":"Organization","@id":id("/#organization"),name:"GHINÉVA",url:base};
 export const website={"@type":"WebSite","@id":id("/#website"),url:base,name:"GHINÉVA",description:"Free skincare product comparison, ingredient information, and price-per-ml tools.",inLanguage:"en",publisher:{"@id":organization["@id"]}};
 export const concepts={
+vitaminC:{name:"Vitamin C",description:"A family of vitamin C forms used in cosmetic skincare formulations; performance depends on the finished formula."},
 niacinamide:{name:"Niacinamide",description:"An ingredient commonly used in skincare formulations."},
 hyaluronicAcid:{name:"Hyaluronic acid",description:"A humectant ingredient used in skincare."},
 ceramides:{name:"Ceramides",description:"Lipids associated with the skin barrier."},

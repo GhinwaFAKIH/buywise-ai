@@ -1,5 +1,7 @@
 import Link from "next/link";
 import IngredientInteractive from "./IngredientInteractive";
+import { siteUrl } from "../site-url";
+import { serializeJsonLd, breadcrumbs, term } from "../lib/semantic";
 
 export const metadata = {
   title: "Niacinamide vs Vitamin C: Differences, Uses & Serum Buying Guide",
@@ -16,7 +18,12 @@ const comparison = [
 ];
 
 export default function Page() {
-  return <main className="guidesPage"><nav className="guidesNav"><Link href="/">GHINÉVA</Link><Link href="/guides">Beauty guides</Link><Link href="/calculator">Price calculator</Link></nav>
+  const pageUrl = siteUrl + "/niacinamide-vs-vitamin-c";
+  const graph = {"@context":"https://schema.org","@graph":[
+    {"@type":"Article","@id":pageUrl+"#article",headline:"Niacinamide vs Vitamin C: Which Serum Fits Your Routine?",description:"Compare niacinamide and vitamin C formulations, tolerability, and price per 10 ml.",mainEntityOfPage:pageUrl,inLanguage:"en",isAccessibleForFree:true,author:{"@id":siteUrl+"/#organization"},publisher:{"@id":siteUrl+"/#organization"},about:[{"@id":term("niacinamide")["@id"]},{"@type":"Thing",name:"Vitamin C skincare"}]},
+    breadcrumbs([{name:"Home",path:"/"},{name:"Guides",path:"/guides"},{name:"Niacinamide vs Vitamin C",path:"/niacinamide-vs-vitamin-c"}])
+  ]};
+  return <main className="guidesPage"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:serializeJsonLd(graph)}}/><nav className="guidesNav"><Link href="/">GHINÉVA</Link><Link href="/guides">Beauty guides</Link><Link href="/calculator">Price calculator</Link></nav>
     <article className="guideArticle"><small>INGREDIENT COMPARISON · GHINÉVA</small>
       <h1>Niacinamide vs Vitamin C: Which Serum Fits Your Routine?</h1>
       <p className="guideIntro">Compare the benefits, explore your routine and check the price in seconds.</p>

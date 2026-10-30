@@ -13,7 +13,10 @@ const properties=[
 ["hasIngredient","A product label or manufacturer information associates a product with an ingredient.","SkincareProduct","Ingredient"],
 ["addressesConcern","A product is marketed in relation to a cosmetic concern; not an efficacy guarantee.","SkincareProduct","SkinConcern"],
 ["makesClaim","A sourced description or marketing claim associated with a product.","SkincareProduct","ProductClaim"],
-["supportedBy","A claim is linked to a source-qualified evidence statement.","ProductClaim","EvidenceStatement"]
+["supportedBy","A claim is linked to a source-qualified evidence statement.","ProductClaim","EvidenceStatement"],
+["sourceType","Describes the kind of evidence source.","EvidenceStatement","rdfs:Literal"],
+["verificationStatus","Records whether a claim has been independently verified.","EvidenceStatement","rdfs:Literal"],
+["retrievalDate","Records when source content was last checked; omitted when unknown.","EvidenceStatement","rdfs:Literal"]
 ];
 const concerns=[
 {key:"hydration",name:"Skin hydration",description:"Concern about the feeling or appearance of skin hydration."},
@@ -30,7 +33,7 @@ export function ontologyGraph(){
  const conceptNodes=Object.entries(concepts).map(([key,c])=>({"@id":id("/knowledge-graph.jsonld#"+key),"@type":["schema:DefinedTerm",uri("Ingredient")],"schema:name":c.name,"schema:description":c.description}));
  const concernNodes=concerns.map(c=>({"@id":uri("concern-"+c.key),"@type":uri("SkinConcern"),"schema:name":c.name,"schema:description":c.description}));
  const productNodes=products.map(p=>({"@id":id("/knowledge-graph.jsonld#product-"+p.slug),"@type":["schema:Product",uri("SkincareProduct")],"schema:name":p.name,"schema:brand":{"@type":"schema:Brand","schema:name":p.brand},[uri("hasIngredient")]:p.mentions.map(k=>({"@id":id("/knowledge-graph.jsonld#"+k)})), "schema:subjectOf":{"@id":id("/guides/"+p.guide+"#article")}}));
- const claimNodes=assertions.flatMap((a,i)=>{const cid=uri("claim-"+(i+1)),eid=uri("evidence-"+(i+1));return [{"@id":cid,"@type":uri("ProductClaim"),"schema:text":a.claim,[uri("supportedBy")]:{"@id":eid}},{"@id":eid,"@type":uri("EvidenceStatement"),"schema:description":"Manufacturer product description; not independently verified clinical efficacy.","schema:url":a.source,"schema:additionalType":"https://schema.org/Claim"}]});
+ const claimNodes=assertions.flatMap((a,i)=>{const cid=uri("claim-"+(i+1)),eid=uri("evidence-"+(i+1));return [{"@id":cid,"@type":uri("ProductClaim"),"schema:text":a.claim,[uri("supportedBy")]:{"@id":eid}},{"@id":eid,"@type":uri("EvidenceStatement"),"schema:description":"Manufacturer product description; not independently verified clinical efficacy.","schema:url":a.source,"schema:citation":a.source,[uri("sourceType")]:"manufacturer_product_page",[uri("verificationStatus")]:"not_independently_verified","schema:additionalType":"https://schema.org/Claim"}]});
  const annotated=productNodes.map(p=>{const a=assertions.map((v,i)=>({...v,i})).filter(v=>p["@id"]===id("/knowledge-graph.jsonld#product-"+v.product));return {...p,[uri("addressesConcern")]:a.map(v=>({"@id":uri("concern-"+v.concern)})),[uri("makesClaim")]:a.map(v=>({"@id":uri("claim-"+(v.i+1))}))}});
  return {"@context":{"rdf":"http://www.w3.org/1999/02/22-rdf-syntax-ns#","rdfs":"http://www.w3.org/2000/01/rdf-schema#","schema":"https://schema.org/","bw":ns},"@graph":[...classNodes,...propertyNodes,...conceptNodes,...concernNodes,...annotated,...claimNodes]};
 }

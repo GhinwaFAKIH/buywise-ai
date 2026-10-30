@@ -102,6 +102,15 @@ export default function Home() {
         <p>Real Ingredients<br/>Real Insights<br/>Smarter Choices</p>
       </div>
     </section>
+    <section aria-label="Free skincare decision tools" style={{padding:"24px 5%",background:"#fff"}}>
+      <h2 style={{fontSize:"clamp(1.4rem,2.5vw,2rem)",marginBottom:8}}>Not sure what to buy?</h2>
+      <p style={{marginBottom:14}}>Start with a free tool. No subscription needed to read our guides or compare unit prices.</p>
+      <div style={{display:"flex",flexWrap:"wrap",gap:12}}>
+        <a href="/calculator" style={{display:"inline-block",padding:"12px 18px",background:"#efe4df",borderRadius:12}}>Calculate price per ml →</a>
+        <a href="/niacinamide-vs-vitamin-c" style={{display:"inline-block",padding:"12px 18px",background:"#efe4df",borderRadius:12}}>Choose between two serums →</a>
+        <a href="/skincare-finder" style={{display:"inline-block",padding:"12px 18px",background:"#efe4df",borderRadius:12}}>Find skincare by goal →</a>
+      </div>
+    </section>
     <section className="ghDiscoveryLinks" aria-label="Popular beauty guides" style={{padding:"22px 5%",background:"#fff9f6",borderTop:"1px solid #f2e9e4",borderBottom:"1px solid #f2e9e4"}}>
       <h2 style={{fontSize:"clamp(1.3rem,2vw,1.8rem)",margin:"0 0 12px"}}>Start with a free beauty guide</h2>
       <div style={{display:"flex",gap:12,flexWrap:"wrap"}}>

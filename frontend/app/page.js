@@ -102,6 +102,15 @@ export default function Home() {
         <p>Real Ingredients<br/>Real Insights<br/>Smarter Choices</p>
       </div>
     </section>
+    <section className="ghDiscoveryLinks" aria-label="Popular beauty guides" style={{padding:"22px 5%",background:"#fff9f6",borderTop:"1px solid #f2e9e4",borderBottom:"1px solid #f2e9e4"}}>
+      <h2 style={{fontSize:"clamp(1.3rem,2vw,1.8rem)",margin:"0 0 12px"}}>Start with a free beauty guide</h2>
+      <div style={{display:"flex",gap:12,flexWrap:"wrap"}}>
+        <a href="/niacinamide-vs-vitamin-c" style={{padding:"12px 16px",borderRadius:12,background:"white",border:"1px solid #e7d8d1"}}>Niacinamide vs vitamin C →</a>
+        <a href="/guides/is-hyaluronic-acid-serum-worth-it" style={{padding:"12px 16px",borderRadius:12,background:"white",border:"1px solid #e7d8d1"}}>Is hyaluronic acid worth it? →</a>
+        <a href="/guides/how-to-compare-skincare-prices" style={{padding:"12px 16px",borderRadius:12,background:"white",border:"1px solid #e7d8d1"}}>Compare skincare prices →</a>
+        <a href="/guides" style={{padding:"12px 16px",borderRadius:12,background:"white",border:"1px solid #e7d8d1"}}>All guides →</a>
+      </div>
+    </section>
     <section className="categoryLanding" aria-label="Explore beauty"><div className="categoryLandingHeading"><h2>Explore beauty your way</h2><p>Simple tips, photos and products to discover.</p></div><div className="categoryLandingGrid"><a href="/skin"><img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=1000&auto=format&fit=crop&q=85" alt="Skincare bottles and beauty products"/><h3>Skincare</h3><p>Serums & moisturizers</p><strong>Explore skin →</strong></a><a href="/hair"><img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=1000&auto=format&fit=crop&q=85" alt="Hair products and beauty essentials"/><h3>Haircare</h3><p>Shampoo, oils & more</p><strong>Explore hair →</strong></a><a href="/makeup"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=850&auto=format&fit=crop&q=85" alt="Makeup brushes and cosmetics"/><h3>Makeup</h3><p>Glow, primers & more</p><strong>Explore makeup →</strong></a></div></section>
 <section className="ghHomeVideoTeaser" aria-label="Watch an ingredient comparison video"><a className="ghHomeVideoThumb" href="/guides" aria-label="Watch dermatologist video and browse the skincare guides"><img src="https://img.youtube.com/vi/uSrE2s5LZAU/hqdefault.jpg" alt="Dermatologist video comparing vitamin C and niacinamide" loading="lazy"/><span aria-hidden="true">▶</span></a><div><span className="ghEyebrow">WATCH & LEARN</span><h2>Niacinamide or vitamin C?</h2><p>Watch an expert explanation, then explore quick skincare guides.</p><a className="ghHomeVideoAction" href="/guides">Watch & explore ↗</a></div></section>
     <section className="beautyShowcase referenceShowcase" id="beauty-categories" aria-label="Explore beauty categories">
